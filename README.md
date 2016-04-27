@@ -1,6 +1,6 @@
 ![iOS команда](/resources/ios-team.jpg)
 
-Мы - iOS команда холдинга Rambler&Co. В тех областях своей деятельности, в которых это возможно, мы стараемся следовать принципу [Open Source by Default](http://code.dblock.org/2015/02/09/becoming-open-source-by-default.html).
+[Мы](https://github.com/orgs/rambler-ios/teams/rambler-ios-team) - iOS команда холдинга Rambler&Co. В тех областях своей деятельности, в которых это возможно, мы стараемся следовать принципу [Open Source by Default](http://code.dblock.org/2015/02/09/becoming-open-source-by-default.html).
 
 Этот проект предназначен для прозрачного ведения наших текущих внепроектных задач, описания процессов, принципов и используемых инструментов.
 
