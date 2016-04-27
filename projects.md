@@ -70,6 +70,7 @@
 Базовое наполнение уже готово, постепенно добавляются новые главы и редактируются старые.
 
 ##### Дополнительные ссылки
+- [Задачи для вхождения в проект](https://github.com/rambler-ios/The-Book-of-VIPER/issues?q=is%3Aissue+is%3Aopen+label%3A%22starter+pack%22)
 - [Основные разработчики](https://github.com/rambler-ios/The-Book-of-VIPER/graphs/contributors)
 
 #### [Dashramba](https://github.com/rambler-ios/dashramba)
