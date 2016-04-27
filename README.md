@@ -1,4 +1,4 @@
-![iOS команда](/resources/images/ios-team-rambler.jpg)
+![iOS команда](/resources/images/ios-team.jpg)
 
 Мы - iOS команда холдинга Rambler&Co. В тех областях своей деятельности, в которых это возможно, мы стараемся следовать принципу [Open Source by Default](http://code.dblock.org/2015/02/09/becoming-open-source-by-default.html).
 
