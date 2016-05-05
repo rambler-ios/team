@@ -1,5 +1,11 @@
 ### Наши выступления
 
+Выступления на различных конференциях и митапах - как внешних, так и внутренних, являются одним из ключевых направлений нашей работы с сообществом.
+
+Где мы выступали: [CodeFest](codefest.ru), [UA Mobile](http://uamobile.org/ru), [DUMP](http://dump-conf.ru/), [MBLTDev](mbltdev.ru), [Стачка](http://nastachku.ru/), Rambler.iOS, Cocoaheads.
+
+Где мы побывали: Москва, Киев, Новосибирск, Екатеринбург, Ульяновск.
+
 #### 2016 год
 
 ##### Апрель
@@ -37,7 +43,7 @@
 
 **Автор:** Сергей Крапивенский
 
-**Конференция:** CodeFest 2016
+**Конференция:** [CodeFest 2016](http://2016.codefest.ru/)
 
 [Слайды](http://www.slideshare.net/codefest/ss-60159923)
 
@@ -159,7 +165,7 @@
 
 **Автор:** Егор Толстой
 
-**Конференция:** MBLTDev15
+**Конференция:** [MBLTDev15](http://2015.mbltdev.ru/)
 
 [Видео](https://www.youtube.com/watch?v=dGTdlNjh_5U) | [Слайды](https://speakerdeck.com/etolstoy/viper-ili-to-o-chiem-vsie-ghovoriat-no-nikto-nie-rasskazyvaiet)
 
