@@ -12,7 +12,7 @@
 - [Continuous Delivery](/processes/continuous-delivery/continuous-delivery.md)
 
 #### Инструменты
-- Используемый софт
+- [Используемый софт](/processes/instruments.md)
 - Используемые библиотеки
 
 #### Средства коммуникации
