@@ -12,7 +12,7 @@
 
   ![Screenshot](/resources/deploy-guide-3.jpg)
 
-4. Выберите требуемый тип сборки. Подробнее о них можно почитать на [другой странице](processes/continuous-delivery/workflows.md).
+4. Выберите требуемый тип сборки. Подробнее о них можно почитать на [другой странице](/processes/continuous-delivery/workflows.md).
 
   ![Screenshot](/resources/deploy-guide-4.jpg)
 
