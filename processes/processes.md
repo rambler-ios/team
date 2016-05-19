@@ -4,7 +4,7 @@
 
 - [Code Style](/processes/code-style.md)
 - [Архитектурные подходы](/processes/architecture.md)
-- Code Review
+- [Code Review](/processes/code-review.md)
 - Правила работы с Git
 
 #### Автоматизация
