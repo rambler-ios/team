@@ -8,7 +8,7 @@
 - [Правила работы с Git](/processes/git.md)
 
 #### Автоматизация
-- Continuous Integration
+- [Continuous Integration](/processes/continuous-integration/continuous-integration.md)
 - Continuous Delivery
 
 #### Инструменты
