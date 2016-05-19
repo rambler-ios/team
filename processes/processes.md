@@ -2,7 +2,7 @@
 
 #### Разработка
 
-- Code Style
+- [Code Style](/processes/code-style.md)
 - Архитектурные подходы
 - Code Review
 - Правила работы с Git
