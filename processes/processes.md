@@ -9,7 +9,7 @@
 
 #### Автоматизация
 - [Continuous Integration](/processes/continuous-integration/continuous-integration.md)
-- Continuous Delivery
+- [Continuous Delivery](/processes/continuous-delivery/continuous-delivery.md)
 
 #### Инструменты
 - Используемый софт
