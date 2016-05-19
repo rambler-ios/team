@@ -3,9 +3,21 @@
 ##### Шаг 1. Jenkins
 
 - Создаем новый проект. При создании выбираем *Copy from existing project: iOS-deploy-config-project*. Название выбираем по формату *Project.Name.iOS.Deploy*.
+
+  ![Screenshot](/resources/complex-deploy-1.jpg)
+  
 - В разделе *Source Code Management* вводим адрес git-репозитория проекта.
+
+  ![Screenshot](/resources/complex-deploy-2.jpg)
+  
 - Сохраняем изменения.
+
+  ![Screenshot](/resources/complex-deploy-3.jpg)
+  
 - Создаем еще один новый проект. При создании выбираем *Copy from existing project: iOS-nightly-config-project*.Название выбираем по формату *Project.Name.iOS.Nightly*.
+
+  ![Screenshot](/resources/complex-deploy-4.jpg)
+  
 - В разделе *Source Code Management* вводим адрес git-репозитория проекта.
 - Сохраняем изменения.
 
@@ -19,6 +31,8 @@
 
 - Заходите в [настройки нашей команды в Slack](https://ramblercoteam.slack.com/apps/manage/A0F7XDUAZ-incoming-webhooks).
 - Добавьте новый webhook: *Add Configuration -> Выбираем канал -> Копируем Webhook URL*.
+
+  ![Screenshot](/resources/complex-deploy-5.jpg)
 
 ##### Шаг 4. Базовая настройка Fastfile
 
