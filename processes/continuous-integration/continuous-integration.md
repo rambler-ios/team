@@ -12,5 +12,5 @@
 
 #### Гайды по настройке
 
-- Настройка CI на Jenkins
+- [Настройка CI на Jenkins](/processes/continuous-integration/jenkins-ci-setup.md)
 - Настройка CI на Jenkins с build.sh
