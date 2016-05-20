@@ -33,14 +33,14 @@
 ##### Шаг 4. Базовая настройка fastlane
 
 - В корне вашего проекта создайте папку *fastlane*.
-- Заполните файл `.env.default` по [образцу](). Не забудьте добавить полученный на предыдущем шаге webhook.
+- Заполните файл `.env.default` по [образцу](/processes/continuous-delivery/env-default-example.md). Не забудьте добавить полученный на предыдущем шаге webhook.
 - Создайте новый `Fastfile` и добавьте в него следующий код:
 
   ```ruby
   import_from_git(url: 'https://github.com/rambler-ios/fastlane-flows',
                 path: 'fastlane/Fastfile')
   ```
-- Заполните `Appfile` по [образцу](). Названия lane'ов не меняются.
+- Заполните `Appfile` по [образцу](/processes/continuous-delivery/appfile-example.md). Названия lane'ов не меняются.
 - В файл `.env.default` добавьте список групп Fabric, которым нужно автоматически рассылать билд. Группа RDS QA включена по умолчанию.
 
   ```
