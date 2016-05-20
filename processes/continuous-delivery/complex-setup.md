@@ -42,8 +42,8 @@
 
   ```ruby
   before_all do |lane|
-	  import_from_git(url: 'git@gitlab.rambler.ru:ramblerco-ios/fastlane-flows.git',
-                     path: 'fastlane/Fastfile')
+	    import_from_git(url: 'https://github.com/rambler-ios/fastlane-flows',
+                           path: 'fastlane/Fastfile')
   end
   
   lane :projectname_in_house do |options|
