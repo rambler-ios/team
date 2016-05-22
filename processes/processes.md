@@ -21,6 +21,6 @@
 #### Гайды и чек-листы
 - Мой первый день
 - [Начало нового проекта](/processes/guides/new-project.md)
-- Open Source
+- [Работа с Open Source](/processes/guides/open-source.md)
 - Выполнение задачи
 - Публикация новой версии приложения
