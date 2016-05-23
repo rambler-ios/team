@@ -16,7 +16,9 @@
   
 - [Сложный](/processes/continuous-delivery/complex-setup.md)
 
-  Нужен для приложений с extension'ами (Apple Watch и т.п.)  
+  Нужен для приложений с extension'ами (Apple Watch и т.п.)
+  
+Если на вашем проекте уже были настроены ночные сборки по старой схемы, для миграции используйте отдельную [инструкцию](/processes/continuous-delivery/nightly-migration.md).
 
 В отдельных случаях можно добавлять свои workflow, используя готовые приватные lane, закрывающие непосредственно механизмы доставки (FTP, Fabric, TestFlight).
 
