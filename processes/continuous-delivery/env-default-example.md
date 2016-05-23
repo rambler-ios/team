@@ -10,9 +10,6 @@ DEPLOY_BASEURL=https://appdistribution.rambler.ru
 # Основная build-схема приложения
 SCHEME=LiveJournal
 
-# Enterprise build-схема приложения
-ENTERPRISE_SCHEME=Nightly
-
 # Ключи Crashlytics
 CRASHLYTICS_API_TOKEN=paste_token_here (https://fabric.io/settings/organizations)
 CRASHLYTICS_BUILD_SECRET=paste_secret_here (https://fabric.io/settings/organizations)
