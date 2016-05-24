@@ -6,8 +6,8 @@
 
 ### Куда смотреть дальше
 - [Трекер задач](https://github.com/rambler-ios/team/issues)
-- [Наша команда](/team/team.md)
-- [Наши процессы](/processes/processes.md)
-- [Наши проекты](projects.md)
-- [Наши выступления](talks.md)
-- [Наши статьи](articles.md)
+- [Наша команда](/team/README.md)
+- [Наши процессы](/processes/README.md)
+- [Наши проекты](.projects/README.md)
+- [Наши выступления](/team/talks.md)
+- [Наши статьи](/team/articles.md)
