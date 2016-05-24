@@ -8,6 +8,6 @@
 - [Трекер задач](https://github.com/rambler-ios/team/issues)
 - [Наша команда](/team/README.md)
 - [Наши процессы](/processes/README.md)
-- [Наши проекты](.projects/README.md)
+- [Наши проекты](/projects/README.md)
 - [Наши выступления](/team/talks.md)
 - [Наши статьи](/team/articles.md)
