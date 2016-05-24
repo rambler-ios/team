@@ -8,8 +8,8 @@
 - [Документация](/processes/documentation.md)
 
 #### Автоматизация
-- [Continuous Integration](/processes/continuous-integration/continuous-integration.md)
-- [Continuous Delivery](/processes/continuous-delivery/continuous-delivery.md)
+- [Continuous Integration](/processes/continuous-integration/README.md)
+- [Continuous Delivery](/processes/continuous-delivery/README.md)
 
 #### Инструменты
 - [Используемый софт](/processes/instruments.md)
