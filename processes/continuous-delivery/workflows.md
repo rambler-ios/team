@@ -59,7 +59,7 @@
 - Настройка Code Signing для основного таргета и extension'ов
 - Добавление бейджа на иконку
 - Сборка enterprise-версии приложения
-- Заливка на FTP в папку [*dev*](https://***REMOVED***/dev/index.html)
+- Заливка на FTP в папку [*nightly*](https://***REMOVED***/nightly/index.html)
 - Добавление и push тега
 - Уведомление через бота в Telegram-чат
 - Уведомление в канал проекта в Slack
