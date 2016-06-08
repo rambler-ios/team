@@ -14,7 +14,7 @@
 3. Настройка [GitLab](https://gitlab.rambler.ru
 ).
   1. В настройках проекта в разделе *Web Hooks* добавьте новый хук.
-  2. Введите url проекта на jenkins. Например, [LiveJournal](http://ci.dev.rambler.ru/jenkins/project/Sup.LiveJournal.iOS).
+  2. Введите url проекта на jenkins. Например, [LiveJournal](http://ci.dev.rambler.ru/jenkins/project/Sup.LiveJournal.iOS). Обратите внимание, что в качестве URL используется именно `http://ci.dev.rambler.ru/jenkins/project/ID_ПРОЕКТА`.
   3. В качестве токена добавьте любую строку.
 4. Настройка build.sh
   1. Добавьте пустой файл *build.sh* в корневую папку проекта.
