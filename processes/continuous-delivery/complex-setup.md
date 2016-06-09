@@ -63,6 +63,11 @@
   end
   ```
 - Заполните `Appfile` по [образцу](/processes/continuous-delivery/appfile-example.md). Не забудьте подставить корректные названия всех lane'ов.
+- Если lane вносит дополнительные изменения в working copy репозитория перед вызовом стандартных lane'ов, то необходимо выстовить опцию для пропуска этапа чистки (git reset и git clean):
+
+	```ruby
+	options[:skip_reset] = true
+	```
 
 ##### Шаг 5. Настройка in-house сборок
 
