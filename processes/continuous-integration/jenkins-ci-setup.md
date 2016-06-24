@@ -16,35 +16,16 @@
   1. В настройках проекта в разделе *Web Hooks* добавьте новый хук.
   2. Введите url проекта на jenkins. Например, [LiveJournal](http://***REMOVED***). Обратите внимание, что в качестве URL используется именно `http://***REMOVED***/project/ID_ПРОЕКТА`.
   3. В качестве токена добавьте любую строку.
-4. Настройка build.sh
-  1. Добавьте пустой файл *build.sh* в корневую папку проекта.
-  2. Настройте переменные `workspace`, `scheme`, `sourceDir=`.
-  3. Выполните команду в консоли в папке проекта: `chmod +x build.sh`.
+4. Настройка сборки
+  1. Настройте [*fastlane*](https://github.com/Beniamiiin/team/blob/master/processes/continuous-delivery/simple-setup.md#Шаг-4-Базовая-настройка-fastlane).
+  2. Создайте и заполните Scanfile по [образцу](https://github.com/Beniamiiin/team/blob/master/processes/continuous-integration/scanfile-example.md).
+  3. Добавьте шаг сборки "Выполнить команду шел".
+  4. В появившемся поле вставьте скрипт.
 
-#### Пример скрипта
+#### Скрипт
 
 ```sh
 #!/bin/bash -l
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-export LC_CTYPE=en_US.UTF-8
- 
-#Configuration
-workspace=LiveJournal
-scheme=LiveJournal
-sourceDir=LiveJournal
-reportsDir=build/reports
- 
-#Fail immediately if a task fails
-set -e
-set -o pipefail
- 
-#Clean
-rm -fr ~/Library/Developer/Xcode/DerivedData
-rm -fr ./build
-#Compile, run tests
-iosVersion='9.1'
-xcodebuild test -workspace ${workspace}.xcworkspace -scheme ${scheme} -configuration Debug \
--destination "platform=iOS Simulator,name=iPhone 5s,OS=${iosVersion}" ONLY_ACTIVE_ARCH=YES | xcpretty -c --report junit
+
+fastlane build_test
 ```
