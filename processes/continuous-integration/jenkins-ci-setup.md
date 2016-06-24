@@ -18,7 +18,7 @@
   3. В качестве токена добавьте любую строку.
 4. Настройка сборки
   1. Настройте [*fastlane*](https://github.com/Beniamiiin/team/blob/master/processes/continuous-delivery/simple-setup.md#Шаг-4-Базовая-настройка-fastlane).
-  2. Создайте и заполните Scanfile по [образцу](https://github.com/Beniamiiin/team/blob/master/processes/continuous-integration/scanfile-example.md).
+  2. Создайте и заполните Scanfile по [образцу](https://github.com/Beniamiiin/team/blob/update_jenkins_ci_setup/processes/continuous-integration/scanfile-example.md).
   3. Добавьте шаг сборки "Выполнить команду шел".
   4. В появившемся поле вставьте скрипт.
 
