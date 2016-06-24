@@ -2,7 +2,7 @@
 
 ```
 scheme 'ProjectTest'
-devices ['iPhone 6s']
+device 'iPhone 6s'
 
 clean true
 
