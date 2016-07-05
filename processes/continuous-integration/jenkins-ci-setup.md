@@ -17,8 +17,8 @@
   2. Введите url проекта на jenkins. Например, [LiveJournal](http://ci.dev.rambler.ru/jenkins/project/Sup.LiveJournal.iOS). Обратите внимание, что в качестве URL используется именно `http://ci.dev.rambler.ru/jenkins/project/ID_ПРОЕКТА`.
   3. В качестве токена добавьте любую строку.
 4. Настройка сборки
-  1. Настройте [*fastlane*](https://github.com/Beniamiiin/team/blob/master/processes/continuous-delivery/simple-setup.md#Шаг-4-Базовая-настройка-fastlane).
-  2. Создайте и заполните Scanfile по [образцу](https://github.com/Beniamiiin/team/blob/update_jenkins_ci_setup/processes/continuous-integration/scanfile-example.md).
+  1. Настройте [*fastlane*](/processes/continuous-delivery/simple-setup.md#Шаг-4-Базовая-настройка-fastlane).
+  2. Создайте и заполните Scanfile по [образцу](/processes/continuous-integration/scanfile-example.md).
   3. Добавьте шаг сборки "Выполнить команду шел".
   4. В появившемся поле вставьте скрипт.
 
