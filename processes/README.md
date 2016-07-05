@@ -3,6 +3,7 @@
 #### Общие моменты
 - [Рабочий распорядок](/processes/schedule.md)
 - [Учет времени](/processes/time-tracking.md)
+- [Грейды разработчиков](/processes/grades.md)
 
 #### Разработка
 - [Code Style](/processes/code-style.md)
