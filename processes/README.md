@@ -1,5 +1,9 @@
 ### Наши процессы
 
+#### Общие моменты
+- [Рабочий распорядок](/processes/schedule.md)
+- [Учет времени](/processes/time-tracking.md)
+
 #### Разработка
 - [Code Style](/processes/code-style.md)
 - [Архитектурные подходы](/processes/architecture.md)
