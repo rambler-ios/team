@@ -7,7 +7,7 @@
 2. На экране настроек проекта
   1. Введите описание проекта.
   2. Подключите репозиторий проекта в разделе Source Code Management:
-      1. Введите HTTPS-адрес репозитория в Repository URL. Например: `https://***REMOVED***/mobile-dev/livejournal-ios.git`.
+      1. Введите HTTPS-адрес репозитория в Repository URL. Например: `https:/{GITLAB_URL}/livejournal-ios.git`.
       2. Для того, чтобы проект собрался, нужно в Xcode зайти в *Product -> Scheme -> Manage Schemes* и сделать следующее:
           1. Для тестового target в графе Container выбрать workspace
           2. Для тестового target включить чекбокс shared
