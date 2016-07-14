@@ -29,7 +29,7 @@
 
 ##### Шаг 3. Настройка Slack
 
-- Заходите в [настройки нашей команды в Slack](https://***REMOVED***).
+- Заходите в настройки нашей команды в Slack.
 - Добавьте новый webhook: *Add Configuration -> Выбираем канал -> Копируем Webhook URL*.
 
   ![Screenshot](/resources/complex-deploy-5.jpg)

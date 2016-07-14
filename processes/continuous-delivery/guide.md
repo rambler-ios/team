@@ -4,7 +4,7 @@
 
   ![Screenshot](/resources/deploy-guide-1.jpg)
 
-2. Зайдите на вкладку [iOS.Deploy](http://***REMOVED***/view/iOS.Deploy/) на Jenkins. Выберите нужный проект.
+2. Зайдите на вкладку iOS.Deploy на Jenkins. Выберите нужный проект.
 
   ![Screenshot](/resources/deploy-guide-2.jpg)
 
@@ -17,6 +17,6 @@
   ![Screenshot](/resources/deploy-guide-4.jpg)
 
 5. Для staging-сборок укажите номер версии.
-6. Нажмите кнопку Build. На [главной странице](http://***REMOVED***/) эта задача появится в общей очереди. Прогресс сборки показывается индикатором.
+6. Нажмите кнопку Build. На главной странице Jenkins эта задача появится в общей очереди. Прогресс сборки показывается индикатором.
 
   ![Screenshot](/resources/deploy-guide-5.jpg)

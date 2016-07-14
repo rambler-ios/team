@@ -5,7 +5,7 @@
 APP_NAME=ЖивойЖурнал
 
 # URL ftp-сервера
-DEPLOY_BASEURL=https://***REMOVED***
+DEPLOY_BASEURL=paste_ftp_server_domain_here
 
 # Основная build-схема приложения
 SCHEME=LiveJournal

@@ -17,11 +17,11 @@
 
 #### Серверные инструменты
 
-- **Issue tracker:** [Jira](https://***REMOVED***)
-- **Хостинг репозиториев:** [GitLab](https://***REMOVED***/)
-- **Code Review:** [Upsource](http://***REMOVED***/)
-- **Документация:** [Confluence](https://***REMOVED***)
-- **Build-сервер:** [Jenkins](http://***REMOVED***/)
+- **Issue tracker:** Jira
+- **Хостинг репозиториев:** GitLab
+- **Code Review:** Upsource
+- **Документация:** Confluence
+- **Build-сервер:** Jenkins
 - **Continuous Delivery:** [Fastlane](https://github.com/fastlane/fastlane)
 
 #### Плагины Xcode
