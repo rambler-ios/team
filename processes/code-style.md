@@ -12,7 +12,7 @@
 
   Когда мы только начали использовать VIPER, терминология во всех проектах очень сильно различалась. Чтобы избавиться от этого, мы написали свой небольшой гайд по неймингу и оформлению кода в рамках VIPER-модуля.
   
-- Rambler Swift Style Guide ([ru](/code-styles/swift/swift-style-guide-ru.md) | [en](/code-styles/swift/swift-style-guide-en.md)) - **в разработке**
+- Rambler Swift Style Guide ([ru](./code-styles/swift/swift-style-guide-ru.md) | [en](./code-styles/swift/swift-style-guide-en.md)) - **в разработке**
 
   Подробный style guide, решающий большинство спорных вопросов, возникающих при разработке на языке swift. Его использование призвано повысить единообразие решений между проектами и увеличить читабельность кода.  
   
