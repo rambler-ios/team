@@ -49,7 +49,7 @@
 
 **Конференция:** [MobiusConf 2016](http://mobiusconf.com/)
 
-[Слайды](http://mobiusconf.com/p/2/tsyganov.pdf)
+[Видео](https://www.youtube.com/watch?v=mJkCQpaPomM) | [Слайды](http://mobiusconf.com/p/2/tsyganov.pdf)
 
 **Typhoon Explained**
 
@@ -59,7 +59,7 @@ Typhoon — очень мощный инструмент в руках разр�
 
 **Конференция:** [MobiusConf 2016](http://mobiusconf.com/)
 
-[Слайды](https://speakerdeck.com/etolstoy/typhoon-explained)
+[Видео](https://www.youtube.com/watch?v=gNsBnG6g7Ws) | [Слайды](https://speakerdeck.com/etolstoy/typhoon-explained)
 
 **Типографика в iOS**
 
@@ -76,7 +76,7 @@ Typhoon — очень мощный инструмент в руках разр�
 
 **Конференция:** [MobiusConf 2016](http://mobiusconf.com/) | [AppsConf 2016](http://appsconf.ru/2016/abstracts/2090)
 
-[Слайды](http://mobiusconf.com/p/3/dyagileva.pdf)
+[Видео](https://www.youtube.com/watch?v=ZU6bMSQo1Sk) | [Слайды](http://mobiusconf.com/p/3/dyagileva.pdf)
 
 ##### Май
 
