@@ -27,8 +27,8 @@
 
 ##### Шаг 3. Настройка Slack
 
-- Заходите в настройки нашей команды в Slack.
-- Добавьте новый webhook: *Add Configuration -> Выбираем канал -> Копируем Webhook URL*.
+- Заходите в [настройки нашей команды в Slack](https://ramblercoteam.slack.com/apps/manage/custom-integrations).
+- Добавьте новый webhook: *Incoming WebHooks -> Add Configuration -> Выбираем канал -> Копируем Webhook URL*.
 
 ##### Шаг 4. Базовая настройка fastlane
 
