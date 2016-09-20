@@ -29,6 +29,7 @@
 
 - Заходите в [настройки нашей команды в Slack](https://ramblercoteam.slack.com/apps/manage/custom-integrations).
 - Добавьте новый webhook: *Incoming WebHooks -> Add Configuration -> Выбираем канал -> Копируем Webhook URL*.
+- В настройках Jenkins в разделе *Slack Notifications -> Расширенные* указываем правильный канал для бота.
 
 ##### Шаг 4. Базовая настройка fastlane
 
