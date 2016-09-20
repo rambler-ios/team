@@ -13,7 +13,7 @@
           2. Для тестового target включить чекбокс shared
 3. Настройка GitLab.
   1. В настройках проекта в разделе *Web Hooks* добавьте новый хук.
-  2. Введите url проекта на jenkins. Например, `http://{JENKINS_URL}/project/Sup.LiveJournal.iOS`. Обратите внимание, что в качестве URL используется именно `http://{JENKINS_URL}/project/ID_ПРОЕКТА`.
+  2. Введите url проекта на jenkins. Например, `http://{JENKINS_URL}/jenkins/project/Afisha.Restaurants.iOS`. Обратите внимание, что в качестве URL используется именно `http://{JENKINS_URL}/jenkins/project/ID_ПРОЕКТА`.
   3. В качестве токена добавьте любую строку.
 4. Настройка сборки
   1. Настройте [*fastlane*](/processes/continuous-delivery/simple-setup.md#Шаг-4-Базовая-настройка-fastlane).
