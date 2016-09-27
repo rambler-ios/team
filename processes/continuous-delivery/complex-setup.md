@@ -74,19 +74,19 @@
 - Для того, чтобы скрипт мог поменять названия enterprise-версий всех application identifier'ов, добавьте в Fastfile, в `project_name_in_house` lane, строчку вида:
 
   ```ruby
-options[:extension_identifiers] = ['ru.rambler.news.enterprise','ru.rambler.news.enterprise.watchkit','ru.rambler.news.enterprise.watchkitapp']
+options[:app_identifiers] = ['ru.rambler.news.enterprise','ru.rambler.news.enterprise.watchkit','ru.rambler.news.enterprise.watchkitapp']
 ```
 
 - Для того, чтобы скрипт мог найти все таргеты, для которых нужно обновить настройки Code Signing, добавьте в Fastfile, в `project_name_in_house` lane, строчку, содержащую паттерны поиска названий таргетов:
 
   ```ruby
-options[:extension_patterns] = ['rnews-ios','rnews-ios WatchKit Extension','rnews-ios WatchKit App']
+options[:target_patterns] = ['rnews-ios','rnews-ios WatchKit Extension','rnews-ios WatchKit App']
 ```
 
 - Для того, чтобы скрипт мог модифицировать содержимое всех *Info.plist* файлов, добавьте в Fastfile, в `project_name_in_house` lane, строчку вида:
 
   ```ruby
-options[:extension_plists] = ['rnews-ios/Supporting Files/Info.plist','rnews-ios WatchKit Extension/Info.plist','rnews-ios WatchKit App/Info.plist']
+options[:app_plists] = ['rnews-ios/Supporting Files/Info.plist','rnews-ios WatchKit Extension/Info.plist','rnews-ios WatchKit App/Info.plist']
 ```
 
 - Добавьте в конец *Fastfile* метод, в котором вручную обновляете различные строчки в plist-файлах, содержащих перекрестные ссылки на разные таргеты, имена Application Groups и прочее. Пример такого метода:
@@ -125,9 +125,9 @@ end
 
   ```ruby
 lane :news_in_house do |options|
-      options[:extension_identifiers] = ['ru.rambler.news.enterprise','ru.rambler.news.enterprise.watchkit','ru.rambler.news.enterprise.watchkitapp']
-      options[:extension_patterns] = ['rnews-ios','rnews-ios WatchKit Extension','rnews-ios WatchKit App']
-      options[:extension_plists] = ['rnews-ios/Supporting Files/Info.plist','rnews-ios WatchKit Extension/Info.plist','rnews-ios WatchKit App/Info.plist']
+      options[:app_identifiers] = ['ru.rambler.news.enterprise','ru.rambler.news.enterprise.watchkit','ru.rambler.news.enterprise.watchkitapp']
+      options[:target_patterns] = ['rnews-ios','rnews-ios WatchKit Extension','rnews-ios WatchKit App']
+      options[:app_plists] = ['rnews-ios/Supporting Files/Info.plist','rnews-ios WatchKit Extension/Info.plist','rnews-ios WatchKit App/Info.plist']
 
       update_xcodeproj
 
@@ -141,9 +141,9 @@ end
 
   ```ruby
   lane :news_nightly do |options|
-      options[:extension_identifiers] = ['ru.rambler.news.enterprise','ru.rambler.news.enterprise.watchkit','ru.rambler.news.enterprise.watchkitapp']
-	  options[:extension_patterns] = ['rnews-ios','rnews-ios WatchKit Extension','rnews-ios WatchKit App']
-	  options[:extension_plists] = ['rnews-ios/Supporting Files/Info.plist','rnews-ios WatchKit Extension/Info.plist','rnews-ios WatchKit App/Info.plist']
+      options[:app_identifiers] = ['ru.rambler.news.enterprise','ru.rambler.news.enterprise.watchkit','ru.rambler.news.enterprise.watchkitapp']
+	  options[:target_patterns] = ['rnews-ios','rnews-ios WatchKit Extension','rnews-ios WatchKit App']
+	  options[:app_plists] = ['rnews-ios/Supporting Files/Info.plist','rnews-ios WatchKit Extension/Info.plist','rnews-ios WatchKit App/Info.plist']
 
 	  update_xcodeproj
 
@@ -163,9 +163,9 @@ fastlane news_nightly --verbose
 
   ```ruby
   lane :news_testing do |options|
-      options[:extension_identifiers] = ['ru.rambler.news','ru.rambler.news.watchkit','ru.rambler.news.watchkitapp']
-	  options[:extension_patterns] = ['rnews-ios','rnews-ios WatchKit Extension','rnews-ios WatchKit App']
-	  options[:extension_plists] = ['rnews-ios/Supporting Files/Info.plist','rnews-ios WatchKit Extension/Info.plist','rnews-ios WatchKit App/Info.plist']
+      options[:app_identifiers] = ['ru.rambler.news','ru.rambler.news.watchkit','ru.rambler.news.watchkitapp']
+	  options[:target_patterns] = ['rnews-ios','rnews-ios WatchKit Extension','rnews-ios WatchKit App']
+	  options[:app_plists] = ['rnews-ios/Supporting Files/Info.plist','rnews-ios WatchKit Extension/Info.plist','rnews-ios WatchKit App/Info.plist']
 
 	  testing(options)
 end
@@ -183,9 +183,9 @@ end
 
   ```ruby
   lane :news_testing do |options|
-      options[:extension_identifiers] = ['ru.rambler.news','ru.rambler.news.watchkit','ru.rambler.news.watchkitapp']
-	  options[:extension_patterns] = ['rnews-ios','rnews-ios WatchKit Extension','rnews-ios WatchKit App']
-	  options[:extension_plists] = ['rnews-ios/Supporting Files/Info.plist','rnews-ios WatchKit Extension/Info.plist','rnews-ios WatchKit App/Info.plist']
+      options[:app_identifiers] = ['ru.rambler.news','ru.rambler.news.watchkit','ru.rambler.news.watchkitapp']
+	  options[:target_patterns] = ['rnews-ios','rnews-ios WatchKit Extension','rnews-ios WatchKit App']
+	  options[:app_plists] = ['rnews-ios/Supporting Files/Info.plist','rnews-ios WatchKit Extension/Info.plist','rnews-ios WatchKit App/Info.plist']
 
 	  staging(options)
 end
