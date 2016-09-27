@@ -182,7 +182,7 @@ end
 - Обновите `project_name_staging_lane` по образцу `testing` lane:
 
   ```ruby
-  lane :news_testing do |options|
+  lane :news_staging do |options|
       options[:app_identifiers] = ['ru.rambler.news','ru.rambler.news.watchkit','ru.rambler.news.watchkitapp']
 	  options[:target_patterns] = ['rnews-ios','rnews-ios WatchKit Extension','rnews-ios WatchKit App']
 	  options[:app_plists] = ['rnews-ios/Supporting Files/Info.plist','rnews-ios WatchKit Extension/Info.plist','rnews-ios WatchKit App/Info.plist']
