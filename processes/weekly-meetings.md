@@ -4,7 +4,6 @@
 
 | Дата        | Тема           | Автор  |
 | ------------- |-------------| -----|
-| 23.09.16      | iOS 10 Extensions, Advanced Push Notifications     |   Никулин Макс |
 | 30.09.16      | iOS App Reverse Engineering      |   Валерий Попов |
 | 07.10.16      | Static Analysis with OCLint      |   Бениамин Саркисян |
 | 14.10.16      | *Свободно*      |   *Свободно* |
@@ -30,3 +29,4 @@
 | 26.08.16      | Оплата в приложении | Стас Цыганов |
 | 02.09.16      | Deeplinking and Web to App traffic      | Станислав Жуковский  |
 | 16.09.16      | Устройство лент с разными типами контента      |Вадим Смаль |
+| 23.09.16      | iOS 10 Extensions, Advanced Push Notifications     |   Никулин Макс |
