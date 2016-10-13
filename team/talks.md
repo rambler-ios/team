@@ -20,7 +20,7 @@
 
 **Конференция:** [TК° Conf](http://tkconf.ru/)
 
-[Слайды]https://speakerdeck.com/etolstoy/five-stories-about-livejournal)
+[Слайды](https://speakerdeck.com/etolstoy/five-stories-about-livejournal)
 
 **Как проложить путь к успеху с помощью банковских карт**
 
