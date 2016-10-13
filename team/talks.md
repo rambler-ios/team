@@ -4,7 +4,7 @@
 
 Где мы выступали: [CodeFest](codefest.ru), [UA Mobile](http://uamobile.org/ru), [DUMP](http://dump-conf.ru/), [MBLTDev](mbltdev.ru), [Стачка](http://nastachku.ru/), Rambler.iOS, Cocoaheads.
 
-Где мы побывали: Москва, Киев, Новосибирск, Екатеринбург, Ульяновск.
+Где мы побывали: Москва, Киев, Минск, Санкт-Петербург, Новосибирск, Екатеринбург, Ульяновск, Ростов-на-Дону.
 
 ![iOS команда](/resources/mobius.jpg)
 
