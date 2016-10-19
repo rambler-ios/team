@@ -15,7 +15,7 @@
 
 #### Общий бэкграунд
 
-- [The Little Book of Semaphores](http://www.greenteapress.com/semaphores/downey08semaphores.pdf)
+- [The Little Book of Semaphores](http://www.greenteapress.com/semaphores/LittleBookOfSemaphores.pdf)
 
   **Авторы:** Allen B. Downey.
 
