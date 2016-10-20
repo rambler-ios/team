@@ -4,7 +4,6 @@
 
 | Дата        | Тема           | Автор  |
 | ------------- |-------------| -----|
-| 14.10.16      | Конференция "Точка кипения"      |   [Иованна Мишанина](https://github.com/iovannapopova), [Алексей Сапожник](https://github.com/Sapozhnik) |
 | 21.10.16      | YapDatabase      |   Головко Михаил |
 | 28.10.16      | Static Analysis with OCLint      |  Бениамин Саркисян  |
 | 04.11.16      | *Свободно*      |   *Свободно* |
@@ -35,3 +34,4 @@
 | 23.09.16      | iOS 10 Extensions, Advanced Push Notifications     |   Никулин Макс |
 | 30.09.16      | iOS App Reverse Engineering      |   Валерий Попов |
 | 04.10.16      | Paw: Workshop  |   [Micha Mazaheri](https://github.com/mittsh) |
+| 14.10.16      | Конференция "Точка кипения"      |   [Иованна Мишанина](https://github.com/iovannapopova), [Алексей Сапожник](https://github.com/Sapozhnik) |
