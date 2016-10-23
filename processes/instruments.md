@@ -23,9 +23,3 @@
 - **Документация:** Confluence
 - **Build-сервер:** Jenkins
 - **Continuous Delivery:** [Fastlane](https://github.com/fastlane/fastlane)
-
-#### Плагины Xcode
-
-- **Управление плагинами Xcode:** [Alcatraz](http://alcatraz.io/)
-- **Плагин для комментирования:** [VVDocumenter](https://github.com/onevcat/VVDocumenter-Xcode)
-- **Плагин для маркеров TODO/FIXME:** [XToDo](https://github.com/trawor/XToDo)
