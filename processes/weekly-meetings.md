@@ -4,11 +4,11 @@
 
 | Дата        | Тема           | Автор  |
 | ------------- |-------------| -----|
-| 21.10.16      | YapDatabase      |   Головко Михаил |
-| 28.10.16      | Static Analysis with OCLint      |  Бениамин Саркисян  |
+| 02.12.16      | *Свободно*      |   *Свободно* |
 | 11.11.16      | AppThinning      |   [Артур Протько](https://github.com/akkrat) |
 | 18.11.16      | Построение UML диаграмм       |   Тришина Екатерина |
 | 25.11.16      | AppCode Workshop      |   AppCode Team |
+| 02.12.16      | Static Analysis with OCLint      |  Бениамин Саркисян  |
 | 02.12.16      | *Свободно*      |   *Свободно* |
 
 #### Прошедшие
@@ -34,3 +34,5 @@
 | 30.09.16      | iOS App Reverse Engineering      |   Валерий Попов |
 | 04.10.16      | Paw: Workshop  |   [Micha Mazaheri](https://github.com/mittsh) |
 | 14.10.16      | Конференция "Точка кипения"      |   [Иованна Мишанина](https://github.com/iovannapopova), [Алексей Сапожник](https://github.com/Sapozhnik) |
+| 21.10.16      | YapDatabase      |   Головко Михаил |
+| 21.10.16      | Рассказ о PragmaConf      |   Крапивенский Сергей |
