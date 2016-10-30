@@ -32,7 +32,7 @@
 | 26.08.16      | Оплата в приложении | Стас Цыганов |
 | 02.09.16      | Deeplinking and Web to App traffic      | Станислав Жуковский  |
 | 16.09.16      | Устройство лент с разными типами контента      |Вадим Смаль |
-| 23.09.16      | iOS 10 Extensions, Advanced Push Notifications     |   Никулин Макс |
+| 23.09.16      | [iOS 10 Extensions, Advanced Push Notifications](https://github.com/rambler-ios/team/issues/61)     |   [Никулин Максим](https://github.com/atom-wintermute) |
 | 30.09.16      | iOS App Reverse Engineering      |   Валерий Попов |
 | 04.10.16      | Paw: Workshop  |   [Micha Mazaheri](https://github.com/mittsh) |
 | 14.10.16      | Конференция "Точка кипения"      |   [Иованна Мишанина](https://github.com/iovannapopova), [Алексей Сапожник](https://github.com/Sapozhnik) |
