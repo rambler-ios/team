@@ -32,7 +32,7 @@
 
 **Q:** Exit status of command 'git checkout release/3.0.4' was 128 instead of 0.
 
-**A:** Ошибка обозначает, что fastlane не может переключиться на ветку. Причины: 0) gitlab лежит 1) fastlane в ходе предыдущей сборки внес изменения, которые не получилось откатить - обратитесь к человеку с доступом к билд-машине 2) Ваши lane'ы вносят изменения до смены ветки.
+**A:** Ошибка обозначает, что fastlane не может переключиться на ветку. Причины: 0) gitlab лежит 1) fastlane в ходе предыдущей сборки внес изменения, которые не получилось откатить - почистите workspace : Jenkins -> iOS.Deploy -> Project.iOS.Deploy -> Workspace -> Wipe Out Current Workspace 2) Ваши lane'ы вносят изменения до смены ветки.
 
 **Q:** 'require': cannot load such file -- some-gem (LoadError)
 
