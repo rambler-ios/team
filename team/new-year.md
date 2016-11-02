@@ -50,3 +50,7 @@ Ivan Diagilev
 Egor Tolstoi
 
 Anna Tolstaia
+
+Vadim Smal
+
+Tatiana Kolesnikova
