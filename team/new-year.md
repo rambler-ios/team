@@ -1,6 +1,6 @@
 ### Маршрут
 
-(Маршрут на гуглокарте)[https://goo.gl/maps/ywbg4kYroWJ2]
+[Маршрут на гуглокарте](https://goo.gl/maps/ywbg4kYroWJ2)
 
 27 утром прилетаем в Берлин
 Останавливаемся на 2 дня. 
@@ -64,3 +64,5 @@ Tatiana Kolesnikova
 Beniamin Sarkisian
 
 Timofei Khomutnikov
+
+Aleksei Sapozhnik
