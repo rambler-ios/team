@@ -51,6 +51,10 @@ Egor Tolstoi
 
 Anna Tolstaia
 
+Vadim Smal
+
+Tatiana Kolesnikova
+
 Beniamin Sarkisian
 
 Timofei Khomutnikov
