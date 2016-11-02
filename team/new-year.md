@@ -46,3 +46,7 @@
 Irina Diagileva
 
 Ivan Diagilev
+
+Egor Tolstoi
+
+Anna Tolstaia
