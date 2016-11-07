@@ -37,9 +37,9 @@ Irina Diagileva
 
 Ivan Diagilev
 
-Egor Tolstoi
+Egor Tolstoi - igrekde@gmail.com
 
-Anna Tolstaia
+Anna Tolstaia - esli-ann@ya.ru
 
 Vadim Smal - vadim.smal92@gmail.com
 
