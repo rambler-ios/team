@@ -47,7 +47,7 @@ Tatiana Kolesnikova - innostuminen@gmail.com
 
 Beniamin Sarkisian
 
-Timofei Khomutnikov
+Timofei Khomutnikov - tima.khom@gmail.com
 
 Aleksei Sapozhnik
 
