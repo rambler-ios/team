@@ -41,7 +41,7 @@ Egor Tolstoi
 
 Anna Tolstaia
 
-Vadim Smal
+Vadim Smal - vadim.smal92@gmail.com
 
 Tatiana Kolesnikova
 
