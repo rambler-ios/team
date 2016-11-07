@@ -51,8 +51,8 @@ Timofei Khomutnikov
 
 Aleksei Sapozhnik
 
-Mikhail Golovko
+Mikhail Golovko - mihailmvg@gmail.com
 
 Konstantin Mordan - mordan2be@gmail.com
 
-Vladimir Ignatov
+Vladimir Ignatov - Ignatov@protonmail.ch
