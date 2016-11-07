@@ -43,7 +43,7 @@ Anna Tolstaia
 
 Vadim Smal - vadim.smal92@gmail.com
 
-Tatiana Kolesnikova
+Tatiana Kolesnikova - innostuminen@gmail.com
 
 Beniamin Sarkisian
 
