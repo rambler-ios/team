@@ -56,3 +56,7 @@ Mikhail Golovko - mihailmvg@gmail.com
 Konstantin Mordan - mordan2be@gmail.com
 
 Vladimir Ignatov - Ignatov@protonmail.ch
+
+### Виза
+[Список документов для чешской визы](http://www.mzv.cz/moscow/ru/vizy_i_konsulskaja/vizovaja/schengenskaja/sengenskaja_turisticeskaja.html)
+
