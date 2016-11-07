@@ -33,9 +33,9 @@
 
 ### Имена
 
-Irina Diagileva
+Irina Diagileva - ivdyagileva@gmail.com
 
-Ivan Diagilev
+Ivan Diagilev - dyagilev0@gmail.com
 
 Egor Tolstoi - igrekde@gmail.com
 
