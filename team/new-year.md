@@ -45,7 +45,7 @@ Vadim Smal - vadim.smal92@gmail.com
 
 Tatiana Kolesnikova - innostuminen@gmail.com
 
-Beniamin Sarkisian
+Beniamin Sarkisian - beniamin.sarkisyan@gmail.com
 
 Timofei Khomutnikov - tima.khom@gmail.com
 
