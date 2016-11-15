@@ -11,6 +11,9 @@
 | 09.12.16      | [Static Analysis with OCLint](https://github.com/rambler-ios/team/issues/57)       |   [Бениамин Саркисян](https://github.com/Beniamiiin) |
 | 16.12.16      | [Меню разработчика (рабочее название)](https://github.com/rambler-ios/team/issues/6) | [Алексей Сапожник](https://github.com/Sapozhnik), [Иованна Мишанина](https://github.com/iovannapopova)  |
 | 23.12.16      | *Свободно* | *Свободно*  |
+| 12.01.17      | *Свободно* | *Свободно*  |
+| 19.01.17      | *Свободно* | *Свободно*  |
+| 26.01.17      | *Свободно* | *Свободно*  |
 
 #### Прошедшие
 
