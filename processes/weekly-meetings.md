@@ -4,9 +4,6 @@
 
 | Дата        | Тема           | Автор  |
 | ------------- |-------------| -----|
-| 18.11.16      | [Опыт применения "функционального лэйаута"](https://github.com/rambler-ios/team/issues/74) | [Алексей Сапожник](https://github.com/Sapozhnik)  |
-| 25.11.16      | [AppCode Workshop](https://github.com/rambler-ios/team/issues/72)      |  [Стас Домбровский](https://github.com/yeswolf) ([JetBrains](https://www.jetbrains.com/objc/)) |
-| 02.12.16      | [Построение UML диаграмм](https://github.com/rambler-ios/team/issues/76)    | [Тришина Екатерина](https://github.com/rinarish)   |
 | 09.12.16      | [Static Analysis with OCLint](https://github.com/rambler-ios/team/issues/57)       |   [Бениамин Саркисян](https://github.com/Beniamiiin) |
 | 16.12.16      | [Меню разработчика (рабочее название)](https://github.com/rambler-ios/team/issues/6) | [Алексей Сапожник](https://github.com/Sapozhnik), [Иованна Мишанина](https://github.com/iovannapopova)  |
 | 23.12.16      | [Чистые тесты на swift](https://github.com/rambler-ios/team/issues/48) | [Александр Сычев](https://github.com/Brain89)  |
@@ -41,3 +38,6 @@
 | 21.10.16      | Рассказ о PragmaConf      |   Крапивенский Сергей |
 | 28.10.16      | [Мастер класс по библиотеке Dip](https://github.com/rambler-ios/team/issues/73)      |   [Илья Пучка](http://ilya.puchka.me/) ([HelloFresh](https://www.hellofresh.nl)) |
 | 11.11.16      | [AppThinning](https://github.com/rambler-ios/team/issues/64)      |   [Артур Протько](https://github.com/akkrat) |
+| 18.11.16      | [Опыт применения "функционального лэйаута"](https://github.com/rambler-ios/team/issues/74) | [Алексей Сапожник](https://github.com/Sapozhnik)  |
+| 25.11.16      | [AppCode Workshop](https://github.com/rambler-ios/team/issues/72)      |  [Стас Домбровский](https://github.com/yeswolf) ([JetBrains](https://www.jetbrains.com/objc/)) |
+| 02.12.16      | [Построение UML диаграмм](https://github.com/rambler-ios/team/issues/76)    | [Тришина Екатерина](https://github.com/rinarish)   |
