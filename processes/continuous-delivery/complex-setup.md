@@ -41,25 +41,36 @@
 - Создайте новый `Fastfile` и добавьте в него следующий код:
 
   ```ruby
+ import_from_git(url: 'https://github.com/rambler-ios/fastlane-flows',
+                 path: 'fastlane/Fastfile')
+		 
   before_all do |lane|
-	    import_from_git(url: 'https://github.com/rambler-ios/fastlane-flows',
-                           path: 'fastlane/Fastfile')
+    # Тут общие настройки для всех лейнов
+    # Так можно указать таргеты
+    # options[:target_patterns] = ['MainTarget','ExtensionTarget']
+    # Пути до плистов
+    # options[:app_plists] = ['MainTarget/Supporting Files/Info.plist','ExtensionTarget/Info.plist']
+    # bundle id для in_house и nightly
+    # options[:app_identifiers] = ['ru.rambler.main.enterprise','ru.rambler.main.enterprise.extension']
+    # bundle id для testing и staging
+    # options[:app_identifiers] = ['ru.rambler.mail','ru.rambler.mail.Action'] if [:testing, :staging].include? lane
   end
   
-  lane :projectname_in_house do |options|
-	  in_house(options)
-  end
-  
-  lane :projectname_nightly do |options|
-	  nightly(options)
-  end
-  
-  lane :projectname_testing do |options|
-	  testing(options)
-  end
-  
-  lane :projectname_staging do |options|
-	  staging(options)
+  before_each do |lane, options|
+    # В этом хуке можно добавить специфичные действия перед выполнением приватных лейнов
+    # Ниже представлен switch по приватным лейнам:
+    # ftp_build_and_upload - сборка и загрузка для AdHoc;
+    # fabric - сборка и загрузка в fabric;
+    # apple_testflight - сборка и загрузка в testflight
+    
+    # case lane
+    # when :ftp_build_and_upload
+    #   update_xcodeproj
+    # when :fabric
+    #   updatePushQueueConfigForDebug
+    # when :apple_testflight
+    #   updatePushQueueConfigForRelease
+    # end
   end
   ```
 - Заполните `Appfile` по [образцу](/processes/continuous-delivery/appfile-example.md). Не забудьте подставить корректные названия всех lane'ов.
