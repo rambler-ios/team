@@ -5,7 +5,7 @@
 | Дата        | Тема           | Автор  |
 | ------------- |-------------| -----|
 | 23.12.16      | [Чистые тесты на swift](https://github.com/rambler-ios/team/issues/48) | [Александр Сычев](https://github.com/Brain89)  |
-| 13.01.17      | [Swift performance](https://github.com/rambler-ios/team/issues/82) | [Попов Валерий](https://github.com/complexityclass)  |
+| 13.01.17      | *Свободно* | *Свободно*  |
 | 19.01.17      | *Свободно* | *Свободно*  |
 | 26.01.17      | *Свободно* | *Свободно*  |
 
