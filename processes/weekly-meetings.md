@@ -4,10 +4,7 @@
 
 | Дата        | Тема           | Автор  |
 | ------------- |-------------| -----|
-| 23.12.16      | [Чистые тесты на swift](https://github.com/rambler-ios/team/issues/48) | [Александр Сычев](https://github.com/Brain89)  |
-| 13.01.17      | [CQRS в iOS](https://github.com/rambler-ios/team/issues/96) | [Александр Сычев](https://github.com/Brain89)  |
-| 19.01.17      | *Свободно* | *Свободно*  |
-| 26.01.17      | *Свободно* | *Свободно*  |
+| 10.03.17      | [Прокачай свои навыки эффективности и креативности](https://github.com/rambler-ios/team/issues/98) | [Тришина Екатерина](https://github.com/RinaRish)  |
 
 #### Прошедшие
 
@@ -41,3 +38,5 @@
 | 02.12.16      | [Построение UML диаграмм](https://github.com/rambler-ios/team/issues/76)    | [Тришина Екатерина](https://github.com/rinarish)   |
 | 09.12.16      | [Static Analysis with OCLint](https://github.com/rambler-ios/team/issues/57)       |   [Бениамин Саркисян](https://github.com/Beniamiiin) |
 | 16.12.16      | [Меню разработчика (рабочее название)](https://github.com/rambler-ios/team/issues/6) | [Алексей Сапожник](https://github.com/Sapozhnik), [Иованна Мишанина](https://github.com/iovannapopova)  |
+| 23.12.16      | [Чистые тесты на swift](https://github.com/rambler-ios/team/issues/48) | [Александр Сычев](https://github.com/Brain89)  |
+| 13.01.17      | [CQRS в iOS](https://github.com/rambler-ios/team/issues/96) | [Александр Сычев](https://github.com/Brain89)  |
