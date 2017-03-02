@@ -31,6 +31,7 @@
 - [Hophead](http://hophead.ru/)
 - [1516](http://www.1516pub.ru/)
 - [Молли Гвинз](http://www.rmcom.ru/page-molly-gwynns)
+- [Papas](http://papas.ru/)
 
 #### Как к нам попасть
 
