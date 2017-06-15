@@ -4,9 +4,9 @@
 
 В качестве style-guide в нашей команде используются следующие документы:
 
-- [NYTimes Objective-C Style Guide](https://github.com/NYTimes/objective-c-style-guide)
+- Rambler Objective-C Style Guide ([ru](./code-styles/objective-c/objective-c-style-guide-ru.md) | [en](./code-styles/objective-c/objective-c-style-guide-en.md)) - **в разработке**
   
-  Очень подробный style guide, отвечающий на большую часть спорных вопросов. Для того, чтобы не писать свой велосипед, в определенный момент времени мы приняли решение в спорных вопросах обращаться именно к нему.
+  Подробный style guide, отвечающий на большую часть спорных вопросов. В качестве основы при его разработке был взят [NYTimes Objective-C Style Guide](https://github.com/NYTimes/objective-c-style-guide).
   
 - [The Book of VIPER / Вопросы Code Style](https://github.com/rambler-ios/The-Book-of-VIPER/blob/master/CodeStyle.md)
 
@@ -14,7 +14,7 @@
   
 - Rambler Swift Style Guide ([ru](./code-styles/swift/swift-style-guide-ru.md) | [en](./code-styles/swift/swift-style-guide-en.md)) - **в разработке**
 
-  Подробный style guide, решающий большинство спорных вопросов, возникающих при разработке на языке swift. Его использование призвано повысить единообразие решений между проектами и увеличить читабельность кода.  
+  Подробный style guide, решающий большинство спорных вопросов, возникающих при разработке на языке Swift. Его использование призвано повысить единообразие решений между проектами и увеличить читабельность кода.  
   
 #### Комментирование
 
