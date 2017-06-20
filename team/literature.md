@@ -91,9 +91,9 @@
   
 #### Архитектура
 
-- [The Book of VIPER](https://github.com/rambler-ios/The-Book-of-VIPER)
+- [The Book of VIPER](https://github.com/strongself/The-Book-of-VIPER)
 
-  **Авторы:** Rambler&Co iOS Team.
+  **Авторы:** RAMBLER&Co iOS Team.
 
   **Рецензия:** *Лучшее, что вы только сможете найти про VIPER. Нет, серьезно, бесплатно и без СМС.*
   
