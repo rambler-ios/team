@@ -129,7 +129,7 @@
 
   **Рецензия:** *Чем композиция лучше наследования.*
   
-#### ObjC
+#### Objective-C
 
 - [Pro Multithreading and Memory Management for iOS and OS X](http://www.amazon.com/Pro-Multithreading-Memory-Management-iOS/dp/1430241160)
 
@@ -143,17 +143,25 @@
 
   **Рецензия:** *Как реализованы блоки и про некоторые особенности работы с ними.*
   
-- [Blocks Lifecycles](http://tumblr.alanquatermain.me/post/138827791/blocks-episode-2-life-cycles)
-
-  **Авторы:** Alan Quatermain.
-
-  **Рецензия:** *О жизненных циклах блоков.*
-  
 - [Exposing NSMutableArray](http://ciechanowski.me/blog/2014/03/05/exposing-nsmutablearray/)
 
   **Авторы:** Bartosz Ciechanowski.
 
   **Рецензия:** *Хотите знать, что под капотом у NSMutableArray - звезда смерти или циклический буфер? Вам однозначно в эту статью. После прочтения не забудьте полистать остальной блог, там очень много ценного.*
+  
+#### Swift
+
+- [objc Advanced Swift](https://www.objc.io/books/core-data/)
+
+  **Авторы:** Chris Eidhof, Ole Begemann.
+
+  **Рецензия:** *Авторы objc.io написали книгу по Swift, которую стоит прочитать  сразу после "[The Swift Programming Language](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/)".*
+
+- [WWDC 2015: Protocol-Oriented programming in Swift](https://developer.apple.com/videos/play/wwdc2015/408/)
+
+  **Авторы:** Apple and Dave Abrahams.
+
+  **Рецензия:** *Protocol-Oriented programming - основная концепция, продвигаемая Apple при проектировании классов приложения на Swift. Как воплотить эту идею в жизнь - эта сессия".*
   
 #### iOS
 
@@ -161,7 +169,7 @@
 
   **Авторы:** Florian Kugler, Daniel Eggert.
 
-  **Рецензия:** *Авторы objc.io написали лучшую альтернативу стандартному Core Data Programming Guide. Разобраны все аспекты работы с Core Data - начиная от общей схемы стека и заканчивая деталями профилирования.*
+  **Рецензия:** *Авторы objc.io написали лучшую альтернативу стандартному Core Data Programming Guide. Разобраны все аспекты работы с Core Data - начиная от общей схемы стека и заканчивая деталями профилирования"*"*".*
 
 - [Top 10 Mobile App Development Security Risks](https://www.owasp.org/index.php/IOS_Developer_Cheat_Sheet)
 
