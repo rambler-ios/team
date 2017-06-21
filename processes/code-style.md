@@ -8,7 +8,7 @@
   
   Подробный style guide, отвечающий на большую часть спорных вопросов. В качестве основы при его разработке был взят [NYTimes Objective-C Style Guide](https://github.com/NYTimes/objective-c-style-guide).
   
-- [The Book of VIPER / Вопросы Code Style](https://github.com/rambler-ios/The-Book-of-VIPER/blob/master/CodeStyle.md)
+- [The Book of VIPER / Вопросы Code Style](https://github.com/strongself/The-Book-of-VIPER/blob/master/russian/code-style.md)
 
   Когда мы только начали использовать VIPER, терминология во всех проектах очень сильно различалась. Чтобы избавиться от этого, мы написали свой небольшой гайд по неймингу и оформлению кода в рамках VIPER-модуля.
   
