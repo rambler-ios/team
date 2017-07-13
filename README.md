@@ -1,6 +1,8 @@
-### Rambler&Co iOS Team Playbook
+### RAMBLER&Co iOS Team Playbook
 
-[Мы](https://github.com/orgs/rambler-ios/teams/rambler-ios-team) - iOS команда холдинга Rambler&Co. В течение последних месяцев мы постепенно выкладываем в open source некоторые из наших проектов и наработок. Сейчас перед нами стоит интересная задача - мы планируем сделать прозрачными описания всех наших рабочих процессов и активностей (спасибо за идею [Artsy](https://github.com/artsy/mobile)).
+[Мы](https://github.com/orgs/rambler-ios/teams/rambler-ios-team) - iOS команда группы компаний RAMBLER&Co. Мы постоянно выкладываем в open source некоторые из внутренних проектов и наработок. Их вы можете найти в [наших репозиториях](https://github.com/rambler-ios), в [Rambler Digital Solutions](https://github.com/rambler-digital-solutions) или в комьюнити [StrongSelf](https://github.com/strongself). 
+
+Мы вновь вернулись к хоть и спорной, но интересной задаче - мы планируем сделать прозрачными описания всех наших рабочих процессов и активностей (спасибо за идею [Artsy](https://github.com/artsy/mobile)).
 
 ##### Что такое playbook?
 
