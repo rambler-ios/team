@@ -8,6 +8,7 @@
 | 21.07.17      | [What's new in Swift 4](https://github.com/rambler-ios/team/issues/104) | [Тащилин Егор](https://github.com/pihta)|
 | 28.07.17      | [Accessibility](https://github.com/rambler-ios/team/issues/106) | [Мордань Константин](https://github.com/kmordan)|
 | 28.07.17      | [Mobile Optimized 2017](https://github.com/rambler-ios/team/issues/107) | [Сычев Александр](https://github.com/Brain89)|
+| 11.08.17      | [What/s new in LLVM](https://github.com/rambler-ios/team/issues/108) | [Батвинкин Денис](https://github.com/Batvos)|
 
 #### Прошедшие
 ####2016
