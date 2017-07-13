@@ -6,6 +6,8 @@
 | ------------- |-------------| -----|
 | 14.07.17      | [iOS 11. Tech talks. Часть 2](https://github.com/rambler-ios/team/issues/104) | [Тришина Екатерина](https://github.com/RinaRish), [Меджлумян Самвел](https://github.com/smejl)  |
 | 21.07.17      | [What's new in Swift 4](https://github.com/rambler-ios/team/issues/104) | [Тащилин Егор](https://github.com/pihta)|
+| 28.07.17      | [Accessibility](https://github.com/rambler-ios/team/issues/106) | [Мордань Константин](https://github.com/kmordan)|
+| 28.07.17      | [Mobile Optimized 2017](https://github.com/rambler-ios/team/issues/107) | [Сычев Александр](https://github.com/Brain89)|
 
 #### Прошедшие
 ####2016
