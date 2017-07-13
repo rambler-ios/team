@@ -4,7 +4,7 @@
 
 | Дата        | Тема           | Автор  |
 | ------------- |-------------| -----|
-| 10.03.17      | [Прокачай свои навыки эффективности и креативности](https://github.com/rambler-ios/team/issues/98) | [Тришина Екатерина](https://github.com/RinaRish)  |
+| 14.07.17      | [iOS 11. Tech talks. Часть 2](https://github.com/rambler-ios/team/issues/104) | [Тришина Екатерина](https://github.com/RinaRish), [Меджлумян Самвел](https://github.com/smejl)  |
 
 #### Прошедшие
 
@@ -40,3 +40,4 @@
 | 16.12.16      | [Меню разработчика (рабочее название)](https://github.com/rambler-ios/team/issues/6) | [Алексей Сапожник](https://github.com/Sapozhnik), [Иованна Мишанина](https://github.com/iovannapopova)  |
 | 23.12.16      | [Чистые тесты на swift](https://github.com/rambler-ios/team/issues/48) | [Александр Сычев](https://github.com/Brain89)  |
 | 13.01.17      | [CQRS в iOS](https://github.com/rambler-ios/team/issues/96) | [Александр Сычев](https://github.com/Brain89)  |
+| 10.03.17      | [Прокачай свои навыки эффективности и креативности](https://github.com/rambler-ios/team/issues/98) | [Тришина Екатерина](https://github.com/RinaRish)  |
