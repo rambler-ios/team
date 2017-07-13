@@ -15,7 +15,7 @@
 | 08.09.17      | [Пишем тестируемый код](https://github.com/rambler-ios/team/issues/112) | [Сычев Александр](https://github.com/Brain89)|
 
 #### Прошедшие
-####2016
+**2016**
 
 | Дата        | Тема           | Автор  |
 | ------------- |-------------| -----|
@@ -49,7 +49,8 @@
 | 16.12.16      | [Меню разработчика](https://github.com/rambler-ios/team/issues/6) | [Сапожник Алексей](https://github.com/Sapozhnik), [Мишанина Иованна](https://github.com/iovannapopova)  |
 | 23.12.16      | [Чистые тесты на swift](https://github.com/rambler-ios/team/issues/48) | [Сычев Александр](https://github.com/Brain89)  |
 
-####2017
+**2017**
+
 | Дата        | Тема           | Автор  |
 | ------------- |-------------| -----|
 | 13.01.17      | [CQRS в iOS](https://github.com/rambler-ios/team/issues/96) | [Сычев Александр](https://github.com/Brain89)  |
