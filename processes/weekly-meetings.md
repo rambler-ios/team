@@ -11,6 +11,7 @@
 | 11.08.17      | [What's new in LLVM](https://github.com/rambler-ios/team/issues/108) | [Батвинкин Денис](https://github.com/Batvos)|
 | 18.08.17      | [Interactions with frameworks](https://github.com/rambler-ios/team/issues/109) | [Васюра Анастасия](https://github.com/juyka)|
 | 25.08.17      | [Modernizing Grand Central Dispatch Usage](https://github.com/rambler-ios/team/issues/110) | [Мордань Константин](https://github.com/kmordan)|
+| 01.09.17      | [HTTP Live Streaming](https://github.com/rambler-ios/team/issues/111) | [Квятковский Иван](https://github.com/kkivan)|
 
 #### Прошедшие
 ####2016
