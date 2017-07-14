@@ -13,6 +13,8 @@
 | 25.08.17      | [Modernizing Grand Central Dispatch Usage](https://github.com/rambler-ios/team/issues/110) | [Мордань Константин](https://github.com/kmordan)|
 | 01.09.17      | [HTTP Live Streaming](https://github.com/rambler-ios/team/issues/111) | [Квятковский Иван](https://github.com/kkivan)|
 | 08.09.17      | [Пишем тестируемый код](https://github.com/rambler-ios/team/issues/112) | [Сычев Александр](https://github.com/Brain89)|
+| 15.09.17      | - | - |
+| 22.09.17      | [Метод 360 градусов](https://github.com/rambler-ios/team/issues/113) | [Сычев Александр](https://github.com/Brain89)|
 
 ### Прошедшие
 **2016**
