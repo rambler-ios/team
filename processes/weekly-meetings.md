@@ -8,10 +8,10 @@
 | 21.07.17      | [What's new in Swift 4](https://github.com/rambler-ios/team/issues/105) | [Тащилин Егор](https://github.com/pihta)|
 | 28.07.17      | [Accessibility](https://github.com/rambler-ios/team/issues/106) | [Мордань Константин](https://github.com/kmordan)|
 | 28.07.17      | [Mobile Optimized 2017](https://github.com/rambler-ios/team/issues/107) | [Сычев Александр](https://github.com/Brain89)|
-| 11.08.17      | [What's new in LLVM](https://github.com/rambler-ios/team/issues/108) | [Батвинкин Денис](https://github.com/Batvos)|
+| 11.08.17      | [HTTP Live Streaming](https://github.com/rambler-ios/team/issues/111) | [Квятковский Иван](https://github.com/kkivan)|
 | 18.08.17      | [Interactions with frameworks](https://github.com/rambler-ios/team/issues/109) | [Васюра Анастасия](https://github.com/juyka)|
 | 25.08.17      | [Modernizing Grand Central Dispatch Usage](https://github.com/rambler-ios/team/issues/110) | [Мордань Константин](https://github.com/kmordan)|
-| 01.09.17      | [HTTP Live Streaming](https://github.com/rambler-ios/team/issues/111) | [Квятковский Иван](https://github.com/kkivan)|
+| 01.09.17      | [What's new in LLVM](https://github.com/rambler-ios/team/issues/108) | [Батвинкин Денис](https://github.com/Batvos)|
 | 08.09.17      | [Пишем тестируемый код](https://github.com/rambler-ios/team/issues/112) | [Сычев Александр](https://github.com/Brain89)|
 | 15.09.17      | - | - |
 | 22.09.17      | [Метод 360 градусов](https://github.com/rambler-ios/team/issues/113) | [Сычев Александр](https://github.com/Brain89)|
