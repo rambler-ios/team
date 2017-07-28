@@ -4,8 +4,6 @@
 
 | Дата        | Тема           | Автор  |
 | ------------- |-------------| -----|
-| 28.07.17      | [Accessibility](https://github.com/rambler-ios/team/issues/106) | [Мордань Константин](https://github.com/kmordan)|
-| 28.07.17      | [Mobile Optimized 2017](https://github.com/rambler-ios/team/issues/107) | [Сычев Александр](https://github.com/Brain89)|
 | 11.08.17      | [HTTP Live Streaming](https://github.com/rambler-ios/team/issues/111) | [Квятковский Иван](https://github.com/kkivan)|
 | 18.08.17      | [Interactions with frameworks](https://github.com/rambler-ios/team/issues/109) | [Васюра Анастасия](https://github.com/juyka)|
 | 25.08.17      | [Modernizing Grand Central Dispatch Usage](https://github.com/rambler-ios/team/issues/110) | [Мордань Константин](https://github.com/kmordan)|
@@ -57,3 +55,5 @@
 | 10.03.17      | [Прокачай свои навыки эффективности и креативности](https://github.com/rambler-ios/team/issues/98) | [Тришина Екатерина](https://github.com/RinaRish)  |
 | 14.07.17      | [iOS 11. Tech talks. Часть 2](https://github.com/rambler-ios/team/issues/104) | [Тришина Екатерина](https://github.com/RinaRish), [Меджлумян Самвел](https://github.com/smejl)  |
 | 21.07.17      | [What's new in Swift 4](https://github.com/rambler-ios/team/issues/105) | [Тащилин Егор](https://github.com/pihta)|
+| 28.07.17      | [Accessibility](https://github.com/rambler-ios/team/issues/106) | [Мордань Константин](https://github.com/kmordan)|
+| 28.07.17      | [Mobile Optimized 2017](https://github.com/rambler-ios/team/issues/107) | [Сычев Александр](https://github.com/Brain89)|
