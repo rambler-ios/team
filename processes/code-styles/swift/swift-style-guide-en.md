@@ -637,7 +637,7 @@ Prefer the struct-scope constants `CGRect.infinite`, `CGRect.null`, etc. over gl
 
 **Preferred:**
 ```swift
-let minX = view.frame.midX
+let minX = view.frame.minX
 let minY = view.frame.minY
 
 let width = view.frame.width
