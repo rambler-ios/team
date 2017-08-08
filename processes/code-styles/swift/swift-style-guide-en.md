@@ -31,7 +31,7 @@ annotation
   * [Static Methods and Variable Type Properties](#static-methods-and-variable-type-properties)
   * [Optionals](#optionals)
   * [Struct Initializers](#struct-initializers)
-  * [CGRect Functions](#CGRect-functions)
+  * [CGRect Functions](#cgrect-functions)
   * [Lazy Initialization](#lazy-initialization)
   * [Type Inference](#type-inference)
   * [Syntactic Sugar](#syntactic-sugar)
