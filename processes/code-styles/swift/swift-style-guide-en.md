@@ -31,6 +31,7 @@ annotation
   * [Static Methods and Variable Type Properties](#static-methods-and-variable-type-properties)
   * [Optionals](#optionals)
   * [Struct Initializers](#struct-initializers)
+  * [CGRect Functions](#cgrect-functions)
   * [Lazy Initialization](#lazy-initialization)
   * [Type Inference](#type-inference)
   * [Syntactic Sugar](#syntactic-sugar)
@@ -631,6 +632,26 @@ let centerPoint = CGPointMake(96, 42)
 ```
 
 Prefer the struct-scope constants `CGRect.infinite`, `CGRect.null`, etc. over global constants `CGRectInfinite`, `CGRectNull`, etc. For existing variables, you can use the shorter `.zero`.
+
+### CGRect Functions
+
+**Preferred:**
+```swift
+let minX = view.frame.minX
+let minY = view.frame.minY
+
+let width = view.frame.width
+let height = view.frame.height
+```
+
+**Not Preferred:**
+```swift
+let minX = view.frame.origin.x
+let minY = view.frame.origin.y
+
+let width = view.frame.size.width
+let height = view.frame.size.height
+```
 
 
 ### Lazy Initialization
