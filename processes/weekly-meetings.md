@@ -6,10 +6,9 @@
 | ------------- |-------------| -----|
 | 22.09.17      | [What's new in LLVM](https://github.com/rambler-ios/team/issues/108) | [Батвинкин Денис](https://github.com/Batvos)|
 | 29.09.17      | [Пишем тестируемый код](https://github.com/rambler-ios/team/issues/112) | [Сычев Александр](https://github.com/Brain89)|
-| 06.10.17       | [Interactions with frameworks](https://github.com/rambler-ios/team/issues/109) | [Васюра Анастасия](https://github.com/juyka)|
+| 06.10.17       | [Linkers, loaders, and you](https://github.com/rambler-ios/team/issues/109) | [Васюра Анастасия](https://github.com/juyka)|
 | 13.10.17      | [Modernizing Grand Central Dispatch Usage](https://github.com/rambler-ios/team/issues/110) | [Мордань Константин](https://github.com/kmordan)|
 | ?      | [Метод 360 градусов](https://github.com/rambler-ios/team/issues/113) | [Сычев Александр](https://github.com/Brain89)|
-
 
 ### Прошедшие
 **2016**
