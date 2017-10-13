@@ -277,7 +277,7 @@ let uRLString: UrlString
 let userId: UserId
 ```
 
-* **3.5** All constants other than singletons that are instance-independent should be `static`. All such `static` constants should be placed in a container `enum` type as per rule **3.1.16**. The naming of this container should be singular (e.g. `Constant` and **not** `Constants`) and it should be named such that it is relatively obvious that it is a constant container. If this is not obvious, you can add a `Constant` suffix to the name. You should use these containers to group constants that have similar or the same prefixes, suffixes and/or use cases.
+* **3.5** All constants other than singletons that are instance-independent should be `static`. All such `static` constants should be placed in a container `enum` type as per rule **3.1.16**. The naming of this container should be singular (e.g. `Constant` and **not** `Constants`) and it should be named such that it is relatively obvious that it is a constant container. If this is not obvious, you can add a `Constant` suffix to the name. You should use these containers to group constants that have similar or the same prefixes, suffixes and/or use cases. **Note:** The advantage of using a case-less enumeration is that it can't accidentally be instantiated and works as a pure namespace.
 
 **Preferred**
 
@@ -492,7 +492,7 @@ let colour = "red"
 
 * **4.1** Each logical blocks of functionality **SHOULD** be set off with a `// MARK: -` comment to keep things well-organized. Leave a newline after the comment line.
 
-* **4.2** When adding protocol conformance to a model, prefer adding a separate group (commented with `// MARK: -`) for the protocol methods. This keeps the related methods grouped together with the protocol.
+* **4.2** When adding protocol conformance to a model, prefer adding a separate group (commented with `// MARK: -`) for the protocol methods. This keeps the related methods grouped together with the protocol. Keep in mind that when using an extension, however, the methods in the extension can't be overridden by a subclass, which can make testing difficult.
 
 **Preferred:**
 
@@ -685,13 +685,31 @@ do {
 
 * **5.1.13** Prefer `static` to `class` when declaring a function or property that is associated with a class as opposed to an instance of that class. Only use `class` if you specifically need the functionality of overriding that function or property in a subclass, though consider using a `protocol` to achieve this instead.
 
-* **5.1.14** If you have a function that takes no arguments, has no side effects, and returns some object or value, prefer using a computed property instead. **TODO: discuss**
+* **5.1.14** If you have a function that takes no arguments, has no side effects, and returns some object or value, prefer using a computed property instead. For conciseness, if a computed property is read-only, the get clause **MUST** be omitted. The get clause is required only when a set clause is provided. **TODO: discuss** 
+
+**Preferred:**
+
+```swift
+var diameter: Double {
+    return radius * 2
+}
+```
+
+**Not Preferred:**
+
+```swift
+var diameter: Double {
+    get {
+        return radius * 2
+    }
+}
+```
 
 * **5.1.15** For the purpose of namespacing a set of `static` functions and/or `static` properties, prefer using a caseless `enum` over a `class` or a `struct`. This way, you don't have to add a `private init() { }` to the container.
 
 ### 5.2 Access Modifiers
 
-* **5.2.1** Write the access modifier keyword first if it is needed.
+* **5.2.1** Write the access modifier keyword first if it is needed. The only things that should come before access control are the `static` specifier or attributes such as `@IBAction` and `@IBOutlet`.
 
 **Not Preferred:**
 
@@ -739,6 +757,313 @@ let pirateName = "LeChuck"
 * **5.2.5** Prefer `private` to `fileprivate` where possible.
 
 * **5.2.6** When choosing between `public` and `open`, prefer `open` if you intend for something to be subclassable outside of a given module and `public` otherwise. Note that anything `internal` and above can be subclassed in tests by using `@testable import`, so this shouldn't be a reason to use `open`. In general, lean towards being a bit more liberal with using `open` when it comes to libraries, but a bit more conservative when it comes to modules in a codebase such as an app where it is easy to change things in multiple modules simultaneously.
+
+
+### 5.3 Custom Operators
+
+* **5.3.1** Prefer creating named functions to custom operators.
+
+* **5.3.2** If you want to introduce a custom operator, make sure that you have a *very* good reason why you want to introduce a new operator into global scope as opposed to using some other construct. You can override existing operators to support new types (especially `==`). However, your new definitions must preserve the semantics of the operator. For example, `==` must always test equality and return a boolean.
+
+### 5.4 Switch Statements and `enum`s
+
+* **5.4.1** When using a switch statement that has a finite set of possibilities (`enum`), do *NOT* include a `default` case. Instead, place unused cases at the bottom and use the `break` keyword to prevent execution. This will help to avoid undefined behaviour when adding new cases to enums.
+
+* **5.4.2** Since `switch` cases in Swift break by default, do not include the `break` keyword if it is not needed.
+
+* **5.4.3** The `case` statements should line up with the `switch` statement itself as per default Swift standards.
+
+* **5.4.4** When defining a case that has an associated value, make sure that this value is appropriately labeled as opposed to just types (e.g. `case Hunger(hungerLevel: Int)` instead of `case Hunger(Int)`).
+
+```swift
+enum Problem {
+    case attitude
+    case hair
+    case hunger(hungerLevel: Int)
+}
+
+func handleProblem(problem: Problem) {
+    switch problem {
+    case .attitude:
+        print("At least I don't have a hair problem.")
+    case .hair:
+        print("Your barber didn't know when to stop.")
+    case .hunger(let hungerLevel):
+        print("The hunger level is \(hungerLevel).")
+    }
+}
+```
+
+* **5.4.5** Prefer lists of possibilities (e.g. `case 1, 2, 3:`) to using the `fallthrough` keyword where possible).
+
+* **5.4.6** If you have a default case that shouldn't be reached, preferably throw an error (or handle it some other similar way such as asserting).
+
+```swift
+func handleDigit(_ digit: Int) throws {
+    switch digit {
+    case 0, 1, 2, 3, 4, 5, 6, 7, 8, 9:
+        print("Yes, \(digit) is a digit!")
+    default:
+        throw Error(message: "The given number was not a digit.")
+    }
+}
+```
+
+### 5.5 Optionals
+
+* **5.5.1** The only time you should be using implicitly unwrapped optionals is with `@IBOutlet`s. In every other case, it is better to use a non-optional or regular optional property. Yes, there are cases in which you can probably "guarantee" that the property will never be `nil` when used, but it is better to be safe and consistent. 
+* 
+* **5.5.2** When using Dependency Injection prefer injection through initializers rather then property-based. Similarly, don't use force unwraps. **TODO: discuss**
+
+* **5.5.3** Don't use `as!` or `try!`.
+
+* **5.5.4** If you don't plan on actually using the value stored in an optional, but need to determine whether or not this value is `nil`, explicitly check this value against `nil` as opposed to using `if let` syntax.
+
+**Preferred:**
+
+```swift
+if someOptional != nil {
+    // do something
+}
+```
+
+**Not Preferred:**
+
+```swift
+if let _ = someOptional {
+    // do something
+}
+```
+
+* **5.5.5** Don't use `unowned`. You can think of `unowned` as somewhat of an equivalent of a `weak` property that is implicitly unwrapped (though `unowned` has slight performance improvements on account of completely ignoring reference counting). Since we don't ever want to have implicit unwraps, we similarly don't want `unowned` properties.
+
+**Preferred:**
+
+```swift
+weak var parentViewController: UIViewController?
+
+```
+
+**Not Preferred:**
+
+```swift
+weak var parentViewController: UIViewController!
+unowned var parentViewController: UIViewController
+```
+
+* **5.5.6** When unwrapping optionals, use the same name for the unwrapped constant or variable where appropriate.
+
+```swift
+guard let myValue = myValue else {
+    return
+}
+```
+
+* **5.5.7** When accessing an optional value, use optional chaining if the value is only accessed once or if there are many optionals in the chain:
+
+```swift
+self.textContainer?.textLabel?.setNeedsDisplay()
+```
+
+Use optional binding when it's more convenient to unwrap once and perform multiple operations:
+
+```swift
+if let textContainer = self.textContainer {
+    // do many things with textContainer
+}
+```
+
+### 5.6 Properties
+
+* **5.6.1** When using `get {}`, `set {}`, `willSet`, and `didSet`, indent these blocks.
+* **5.6.2** Though you can create a custom name for the new or old value for `willSet`/`didSet` and `set`, use the standard `newValue`/`oldValue` identifiers that are provided by default.
+
+```swift
+var storedProperty: String = "I'm selling these fine leather jackets." {
+    willSet {
+        print("will set to \(newValue)")
+    }
+    didSet {
+        print("did set from \(oldValue) to \(storedProperty)")
+    }
+}
+
+var computedProperty: String  {
+    get {
+        if someBool {
+            return "I'm a mighty pirate!"
+        }
+        return storedProperty
+    }
+    set {
+        storedProperty = newValue
+    }
+}
+```
+
+* **5.6.3** You can declare a singleton property as follows:
+
+```swift
+class PirateManager {
+    static let shared = PirateManager()
+
+    /* ... */
+}
+```
+
+### 5.7 Closures
+
+* **5.7.1** If the types of the parameters are obvious, it is OK to omit the type name, but being explicit is also OK. Sometimes readability is enhanced by adding clarifying detail and sometimes by taking repetitive parts away - use your best judgment and be consistent.
+
+```swift
+// omitting the type
+doSomethingWithClosure() { response in
+    print(response)
+}
+
+// explicit type
+doSomethingWithClosure() { response: NSURLResponse in
+    print(response)
+}
+
+// using shorthand in a map statement
+[1, 2, 3].flatMap { String($0) }
+```
+
+* **5.7.2** If specifying a closure as a type, you don’t need to wrap it in parentheses unless it is required (e.g. if the type is optional or the closure is within another closure). Always wrap the arguments in the closure in a set of parentheses - use `()` to indicate no arguments and use `Void` to indicate that nothing is returned.
+
+```swift
+let completionBlock: (Bool) -> Void = { (success) in
+    print("Success? \(success)")
+}
+
+let completionBlock: () -> Void = {
+    print("Completed!")
+}
+
+let completionBlock: (() -> Void)? = nil
+```
+
+* **5.7.3** Keep parameter names on same line as the opening brace for closures when possible without too much horizontal overflow (i.e. ensure lines are less than 160 characters).
+
+* **5.7.4** Use trailing closure syntax unless the meaning of the closure is not obvious without the parameter name (an example of this could be if a method has parameters for success and failure closures).
+
+```swift
+// trailing closure
+doSomething(1.0) { (parameter1) in
+    print("Parameter 1 is \(parameter1)")
+}
+
+// no trailing closure
+doSomething(1.0, success: { (parameter1) in
+    print("Success with \(parameter1)")
+}, failure: { (parameter1) in
+    print("Failure with \(parameter1)")
+})
+```
+
+* **5.7.5** For single-expression closures where the context is clear, use implicit returns: **TODO: discuss**
+
+```swift
+attendeeList.sort { a, b in
+    a > b
+}
+```
+
+* **5.7.6** Chained methods using trailing closures **SHOULD** be clear and easy to read in context. Decisions on spacing, line breaks, and when to use named versus anonymous arguments is left to the discretion of the author. Examples: **TODO: discuss** (#2)
+
+```swift
+let value = numbers.map { $0 * 2 }.filter { $0 % 3 == 0 }.indexOf(90)
+
+let value = numbers
+   .map {$0 * 2}
+   .filter {$0 > 50}
+   .map {$0 + 10}
+```
+
+### 5.8 Arrays
+
+* **5.8.1** In general, avoid accessing an array directly with subscripts. When possible, use accessors such as `.first` or `.last`, which are optional and won’t crash. Prefer using a `for item in items` syntax when possible as opposed to something like `for i in 0 ..< items.count`. If you need to access an array subscript directly, make sure to do proper bounds checking. You can use `for (index, value) in items.enumerated()` to get both the index and the value.
+
+* ** 5.8.2** Never use the `+=` or `+` operator to append/concatenate to arrays. Instead, use `.append()` or `.append(contentsOf:)` as these are far more performant (at least with respect to compilation) in Swift's current state. If you are declaring an array that is based on other arrays and want to keep it immutable, instead of `let myNewArray = arr1 + arr2`, use `let myNewArray = [arr1, arr2].joined()`.
+
+* ** 5.8.3** Never use optional arrays because it leads to ambiguous state if array is empty or nil. **TODO: discuss**
+
+### 5.9 Error Handling
+
+* ** 5.9.1** Suppose a function `myFunction` is supposed to return a `String`, however, at some point it can run into an error. A common approach is to have this function return an optional `String?` where we return `nil` if something went wrong.
+
+Example:
+
+```swift
+func readFile(named filename: String) -> String? {
+    guard let file = openFile(named: filename) else {
+        return nil
+    }
+
+    let fileContents = file.read()
+    file.close()
+    return fileContents
+}
+
+func printSomeFile() {
+    let filename = "somefile.txt"
+    guard let fileContents = readFile(named: filename) else {
+        print("Unable to open file \(filename).")
+        return
+    }
+    print(fileContents)
+}
+```
+
+Instead, we should be using Swift's `try`/`catch` behavior when it is appropriate to know the reason for the failure.
+
+You can use a `struct` such as the following:
+
+```swift
+struct Error: Swift.Error {
+    public let file: StaticString
+    public let function: StaticString
+    public let line: UInt
+    public let message: String
+
+    public init(message: String, file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
+        self.file = file
+        self.function = function
+        self.line = line
+        self.message = message
+    }
+}
+```
+
+Example usage:
+
+```swift
+func readFile(named filename: String) throws -> String {
+    guard let file = openFile(named: filename) else {
+        throw Error(message: "Unable to open file named \(filename).")
+    }
+
+    let fileContents = file.read()
+    file.close()
+    return fileContents
+}
+
+func printSomeFile() {
+    do {
+        let fileContents = try readFile(named: filename)
+        print(fileContents)
+    } catch {
+        print(error)
+    }
+}
+```
+
+* ** 5.9.2** There are some exceptions in which it does make sense to use an optional as opposed to error handling. When the result should *semantically* potentially be `nil` as opposed to something going wrong while retrieving the result, it makes sense to return an optional instead of using error handling.
+
+* ** 5.9.3** In general, if a method can "fail", and the reason for the failure is not immediately obvious if using an optional return type, it probably makes sense for the method to throw an error.
+
+* ** 5.9.4** Also consider using returning enum with error, empty and value cases with appropriate associated values. **TODO: discuss**
 
 
 ---------------------------
@@ -801,117 +1126,6 @@ The example above demonstrates the following style guidelines:
 * Don't add modifiers such as `internal` when they're already the default. Similarly, don't repeat the access modifier when overriding a method.
 
 
-### 5.2 Use of Self
-
-* **5.2.1** For conciseness, using `self` **SHOULD BE** avoided since Swift does not require it to access an object's properties or invoke its methods.
-
-* **5.2.2** `self` **MUST** be used when required to differentiate between property names and arguments in initializers, and when referencing properties in closure expressions (as required by the compiler):
-
-```swift
-class BoardLocation {
-    let row: Int, column: Int
-
-    init(row: Int, column: Int) {
-        self.row = row
-        self.column = column
-    
-        let closure = {
-            print(self.row)
-        }
-    }
-}
-```
-
-### Computed Properties
-
-For conciseness, if a computed property is read-only, the get clause **MUST** be omitted. The get clause is required only when a set clause is provided.
-
-**Preferred:**
-```swift
-var diameter: Double {
-    return radius * 2
-}
-```
-
-**Not Preferred:**
-```swift
-var diameter: Double {
-    get {
-        return radius * 2
-    }
-}
-```
-
-### Final
-
-Mark classes `final` when inheritance is not intended. Example:
-
-```swift
-// Turn any generic type into a reference type using this Box class.
-final class Box<T> {
-
-    let value: T 
-  
-    init(_ value: T) {
-        self.value = value
-    }
-}
-```
-
-
-## Closure Expressions
-
-Trailing closure syntax **SHOULD** be used only if there's a single closure expression parameter at the end of the argument list. The closure parameters **MUST** have descriptive names.
-
-**Preferred:**
-```swift
-UIView.animateWithDuration(1.0) {
-    self.myView.alpha = 0
-}
-
-UIView.animateWithDuration(1.0,
-    animations: {
-        self.myView.alpha = 0
-    },
-    completion: { finished in
-        self.myView.removeFromSuperview()
-    }
-)
-```
-
-**Not Preferred:**
-```swift
-UIView.animateWithDuration(1.0, animations: {
-    self.myView.alpha = 0
-})
-
-UIView.animateWithDuration(1.0,
-  animations: {
-      self.myView.alpha = 0
-  }) { f in
-      self.myView.removeFromSuperview()
-}
-```
-
-For single-expression closures where the context is clear, use implicit returns:
-
-```swift
-attendeeList.sort { a, b in
-    a > b
-}
-```
-
-Chained methods using trailing closures **SHOULD** be clear and easy to read in context. Decisions on spacing, line breaks, and when to use named versus anonymous arguments is left to the discretion of the author. Examples:
-
-```swift
-let value = numbers.map { $0 * 2 }.filter { $0 % 3 == 0 }.indexOf(90)
-
-let value = numbers
-   .map {$0 * 2}
-   .filter {$0 > 50}
-   .map {$0 + 10}
-```
-
 ## Types
 
 Always use Swift's native types when available. Swift offers bridging to Objective-C so you can still use the full set of methods as needed.
@@ -930,85 +1144,6 @@ let widthString: NSString = width.stringValue        // NSString
 
 In Sprite Kit code, use `CGFloat` if it makes the code more succinct by avoiding too many conversions.
 
-### Constants
-
-Constants are defined using the `let` keyword, and variables with the `var` keyword. Always use `let` instead of `var` if the value of the variable will not change.
-
-
-
-You can define constants on a type rather than an instance of that type using type properties. To declare a type property as a constant simply use `static let`. Type properties declared in this way are generally preferred over global constants because they are easier to distinguish from instance properties. Example:
-
-**Preferred:**
-```swift
-enum Math {
-    static let e  = 2.718281828459045235360287
-    static let pi = 3.141592653589793238462643
-}
-
-radius * Math.pi * 2 // circumference
-
-```
-**Note:** The advantage of using a case-less enumeration is that it can't accidentally be instantiated and works as a pure namespace.
-
-**Not Preferred:**
-```swift
-let e  = 2.718281828459045235360287  // pollutes global namespace
-let pi = 3.141592653589793238462643  
-}
-
-radius * pi * 2 // is pi instance data or a global constant?
-```
-
-### Static Methods and Variable Type Properties
-
-Static methods and type properties work similarly to global functions and global variables and **SHOULD** be used sparingly. They are useful when functionality is scoped to a particular type or when Objective-C interoperability is required.
-
-### Optionals
-
-Declare variables and function return types as optional with `?` where a nil value is acceptable.
-
-Use implicitly unwrapped types declared with `!` only for instance variables that you know will be initialized later before use, such as subviews that will be set up in `viewDidLoad`.
-
-When accessing an optional value, use optional chaining if the value is only accessed once or if there are many optionals in the chain:
-
-```swift
-self.textContainer?.textLabel?.setNeedsDisplay()
-```
-
-Use optional binding when it's more convenient to unwrap once and perform multiple operations:
-
-```swift
-if let textContainer = self.textContainer {
-    // do many things with textContainer
-}
-```
-
-When naming optional variables and properties, avoid naming them like `optionalString` or `maybeView` since their optional-ness is already in the type declaration.
-
-For optional binding, shadow the original name when appropriate rather than using names like `unwrappedView` or `actualLabel`.
-
-**Preferred:**
-```swift
-var subview: UIView?
-var volume: Double?
-
-// later on...
-if let subview = subview, volume = volume {
-    // do something with unwrapped subview and volume
-}
-```
-
-**Not Preferred:**
-```swift
-var optionalSubview: UIView?
-var volume: Double?
-
-if let unwrappedSubview = optionalSubview {
-    if let realVolume = volume {
-      // do something with unwrappedSubview and realVolume
-    }
-}
-```
 
 ### Struct Initializers
 
@@ -1187,24 +1322,6 @@ resource.request().onComplete { [weak self] response in
 }
 ```
 
-## Access Control
-
-Full access control annotation in tutorials can distract from the main topic and is not required. Using `private` appropriately, however, adds clarity and promotes encapsulation. Use `private` as the leading property specifier. The only things that should come before access control are the `static` specifier or attributes such as `@IBAction` and `@IBOutlet`.
-
-**Preferred:**
-```swift
-class TimeMachine {  
-    private dynamic lazy var fluxCapacitor = FluxCapacitor()
-}
-```
-
-**Not Preferred:**
-```swift
-class TimeMachine {  
-    lazy dynamic private var fluxCapacitor = FluxCapacitor()
-}
-```
-
 ## Control Flow
 
 Prefer the `for-in` style of `for` loop over the `while-condition-increment` style.
@@ -1314,7 +1431,7 @@ else {
 Guard statements are required to exit in some way. Generally, this should be simple one line statement such as `return`, `throw`, `break`, `continue`, and `fatalError()`. Large code blocks should be avoided. If cleanup code is required for multiple exit points, consider using a `defer` block to avoid cleanup code duplication.
 
 
-```
+
 ## Selectors
 
 Selectors are Obj-C methods that act as handlers for many Cocoa and Cocoa Touch APIs. Strings **MUST NOT** be used for specifiying selectors. **Fully qualified** type safe selector **MUST** be used. Often, however, you can use context to shorten the expression. This is the preferred style.
@@ -1416,6 +1533,8 @@ func myFunction() {
 ```
 
 * **4.1.8** When writing doc comments, prefer brevity where possible.
+
+-------------------------------------------
 
 ### 4.2 Other Commenting Guidelines
 
