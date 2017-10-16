@@ -968,7 +968,7 @@ guard let myValue = myValue else {
 self.textContainer?.textLabel?.setNeedsDisplay()
 ```
 
-Use optional binding when it's more convenient to unwrap once and perform multiple operations:
+* **5.5.8** Use optional binding when it's more convenient to unwrap once and perform multiple operations:
 
 ```swift
 if let textContainer = self.textContainer {
@@ -1185,7 +1185,9 @@ func printSomeFile() {
 
 * ** 5.9.3** In general, if a method can "fail", and the reason for the failure is not immediately obvious if using an optional return type, it probably makes sense for the method to throw an error.
 
-* ** 5.9.4** Also consider using returning enum with error, empty and value cases with appropriate associated values. **TODO: discuss**
+* **5.9.4** If you don't want to deal with thrown error and just want to have an optional value use `try?`.
+
+* ** 5.9.5** Also consider using returning enum with error, empty and value cases with appropriate associated values. **TODO: discuss**
 
 ### 5.10 Using `guard` Statements
 
@@ -1289,7 +1291,7 @@ guard isFriendly else {
 print("Hello, nice to meet you!")
 ```
 
-* **5.10.5** You should also use `guard` only if a failure should result in exiting the current context. Large code blocks should be avoided. If cleanup code is required for multiple exit points, consider using a `defer` block to avoid cleanup code duplication. Below is an example in which it makes more sense to use two `if` statements instead of using two `guard`s - we have two unrelated conditions that should not block one another.
+* **5.10.5** You should also use `guard` only if a failure should result in exiting the current context. Large code blocks should be avoided. Below is an example in which it makes more sense to use two `if` statements instead of using two `guard`s - we have two unrelated conditions that should not block one another.
 
 ```swift
 if let monkeyIsland = monkeyIsland {
@@ -1342,6 +1344,31 @@ guard let thingOne = thingOne else { return }
 
 ```swift
 guard let thingOne = thingOne else { someAction(); return }
+```
+
+* **5.10.8** If cleanup code is required for multiple exit points, consider using a `defer` block to avoid cleanup code duplication. You can use multiple `defer` blocks. Place them logically near the resource they are cleaning so you can easily locate them. **Note** `defer` blocks are executed in the reverse order of their appearance. This reverse order is a vital detail, ensuring everything that was in scope when a deferred block was created will still be in scope when the block is executed.
+
+```swift
+func resizeImage(url: NSURL) -> UIImage? {
+    // ...
+    let dataSize: Int = ...
+    let destData = UnsafeMutablePointer<UInt8>.alloc(dataSize)
+    defer {
+        destData.dealloc(dataSize)
+    }
+
+    var destBuffer = vImage_Buffer(data: destData, ...)
+
+    // scale the image from sourceBuffer to destBuffer
+    var error = vImageScale_ARGB8888(&sourceBuffer, &destBuffer, ...)
+    guard error == kvImageNoError 
+        else { return nil }
+
+    // create a CGImage from the destBuffer
+    guard let destCGImage = vImageCreateCGImageFromBuffer(&destBuffer, &format, ...) 
+        else { return nil }
+    // ...
+}
 ```
 
 ### 5.11 Classes and Structures. Which one to use?
