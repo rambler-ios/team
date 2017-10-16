@@ -277,35 +277,35 @@ let uRLString: UrlString
 let userId: UserId
 ```
 
-* **3.5** All constants other than singletons that are instance-independent should be `static`. All such `static` constants should be placed in a container `enum` type. The naming of this container should be singular (e.g. `Constant` and **not** `Constants`) and it should be named such that it is relatively obvious that it is a constant container. If this is not obvious, you can add a `Constant` suffix to the name. You should use these containers to group constants that have similar or the same prefixes, suffixes and/or use cases. **Note:** The advantage of using a case-less enumeration is that it can't accidentally be instantiated and works as a pure namespace.
-
+* **3.5** All constants other than singletons that are instance-independent should be `static`. All such `static` constants should be placed in a container `struct` type inside corresponding class. The naming of this container should be singular (e.g. `Constant` and **not** `Constants`) and it should be named such that it is relatively obvious that it is a constant container. If this is not obvious, you can add a `Constant` suffix to the name. You should use these containers to group constants that have similar or the same prefixes, suffixes and/or use cases. 
+* 
 **Preferred**
 
 ```swift
-class MyClassName {
-    enum AccessibilityIdentifier {
-        static let pirateButton = "pirate_button"
-    }
-    enum SillyMathConstant {
-        static let indianaPi = 3
-    }
-    static let shared = MyClassName()
+struct CellIdentifier {
+    static let Blue = "BlueCellIdentifier"
+    static let Large = "LargeCellIdentifier"
+}
+
+struct FontSize {
+    static let Large: CGFloat = 14.0
+    static let Small: CGFloat = 10.0
+}
 ```
 
 **Not Preferred**
 
 ```swift
-    static let kPirateButtonAccessibilityIdentifier = "pirate_button"
-    enum SillyMath {
-        static let indianaPi = 3
-    }
-    enum Singleton {
-        static let shared = MyClassName()
-    }
+	static let kBlueCellIdentifiers = "pirate_button"
+	static let fontSizeLarge: CGFloat = 14.0
 }
 ```
 
-* **3.6** For generics and associated types, use a `PascalCase` word that describes the generic. If this word clashes with a protocol that it conforms to or a superclass that it subclasses, you can append a `Type` suffix to the associated type or generic name.
+* **3.6** Separate constants usage on a class basis. Use project/module-level constant only when neccesary and when unable to find appropriate class for them.
+
+* **3.8** When using module-level constants try to group them into groups by their sematics. I.e UIConstant, APIConstant. Discuss on using single global namespace for all module-level constants such as Constant.
+
+* **3.9** For generics and associated types, use a `PascalCase` word that describes the generic. If this word clashes with a protocol that it conforms to or a superclass that it subclasses, you can append a `Type` suffix to the associated type or generic name.
 
 ```swift
 class SomeClass<Model> { /* ... */ }
@@ -317,7 +317,7 @@ protocol Sequence {
 }
 ```
 
-* **3.7** Names should be descriptive and unambiguous.
+* **3.10** Names should be descriptive and unambiguous.
 
 **Preferred**
 
@@ -331,7 +331,7 @@ class RoundAnimatingButton: UIButton { /* ... */ }
 class CustomButton: UIButton { /* ... */ }
 ```
 
-* **3.8** Do not abbreviate, use shortened names, or single letter names.
+* **3.11** Do not abbreviate, use shortened names, or single letter names.
 
 **Preferred**
 
@@ -358,7 +358,7 @@ class RoundAnimating: UIButton {
 }
 ```
 
-* **3.9** Include type information in constant or variable names when it is not obvious otherwise.
+* **3.12** Include type information in constant or variable names when it is not obvious otherwise.
 
 **Preferred**
 
@@ -431,9 +431,9 @@ let popupViewController: UITableViewController
 }
 ```
 
-* **3.10** When naming function arguments, make sure that the function can be read easily to understand the purpose of each argument.
+* **3.13** When naming function arguments, make sure that the function can be read easily to understand the purpose of each argument.
 
-* **3.11** As per [Apple's API Design Guidelines](https://swift.org/documentation/api-design-guidelines/), a `protocol` should be named as nouns if they describe what something is doing (e.g. `Collection`) and using the suffixes `-able`, `-ible`, or `-ing` if it describes a capability (e.g. `Equatable`, `ProgressReporting`). If neither of those options makes sense for your use case, you can add a `Protocol` suffix to the protocol's name as well. Some example `protocol`s are below.
+* **3.14** As per [Apple's API Design Guidelines](https://swift.org/documentation/api-design-guidelines/), a `protocol` should be named as nouns if they describe what something is doing (e.g. `Collection`) and using the suffixes `-able`, `-ible`, or `-ing` if it describes a capability (e.g. `Equatable`, `ProgressReporting`). If neither of those options makes sense for your use case, you can add a `Protocol` suffix to the protocol's name as well. Some example `protocol`s are below.
 
 ```swift
 // here, the name is a noun that describes what the protocol does
@@ -459,7 +459,7 @@ func inputText() -> String
 }
 ```
 
-* **3.12** When a type name doesn't have a meaningful relationship or role, use a traditional single uppercase letter such as `T`, `U`, or `V`.
+* **3.15** When a type name doesn't have a meaningful relationship or role, use a traditional single uppercase letter such as `T`, `U`, or `V`.
 
 **Preferred:**
 
@@ -473,7 +473,7 @@ func max<T: Comparable>(x: T, _ y: T) -> T
 func max<Thing: Comparable>(x: Thing, _ y: Thing) -> Thing
 ```
 
-* **3.13** US English spelling **MUST** be used to match Apple's API.
+* **3.16** US English spelling **MUST** be used to match Apple's API.
 
 **Preferred:**
 
@@ -487,7 +487,7 @@ let color = "red"
 let colour = "red"
 ```
 
-* **3.14** The shortcut versions of type declarations over the full generics syntax **SHOULD** be used.
+* **3.17** The shortcut versions of type declarations over the full generics syntax **SHOULD** be used.
 
 **Preferred:**
 
