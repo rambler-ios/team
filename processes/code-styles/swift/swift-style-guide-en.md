@@ -277,7 +277,7 @@ let uRLString: UrlString
 let userId: UserId
 ```
 
-* **3.5** All constants other than singletons that are instance-independent should be `static`. All such `static` constants should be placed in a container `enum` type as per rule **3.1.16**. The naming of this container should be singular (e.g. `Constant` and **not** `Constants`) and it should be named such that it is relatively obvious that it is a constant container. If this is not obvious, you can add a `Constant` suffix to the name. You should use these containers to group constants that have similar or the same prefixes, suffixes and/or use cases. **Note:** The advantage of using a case-less enumeration is that it can't accidentally be instantiated and works as a pure namespace.
+* **3.5** All constants other than singletons that are instance-independent should be `static`. All such `static` constants should be placed in a container `enum` type. The naming of this container should be singular (e.g. `Constant` and **not** `Constants`) and it should be named such that it is relatively obvious that it is a constant container. If this is not obvious, you can add a `Constant` suffix to the name. You should use these containers to group constants that have similar or the same prefixes, suffixes and/or use cases. **Note:** The advantage of using a case-less enumeration is that it can't accidentally be instantiated and works as a pure namespace.
 
 **Preferred**
 
@@ -487,6 +487,24 @@ let color = "red"
 let colour = "red"
 ```
 
+* **3.14** The shortcut versions of type declarations over the full generics syntax **SHOULD** be used.
+
+**Preferred:**
+
+```swift
+var deviceModels: [String]
+var employees: [Int: String]
+var faxNumber: Int?
+```
+
+**Not Preferred:**
+
+```swift
+var deviceModels: Array<String>
+var employees: Dictionary<Int, String>
+var faxNumber: Optional<Int>
+```
+
 
 ## 4. Code Organization
 
@@ -598,9 +616,66 @@ for integer in [4, 8, 15, 16, 23, 42] {
 }
 ```
 
-* **5.1.3** Prefer not declaring types for constants or variables if they can be inferred anyway.
+* **5.1.3** Prefer the `for-in` style of `for` loop over the `while-condition-increment` style.
 
-* **5.1.4** If a function returns multiple values, prefer returning a tuple to using `inout` arguments (it’s best to use labeled tuples for clarity on what you’re returning if it is not otherwise obvious). If you use a certain tuple more than once, consider using a `typealias`. If you’re returning 3 or more items in a tuple, consider using a `struct` or `class` instead. **TODO: discuss**
+**Preferred:**
+
+```swift
+for _ in 0..<3 {
+    print("Hello three times")
+}
+
+for (index, person) in attendeeList.enumerate() {
+    print("\(person) is at position #\(index)")
+}
+
+for index in 0.stride(to: items.count, by: 2) {
+    print(index)
+}
+
+for index in (0...3).reverse() {
+    print(index)
+}
+```
+
+**Not Preferred:**
+
+```swift
+var i = 0
+while i < 3 {
+    print("Hello three times")
+    i += 1
+}
+
+
+var i = 0
+while i < attendeeList.count {
+    let person = attendeeList[i]
+    print("\(person) is at position #\(i)")
+    i += 1
+}
+```
+
+* **5.1.4** Prefer not declaring types for constants or variables if they can be inferred anyway. Prefer compact code and let the compiler infer the type for constants or variables of single instances. Type inference is also appropriate for small (non-empty) arrays and dictionaries. When required, specify the specific type such as `CGFloat` or `Int16`.
+
+**Preferred:**
+
+```swift
+let message = "Click the button"
+let currentBounds = computeViewBounds()
+var names = ["Mic", "Sam", "Christine"]
+let maximumWidth: CGFloat = 106.5
+```
+
+**Not Preferred:**
+
+```swift
+let message: String = "Click the button"
+let currentBounds: CGRect = computeViewBounds()
+let names = [String]()
+```
+
+* **5.1.5** If a function returns multiple values, prefer returning a tuple to using `inout` arguments (it’s best to use labeled tuples for clarity on what you’re returning if it is not otherwise obvious). If you use a certain tuple more than once, consider using a `typealias`. If you’re returning 3 or more items in a tuple, consider using a `struct` or `class` instead. **TODO: discuss**
 
 ```swift
 func pirateName() -> (firstName: String, lastName: String) {
@@ -612,29 +687,41 @@ let firstName = name.firstName
 let lastName = name.lastName
 ```
 
-* **5.1.5** Be wary of retain cycles when creating delegates/protocols for your classes; typically, these properties should be declared `weak`.
+* **5.1.6** Be wary of retain cycles when creating delegates/protocols for your classes; typically, these properties should be declared `weak`.
 
-* **5.1.6** Be careful when calling `self` directly from an escaping closure as this can cause a retain cycle - use a [capture list](https://developer.apple.com/library/ios/documentation/swift/conceptual/Swift_Programming_Language/Closures.html#//apple_ref/doc/uid/TP40014097-CH11-XID_163) when this might be the case:
+* **5.1.7** Be careful when calling `self` directly from an escaping closure as this can cause a retain cycle - use a [capture list](https://developer.apple.com/library/ios/documentation/swift/conceptual/Swift_Programming_Language/Closures.html#//apple_ref/doc/uid/TP40014097-CH11-XID_163) when this might be the case. Extend object lifetime using the `[weak self]` and `guard let strongSelf = self else { return }` idiom. `[weak self]` is preferred to `[unowned self]` where it is not immediately obvious that `self` outlives the closure. Explicitly extending lifetime is preferred to optional unwrapping.
 
+**Preferred**
 ```swift
-myFunctionWithEscapingClosure() { [weak self] (error) -> Void in
-    // you can do this
-
-    self?.doSomething()
-
-    // or you can do this
-
-    guard let strongSelf = self else {
-        return
-    }
-
-    strongSelf.doSomething()
+resource.request().onComplete { [weak self] response in
+    guard let strongSelf = self else { return }
+    let model = strongSelf.updateModel(response)
+    strongSelf.updateUI(model)
 }
 ```
 
-* **5.1.7** Don't use labeled breaks.
+**Not Preferred**
+```swift
+// might crash if self is released before response returns
+resource.request().onComplete { [unowned self] response in
+    let model = self.updateModel(response)
+    self.updateUI(model)
+}
+```
 
-* **5.1.8** Avoid writing out an `enum` type where possible - use shorthand.
+**Not Preferred**
+```swift
+// deallocate could happen between updating the model and updating UI
+resource.request().onComplete { [weak self] response in
+    let model = self?.updateModel(response)
+    self?.updateUI(model)
+}
+```
+
+
+* **5.1.8** Don't use labeled breaks.
+
+* **5.1.9** Avoid writing out an `enum` type where possible - use shorthand.
 
 **Preferred:**
 
@@ -648,7 +735,7 @@ imageView.setImageWithURL(url, type: .person)
 imageView.setImageWithURL(url, type: AsyncImageView.Type.person)
 ```
 
-* **5.1.9** Don’t use shorthand for class methods since it is generally more difficult to infer the context from class methods as opposed to `enum`s.
+* **5.1.10** Don’t use shorthand for class methods since it is generally more difficult to infer the context from class methods as opposed to `enum`s.
 
 **Preferred:**
 
@@ -663,11 +750,11 @@ imageView.backgroundColor = UIColor.white
 imageView.backgroundColor = .white
 ```
 
-* **5.1.10** Prefer not writing `self.` unless it is required.
+* **5.1.11** Prefer not writing `self.` unless it is required.
 
-* **5.1.11** When writing methods, keep in mind whether the method is intended to be overridden or not. If not, mark it as `final`, though keep in mind that this will prevent the method from being overwritten for testing purposes. In general, `final` methods result in improved compilation times, so it is good to use this when applicable. Be particularly careful, however, when applying the `final` keyword in a library since it is non-trivial to change something to be non-`final` in a library as opposed to have changing something to be non-`final` in your local project.
+* **5.1.12** When writing methods, keep in mind whether the method is intended to be overridden or not. If not, mark it as `final`, though keep in mind that this will prevent the method from being overwritten for testing purposes. In general, `final` methods result in improved compilation times, so it is good to use this when applicable. Be particularly careful, however, when applying the `final` keyword in a library since it is non-trivial to change something to be non-`final` in a library as opposed to have changing something to be non-`final` in your local project.
 
-* **5.1.12** When using a statement such as `else`, `catch`, etc. that follows a block, put this keyword on the same line as the block. Again, we are following the [1TBS style](https://en.m.wikipedia.org/wiki/Indent_style#Variant:_1TBS) here. Example `if`/`else` and `do`/`catch` code is below.
+* **5.1.13** When using a statement such as `else`, `catch`, etc. that follows a block, put this keyword on the same line as the block. Again, we are following the [1TBS style](https://en.m.wikipedia.org/wiki/Indent_style#Variant:_1TBS) here. Example `if`/`else` and `do`/`catch` code is below.
 
 ```swift
 if someBoolean {
@@ -683,9 +770,9 @@ do {
 }
 ```
 
-* **5.1.13** Prefer `static` to `class` when declaring a function or property that is associated with a class as opposed to an instance of that class. Only use `class` if you specifically need the functionality of overriding that function or property in a subclass, though consider using a `protocol` to achieve this instead.
+* **5.1.14** Prefer `static` to `class` when declaring a function or property that is associated with a class as opposed to an instance of that class. Only use `class` if you specifically need the functionality of overriding that function or property in a subclass, though consider using a `protocol` to achieve this instead.
 
-* **5.1.14** If you have a function that takes no arguments, has no side effects, and returns some object or value, prefer using a computed property instead. For conciseness, if a computed property is read-only, the get clause **MUST** be omitted. The get clause is required only when a set clause is provided. **TODO: discuss** 
+* **5.1.15** If you have a function that takes no arguments, has no side effects, and returns some object or value, prefer using a computed property instead. For conciseness, if a computed property is read-only, the get clause **MUST** be omitted. The get clause is required only when a set clause is provided. **TODO: discuss** 
 
 **Preferred:**
 
@@ -705,7 +792,23 @@ var diameter: Double {
 }
 ```
 
-* **5.1.15** For the purpose of namespacing a set of `static` functions and/or `static` properties, prefer using a caseless `enum` over a `class` or a `struct`. This way, you don't have to add a `private init() { }` to the container.
+* **5.1.16** Consider using lazy initialization for finer grain control over object lifetime. This is especially true for `UIViewController` that loads views lazily. You can either use a closure that is immediately called `{ }()` or call a private factory method. Example:
+
+```swift
+lazy var locationManager: CLLocationManager = self.makeLocationManager()
+
+private func makeLocationManager() -> CLLocationManager {
+    let manager = CLLocationManager()
+
+    manager.desiredAccuracy = kCLLocationAccuracyBest
+    manager.delegate = self
+    manager.requestAlwaysAuthorization()
+
+    return manager
+}
+```
+
+* **5.1.17** For the purpose of namespacing a set of `static` functions and/or `static` properties, prefer using a caseless `enum` over a `class` or a `struct`. This way, you don't have to add a `private init() { }` to the container.
 
 ### 5.2 Access Modifiers
 
@@ -987,9 +1090,28 @@ let value = numbers
 
 * ** 5.8.2** Never use the `+=` or `+` operator to append/concatenate to arrays. Instead, use `.append()` or `.append(contentsOf:)` as these are far more performant (at least with respect to compilation) in Swift's current state. If you are declaring an array that is based on other arrays and want to keep it immutable, instead of `let myNewArray = arr1 + arr2`, use `let myNewArray = [arr1, arr2].joined()`.
 
-* ** 5.8.3** Never use optional arrays because it leads to ambiguous state if array is empty or nil. **TODO: discuss**
 
-### 5.9 Error Handling
+* **5.8.3** For empty arrays and dictionaries, use type annotation. (For an array or dictionary assigned to a large, multi-line literal, use type annotation.)
+
+**Preferred:**
+
+```swift
+var names: [String] = []
+var lookup: [String: Int] = [:]
+```
+
+**Not Preferred:**
+
+```swift
+var names = [String]()
+var lookup = [String: Int]()
+```
+
+**NOTE**: Following this guideline means picking descriptive names is even more important than before.
+
+* ** 5.8.4** Never use optional arrays because it leads to ambiguous state if array is empty or nil. **TODO: discuss**
+
+### 5.9 Error Handling **TODO**
 
 * ** 5.9.1** Suppose a function `myFunction` is supposed to return a `String`, however, at some point it can run into an error. A common approach is to have this function return an optional `String?` where we return `nil` if something went wrong.
 
@@ -1065,12 +1187,164 @@ func printSomeFile() {
 
 * ** 5.9.4** Also consider using returning enum with error, empty and value cases with appropriate associated values. **TODO: discuss**
 
+### 5.10 Using `guard` Statements
 
----------------------------
+* **5.10.1** In general, prefer to use an "early return" strategy where applicable as opposed to nesting code in `if` statements. Using `guard` statements for this use-case is often helpful and can improve the readability of the code.
 
-## 5. Classes and Structures
+**Preferred:**
 
-### 5.1 Which one to use?
+```swift
+func eatDoughnut(at index: Int) {
+    guard index >= 0 && index < doughnuts.count else {
+        // return early because the index is out of bounds
+        return
+    }
+
+    let doughnut = doughnuts[index]
+    eat(doughnut)
+}
+```
+
+**Not Preferred:**
+
+```swift
+func eatDoughnut(at index: Int) {
+    if index >= 0 && index < doughnuts.count {
+        let doughnut = doughnuts[index]
+        eat(doughnut)
+    }
+}
+```
+
+* **5.10.2** When unwrapping optionals, prefer `guard` statements as opposed to `if` statements to decrease the amount of nested indentation in your code.
+
+**Preferred:**
+
+```swift
+guard let monkeyIsland = monkeyIsland else {
+    return
+}
+bookVacation(on: monkeyIsland)
+bragAboutVacation(at: monkeyIsland)
+```
+
+**Not Preferred:**
+
+```swift
+if let monkeyIsland = monkeyIsland {
+    bookVacation(on: monkeyIsland)
+    bragAboutVacation(at: monkeyIsland)
+}
+```
+
+**Not Preferred at all:**
+
+```swift
+if monkeyIsland == nil {
+    return
+}
+bookVacation(on: monkeyIsland!)
+bragAboutVacation(at: monkeyIsland!)
+```
+
+* **5.10.3** When deciding between using an `if` statement or a `guard` statement when unwrapping optionals is *not* involved, the most important thing to keep in mind is the readability of the code. There are many possible cases here, such as depending on two different booleans, a complicated logical statement involving multiple comparisons, etc., so in general, use your best judgement to write code that is readable and consistent. If you are unsure whether `guard` or `if` is more readable or they seem equally readable, prefer using `guard`.
+
+```swift
+// an `if` statement is readable here
+if operationFailed {
+    return
+}
+
+// a `guard` statement is readable here
+guard isSuccessful else {
+    return
+}
+
+// double negative logic like this can get hard to read - i.e. don't do this
+guard !operationFailed else {
+    return
+}
+```
+
+* **5.10.4** If choosing between two different states, it makes more sense to use an `if` statement as opposed to a `guard` statement.
+
+**Preferred:**
+
+```swift
+if isFriendly {
+    print("Hello, nice to meet you!")
+} else {
+    print("You have the manners of a beggar.")
+}
+```
+
+**Not Preferred:**
+
+```swift
+guard isFriendly else {
+    print("You have the manners of a beggar.")
+    return
+}
+
+print("Hello, nice to meet you!")
+```
+
+* **5.10.5** You should also use `guard` only if a failure should result in exiting the current context. Large code blocks should be avoided. If cleanup code is required for multiple exit points, consider using a `defer` block to avoid cleanup code duplication. Below is an example in which it makes more sense to use two `if` statements instead of using two `guard`s - we have two unrelated conditions that should not block one another.
+
+```swift
+if let monkeyIsland = monkeyIsland {
+    bookVacation(onIsland: monkeyIsland)
+}
+
+if let woodchuck = woodchuck, canChuckWood(woodchuck) {
+    woodchuck.chuckWood()
+}
+```
+
+* **5.10.6** Often, we can run into a situation in which we need to unwrap multiple optionals using `guard` statements. In general, combine unwraps into a single `guard` statement if handling the failure of each unwrap is identical (e.g. just a `return`, `break`, `continue`, `throw`, or some other `@noescape`).
+
+```swift
+// combined because we just return
+guard let thingOne = thingOne,
+    let thingTwo = thingTwo,
+    let thingThree = thingThree else {
+    return
+}
+
+// separate statements because we handle a specific error in each case
+guard let thingOne = thingOne else {
+    throw Error(message: "Unwrapping thingOne failed.")
+}
+
+guard let thingTwo = thingTwo else {
+    throw Error(message: "Unwrapping thingTwo failed.")
+}
+
+guard let thingThree = thingThree else {
+    throw Error(message: "Unwrapping thingThree failed.")
+}
+```
+
+* **5.10.7** Don’t use one-liners for `guard` statements. Exception is for single return statement. **TODO: discuss**
+
+**Preferred:**
+
+```swift
+guard let thingOne = thingOne else {
+	 someAction()
+    return
+}
+
+guard let thingOne = thingOne else { return }
+```
+
+**Not Preferred:**
+
+```swift
+guard let thingOne = thingOne else { someAction(); return }
+```
+
+### 5.11 Classes and Structures. Which one to use?
 
 Remember, structs have [value semantics](https://developer.apple.com/library/mac/documentation/Swift/Conceptual/Swift_Programming_Language/ClassesAndStructures.html#//apple_ref/doc/uid/TP40014097-CH13-XID_144). Use structs for things that do not have an identity. An array that contains [a, b, c] is really the same as another array that contains [a, b, c] and they are completely interchangeable. It doesn't matter whether you use the first array or the second, because they represent the exact same thing. That's why arrays are structs.
 
@@ -1126,46 +1400,51 @@ The example above demonstrates the following style guidelines:
 * Don't add modifiers such as `internal` when they're already the default. Similarly, don't repeat the access modifier when overriding a method.
 
 
-## Types
+### 5.12 Types
 
-Always use Swift's native types when available. Swift offers bridging to Objective-C so you can still use the full set of methods as needed.
+* **5.12.1** Always use Swift's native types when available. Swift offers bridging to Objective-C so you can still use the full set of methods as needed.
 
 **Preferred:**
+
 ```swift
 let width = 120.0                                    // Double
 let widthString = (width as NSNumber).stringValue    // String
 ```
 
 **Not Preferred:**
+
 ```swift
 let width: NSNumber = 120.0                          // NSNumber
 let widthString: NSString = width.stringValue        // NSString
 ```
 
-In Sprite Kit code, use `CGFloat` if it makes the code more succinct by avoiding too many conversions.
+* **5.12.2** In UIKit code, use `CGFloat` if it makes the code more succinct by avoiding too many conversions.
 
 
-### Struct Initializers
+### 5.13 Struct Initializers
 
-Use the native Swift struct initializers rather than the legacy CGGeometry constructors.
+* **5.13.1** Use the native Swift struct initializers rather than the legacy CGGeometry constructors.
 
 **Preferred:**
+
 ```swift
 let bounds = CGRect(x: 40, y: 20, width: 120, height: 80)
 let centerPoint = CGPoint(x: 96, y: 42)
 ```
 
 **Not Preferred:**
+
 ```swift
 let bounds = CGRectMake(40, 20, 120, 80)
 let centerPoint = CGPointMake(96, 42)
 ```
 
-Prefer the struct-scope constants `CGRect.infinite`, `CGRect.null`, etc. over global constants `CGRectInfinite`, `CGRectNull`, etc. For existing variables, you can use the shorter `.zero`.
+* **5.13.2** Prefer the struct-scope constants `CGRect.infinite`, `CGRect.null`, etc. over global constants `CGRectInfinite`, `CGRectNull`, etc. For existing variables, you can use the shorter `.zero
 
-### CGRect Functions
+* **5.13.3** Use CGRect helper functions.
 
 **Preferred:**
+
 ```swift
 let minX = view.frame.minX
 let minY = view.frame.minY
@@ -1175,6 +1454,7 @@ let height = view.frame.height
 ```
 
 **Not Preferred:**
+
 ```swift
 let minX = view.frame.origin.x
 let minY = view.frame.origin.y
@@ -1183,311 +1463,72 @@ let width = view.frame.size.width
 let height = view.frame.size.height
 ```
 
+## 5.14 Functions vs Methods
 
-### Lazy Initialization
-
-Consider using lazy initialization for finer grain control over object lifetime. This is especially true for `UIViewController` that loads views lazily. You can either use a closure that is immediately called `{ }()` or call a private factory method. Example:
-
-```swift
-lazy var locationManager: CLLocationManager = self.makeLocationManager()
-
-private func makeLocationManager() -> CLLocationManager {
-    let manager = CLLocationManager()
-
-    manager.desiredAccuracy = kCLLocationAccuracyBest
-    manager.delegate = self
-    manager.requestAlwaysAuthorization()
-
-    return manager
-}
-```
-
-**Notes:**
-  - `[unowned self]` is not required here. A retain cycle is not created.
-  - Location manager has a side-effect for popping up UI to ask the user for permission so fine grain control makes sense here.
-
-
-### Type Inference
-
-Prefer compact code and let the compiler infer the type for constants or variables of single instances. Type inference is also appropriate for small (non-empty) arrays and dictionaries. When required, specify the specific type such as `CGFloat` or `Int16`.
-
-**Preferred:**
-```swift
-let message = "Click the button"
-let currentBounds = computeViewBounds()
-var names = ["Mic", "Sam", "Christine"]
-let maximumWidth: CGFloat = 106.5
-```
-
-**Not Preferred:**
-```swift
-let message: String = "Click the button"
-let currentBounds: CGRect = computeViewBounds()
-let names = [String]()
-```
-
-#### Type Annotation for Empty Arrays and Dictionaries
-
-For empty arrays and dictionaries, use type annotation. (For an array or dictionary assigned to a large, multi-line literal, use type annotation.)
-
-**Preferred:**
-```swift
-var names: [String] = []
-var lookup: [String: Int] = [:]
-```
-
-**Not Preferred:**
-```swift
-var names = [String]()
-var lookup = [String: Int]()
-```
-
-**NOTE**: Following this guideline means picking descriptive names is even more important than before.
-
-
-### Syntactic Sugar
-
-The shortcut versions of type declarations over the full generics syntax **SHOULD** be used.
-
-**Preferred:**
-```swift
-var deviceModels: [String]
-var employees: [Int: String]
-var faxNumber: Int?
-```
-
-**Not Preferred:**
-```swift
-var deviceModels: Array<String>
-var employees: Dictionary<Int, String>
-var faxNumber: Optional<Int>
-```
-
-## Functions vs Methods
-
-Free functions, which aren't attached to a class or type, **SHOULD** be used sparingly. When possible, prefer to use a method instead of a free function. This aids in readability and discoverability.
-
-Free functions are most appropriate when they aren't associated with any particular type or instance.
+* **5.14.1** Free functions, which aren't attached to a class or type, **SHOULD** be used sparingly. When possible, prefer to use a method instead of a free function. This aids in readability and discoverability. Free functions are most appropriate when they aren't associated with any particular type or instance.
 
 **Preferred**
+
 ```swift
 let sorted = items.mergeSort()  // easily discoverable
 rocket.launch()  // clearly acts on the model
 ```
 
 **Not Preferred**
+
 ```swift
 let sorted = mergeSort(items)  // hard to discover
 launch(&rocket)
 ```
 
 **Free Function Exceptions**
+
 ```swift
 let tuples = zip(a, b)  // feels natural as a free function (symmetry)
 let value = max(x,y,z)  // another free function that feels natural
 ```
 
-## Memory Management
+## 5.15 Selectors
 
-Code (even non-production, tutorial demo code) **SHOULD NOT** create reference cycles. Analyze your object graph and prevent strong cycles with `weak` and `unowned` references. Alternatively, use value types (`struct`, `enum`) to prevent cycles altogether.
-
-### Extending object lifetime
-
-Extend object lifetime using the `[weak self]` and `guard let strongSelf = self else { return }` idiom. `[weak self]` is preferred to `[unowned self]` where it is not immediately obvious that `self` outlives the closure. Explicitly extending lifetime is preferred to optional unwrapping.
-
-**Preferred**
-```swift
-resource.request().onComplete { [weak self] response in
-    guard let strongSelf = self else { return }
-    let model = strongSelf.updateModel(response)
-    strongSelf.updateUI(model)
-}
-```
-
-**Not Preferred**
-```swift
-// might crash if self is released before response returns
-resource.request().onComplete { [unowned self] response in
-    let model = self.updateModel(response)
-    self.updateUI(model)
-}
-```
-
-**Not Preferred**
-```swift
-// deallocate could happen between updating the model and updating UI
-resource.request().onComplete { [weak self] response in
-    let model = self?.updateModel(response)
-    self?.updateUI(model)
-}
-```
-
-## Control Flow
-
-Prefer the `for-in` style of `for` loop over the `while-condition-increment` style.
+* **5.15.1** Selectors are Obj-C methods that act as handlers for many Cocoa and Cocoa Touch APIs. Strings **MUST NOT** be used for specifiying selectors. **Fully qualified** type safe selector **MUST** be used. Often, however, you can use context to shorten the expression. This is the preferred style.
 
 **Preferred:**
-```swift
-for _ in 0..<3 {
-    print("Hello three times")
-}
 
-for (index, person) in attendeeList.enumerate() {
-    print("\(person) is at position #\(index)")
-}
-
-for index in 0.stride(to: items.count, by: 2) {
-    print(index)
-}
-
-for index in (0...3).reverse() {
-    print(index)
-}
-```
-
-**Not Preferred:**
-```swift
-var i = 0
-while i < 3 {
-    print("Hello three times")
-    i += 1
-}
-
-
-var i = 0
-while i < attendeeList.count {
-    let person = attendeeList[i]
-    print("\(person) is at position #\(i)")
-    i += 1
-}
-```
-## Golden Path
-
-When coding with conditionals, the left hand margin of the code should be the "golden" or "happy" path. That is, don't nest `if` statements. Multiple return statements are OK. The `guard` statement is built for this.
-
-**Preferred:**
-```swift
-func computeFFT(context: Context?, inputData: InputData?) throws -> Frequencies {
-
-    guard let context = context else { throw FFTError.NoContext }
-    guard let inputData = inputData else { throw FFTError.NoInputData }
-    
-    // use context and input to compute the frequencies
-    
-    return frequencies
-}
-```
-
-**Not Preferred:**
-```swift
-func computeFFT(context: Context?, inputData: InputData?) throws -> Frequencies {
-
-    if let context = context {
-        if let inputData = inputData {
-            // use context and input to compute the frequencies
-
-            return frequencies
-        }
-        else {
-            throw FFTError.NoInputData
-        }
-    }
-    else {
-        throw FFTError.NoContext
-    }
-}
-```
-
-When multiple optionals are unwrapped either with `guard` or `if let`, minimize nesting by using the compound version when possible. Example:
-
-**Preferred:**
-```swift
-guard let number1 = number1, number2 = number2, number3 = number3 else { fatalError("impossible") }
-// do something with numbers
-```
-
-**Not Preferred:**
-```swift
-if let number1 = number1 {
-    if let number2 = number2 {
-        if let number3 = number3 {
-            // do something with numbers
-        }
-        else {
-            fatalError("impossible")
-        }
-    }
-    else {
-        fatalError("impossible")
-    }
-}
-else {
-    fatalError("impossible")
-}
-```
-
-### Failing Guards
-
-Guard statements are required to exit in some way. Generally, this should be simple one line statement such as `return`, `throw`, `break`, `continue`, and `fatalError()`. Large code blocks should be avoided. If cleanup code is required for multiple exit points, consider using a `defer` block to avoid cleanup code duplication.
-
-
-
-## Selectors
-
-Selectors are Obj-C methods that act as handlers for many Cocoa and Cocoa Touch APIs. Strings **MUST NOT** be used for specifiying selectors. **Fully qualified** type safe selector **MUST** be used. Often, however, you can use context to shorten the expression. This is the preferred style.
-
-**Preferred:**
 ```swift
 let sel = #selector(viewDidLoad)
 ```
 
 **Not Preferred:**
+
 ```swift
 let sel = #selector(ViewController.viewDidLoad)
 ```
 
-## Correctness
+## 5.16 Correctness
 
-Consider warnings to be errors. This rule informs many stylistic decisions such as not to use the `++` or `--` operators, C-style for loops, or strings as selectors.
+* **5.16.1** Consider compiler warnings to be errors. This rule informs many stylistic decisions such as not to use the `++` or `--` operators, C-style for loops, or strings as selectors.
 
-## 4. Documentation/Comments
+## 6. Documentation/Comments
 
-### 4.1 Documentation
+### 6.1 Documentation
 
-If a function is more complicated than a simple O(1) operation, you should generally consider adding a doc comment for the function since there could be some information that the method signature does not make immediately obvious. If there are any quirks to the way that something was implemented, whether technically interesting, tricky, not obvious, etc., this should be documented. Documentation should be added for complex classes/structs/enums/protocols and properties. All `public` functions/classes/properties/constants/structs/enums/protocols/etc. should be documented as well (provided, again, that their signature/name does not make their meaning/functionality immediately obvious).
+* **6.1.1** If a function is more complicated than a simple O(1) operation, you should generally consider adding a doc comment for the function since there could be some information that the method signature does not make immediately obvious. If there are any quirks to the way that something was implemented, whether technically interesting, tricky, not obvious, etc., this should be documented. Documentation should be added for complex classes/structs/enums/protocols and properties. 
 
-After writing a doc comment, you should option click the function/property/class/etc. to make sure that everything is formatted correctly.
+* **6.1.2** All `public` functions/classes/properties/constants/structs/enums/protocols/etc. should be documented as well (provided, again, that their signature/name does not make their meaning/functionality immediately obvious).
 
-Be sure to check out the full set of features available in Swift's comment markup [described in Apple's Documentation](https://developer.apple.com/library/tvos/documentation/Xcode/Reference/xcode_markup_formatting_ref/Attention.html#//apple_ref/doc/uid/TP40016497-CH29-SW1).
+* **6.1.3** After writing a doc comment, you should option click the function/property/class/etc. to make sure that everything is formatted correctly. Be sure to check out the full set of features available in Swift's comment markup [described in Apple's Documentation](https://developer.apple.com/library/content/documentation/Xcode/Reference/xcode_markup_formatting_ref/index.html).
 
-Guidelines:
+* **6.1.4** 160 character column limit (like the rest of the code).
 
-* **4.1.1** 160 character column limit (like the rest of the code).
+* **6.1.5** Even if the doc comment takes up one line, use block (`/** */`).
 
-* **4.1.2** Even if the doc comment takes up one line, use block (`/** */`).
+* **6.1.6** Do not prefix each additional line with a `*`.
 
-* **4.1.3** Do not prefix each additional line with a `*`.
+* **6.1.7** Use the new `- parameter` syntax as opposed to the old `:param:` syntax (make sure to use lower case `parameter` and not `Parameter`).
+* 
+* **6.1.8** If you’re going to be documenting the parameters/returns/throws of a method, document all of them, even if some of the documentation ends up being somewhat repetitive (this is preferable to having the documentation look incomplete). Sometimes, if only a single parameter warrants documentation, it might be better to just mention it in the description instead.
 
-* **4.1.4** Use the new `- parameter` syntax as opposed to the old `:param:` syntax (make sure to use lower case `parameter` and not `Parameter`). Option-click on a method you wrote to make sure the quick help looks correct.
-
-```swift
-class Human {
-    /**
-     This method feeds a certain food to a person.
-
-     - parameter food: The food you want to be eaten.
-     - parameter person: The person who should eat the food.
-     - returns: True if the food was eaten by the person; false otherwise.
-    */
-    func feed(_ food: Food, to person: Human) -> Bool {
-        // ...
-    }
-}
-```
-
-* **4.1.5** If you’re going to be documenting the parameters/returns/throws of a method, document all of them, even if some of the documentation ends up being somewhat repetitive (this is preferable to having the documentation look incomplete). Sometimes, if only a single parameter warrants documentation, it might be better to just mention it in the description instead.
-
-* **4.1.6** For complicated classes, describe the usage of the class with some potential examples as seems appropriate. Remember that markdown syntax is valid in Swift's comment docs. Newlines, lists, etc. are therefore appropriate.
+* **6.1.9** For complicated classes, describe the usage of the class with some potential examples as seems appropriate. Remember that markdown syntax is valid in Swift's comment docs. Newlines, lists, etc. are therefore appropriate. **TODO: discuss**
 
 ```swift
 /**
@@ -1520,7 +1561,7 @@ class MyAwesomeClass {
 }
 ```
 
-* **4.1.7** When mentioning code, use code ticks - \`
+* **6.1.10** When mentioning code, use code ticks - \`
 
 ```swift
 /**
@@ -1532,35 +1573,14 @@ func myFunction() {
 }
 ```
 
-* **4.1.8** When writing doc comments, prefer brevity where possible.
+* **6.1.11** When writing doc comments, prefer brevity where possible.
 
--------------------------------------------
+* **6.1.12** For internal company projects use russian language. For open-source projects (i.e publicly hosted on GitHub) use english comments. **TODO: discuss**
 
-### 4.2 Other Commenting Guidelines
+* **6.1.13** Always leave a space after `//`.
+* **6.1.14** Always leave comments on their own line.
 
-* **4.2.1** Always leave a space after `//`.
-* **4.2.2** Always leave comments on their own line.
-* **4.2.3** When using `// MARK: - whatever`, leave a newline after the comment.
-
-```swift
-class Pirate {
-
-    // MARK: - instance properties
-
-    private let pirateName: String
-
-    // MARK: - initialization
-
-    init() {
-        /* ... */
-    }
-
-}
-```
-
-## Prose
-
-When referring to functions in prose (tutorials, books, comments) include the required parameter names from the caller's perspective or `_` for unnamed parameters. Examples:
+* **6.1.15** When referring to functions in prose (tutorials, books, comments) include the required parameter names from the caller's perspective or `_` for unnamed parameters. Examples:
 
 > Call `convertPointAt(column:row:)` from your own `init` implementation.
 >
@@ -1570,21 +1590,18 @@ When referring to functions in prose (tutorials, books, comments) include the re
 >
 > You shouldn't call the data source method `tableView(_:cellForRowAtIndexPath:)` directly.
 
-This is the same as the `#selector` syntax. When in doubt, look at how Xcode lists the method in the jump bar – our style here matches that.
 
-![Methods in Xcode jump bar](screens/xcode-jump-bar.png)
+## 7. Credits
 
-## Credits
+Used guidelines:
 
-Based on a work at [The Official raywenderlich.com Swift Style Guide](https://github.com/raywenderlich/swift-style-guide)
-
-Some other style guides:
- * [The Official raywenderlich.com Swift Style Guide](https://github.com/raywenderlich/swift-style-guide)
- * [Style guide & coding conventions for Swift projects](https://github.com/github/swift-style-guide)
- * [LinkedIn's Official Swift Style Guide](https://github.com/linkedin/swift-style-guide)
+* [The Official raywenderlich.com Swift Style Guide](https://github.com/raywenderlich/swift-style-guide)
+* [Style guide & coding conventions for Swift projects](https://github.com/github/swift-style-guide)
+* [LinkedIn's Official Swift Style Guide](https://github.com/linkedin/swift-style-guide)
 
 
 Apple’s reference material on Swift:
+
 * [The Swift API Design Guidelines](https://swift.org/documentation/api-design-guidelines/)
 * [The Swift Programming Language](https://developer.apple.com/library/prerelease/ios/documentation/swift/conceptual/swift_programming_language/index.html)
 * [Using Swift with Cocoa and Objective-C](https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/BuildingCocoaApps/index.html)
