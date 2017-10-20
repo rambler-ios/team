@@ -4,12 +4,12 @@
 
 #### Содержание
 
-- [Computer science 101](#Computer-science-101)
+- [Computer science 101](#computer-science-101)
 - [ООП](#ООП)
 - [Принципы проектирования](#Принципы-проектирования)
 - [Архитектура](#Архитектура)
-- [Objective-C](#Objective-C)
-- [Swift](#Swift)
+- [Objective-C](#objective-c)
+- [Swift](#swift)
 - [iOS](#ios)
 - [Тестирование](#Тестирование)
 - [Прочее](#Прочее)
