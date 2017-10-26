@@ -7,8 +7,9 @@ This style guide is based on different sources from the open source community an
 ## Table of Contents
 
 * [File structure](#1-file-structure)
-* [Code formatting](#code-formatting)
+* [Code formatting](#2.-code-formatting)
 * [Naming](#3-naming)
+* [Code Organization](#4-Code-Organization)
 
 
 ## 1. File structure <a name="1-file-structure"></a>
