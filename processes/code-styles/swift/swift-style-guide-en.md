@@ -6,8 +6,12 @@ This style guide is based on different sources from the open source community an
 
 ## Table of Contents
 
+* [File structure](#1-file-structure)
+* [Code formatting](#code-formatting)
+* [Naming](#3-naming)
 
-## 1. File structure
+
+## 1. File structure <a name="1-file-structure"></a>
 
 * **2.11** Filenames should be named after type they contain. Don't use abbreviations.
 
@@ -225,7 +229,7 @@ if (name == "Hello") {
 }
 ```
 
-## 3. Naming
+## 3. Naming <a name="3-naming"></a>
 
 * **2.1** There is no need for Objective-C style prefixing in Swift (e.g. use just `GuybrushThreepwood` instead of `LIGuybrushThreepwood`). Swift types are automatically namespaced by the module that contains them and you **MUST NOT** add a class prefix. If two names from different modules collide you can disambiguate by prefixing the type name with the module name. However, only specify the module name when there is possibility for confusion which should be rare.
 
