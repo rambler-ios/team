@@ -2,7 +2,7 @@
 
 This document describes Swift language code style used in our company.
 
-This style guide is based on different sources from the open source community and modified to our company standarts. Credits can be found in the end of this document.
+This style guide is based on different sources from the open source community and modified to our company standards. Credits can be found at the end of this document.
 
 ## Table of Contents
 
@@ -219,7 +219,7 @@ if x == firstReallyReallyLongPredicateFunction()
 
 * **2.24** Semicolons. Swift does not require a semicolon after each statement in your code. They are only required if you wish to combine multiple statements on a single line.
 
-* **2.25** Multiple statements on a single line separated with semicolons **MUST** be avoided. The only exception to this rule is the `for-conditional-increment` construct, which requires semicolons. However, alternative `for-in` constructs should be used where possible.
+* **2.25** Multiple statements on a single line separated by semicolons **MUST** be avoided. The only exception to this rule is the `for-conditional-increment` construct, which requires semicolons. However, alternative `for-in` constructs should be used where possible.
 
 **Preferred:**
 
@@ -253,7 +253,7 @@ if (name == "Hello") {
 
 ## 3. Naming
 
-* **2.1** There is no need for Objective-C style prefixing in Swift (e.g. use just `GuybrushThreepwood` instead of `LIGuybrushThreepwood`). Swift types are automatically namespaced by the module that contains them and you **MUST NOT** add a class prefix. If two names from different modules collide you can disambiguate by prefixing the type name with the module name. However, only specify the module name when there is possibility for confusion which should be rare.
+* **3.1** There is no need for Objective-C style prefixing in Swift (e.g. use just `GuybrushThreepwood` instead of `LIGuybrushThreepwood`). Swift types are automatically namespaced by the module that contains them and you **MUST NOT** add a class prefix. If two names from different modules collide you can disambiguate by prefixing the type name with the module name. However, only specify the module name when there is the possibility for confusion which should be rare.
 
 ```swift
 import SomeModule
@@ -287,7 +287,7 @@ class app_widgetContainer {
 }
 ```
 
-* **3.4** Abbreviations and and acronyms **SHOULD** generally be avoided. Following the Apple Design Guidelines, abbreviations and initialisms that appear in all uppercase **MUST** be uniformly uppercase or lowercase. Examples:
+* **3.4** Abbreviations and acronyms **SHOULD** generally be avoided. Following the Apple Design Guidelines, abbreviations and initialisms that appear in all uppercase **MUST** be uniformly uppercase or lowercase. Examples:
 
 **Preferred**
 
@@ -329,7 +329,7 @@ struct FontSize {
 
 * **3.6** Separate constants usage on a class basis. Use project/module-level constant only when neccesary and when unable to find appropriate class for them.
 
-* **3.8** When using module-level constants try to group them into groups by their sematics. I.e UIConstant, APIConstant. Discuss on using single global namespace for all module-level constants such as Constant.
+* **3.8** When using module-level constants try to group them into groups by their semantics. I.e UIConstant, APIConstant. Discuss on using single global namespace for all module-level constants such as Constant.
 
 * **3.9** For generics and associated types, use a `PascalCase` word that describes the generic. If this word clashes with a protocol that it conforms to or a superclass that it subclasses, you can append a `Type` suffix to the associated type or generic name.
 
@@ -564,9 +564,9 @@ class MyViewcontroller: UIViewController, UITableViewDataSource, UIScrollViewDel
 }
 ```
 
-* **4.3** For UIKit view controllers, consider grouping lifecyle, custom accessors, and IBAction in separate marked groups.
+* **4.3** For UIKit view controllers, consider grouping lifecycle, custom accessors, and IBAction in separate marked groups.
 
-* **4.4** Unused (dead) code, including Xcode template code and placeholder comments **MUST** be removed. An exception is when your tutorial or book instructs the user to use the commented code. Don't leave code blocks commented for *future* use. Use version control systems (i.e Git) for this.
+* **4.4** Unused (dead) code, including Xcode template code and placeholder comments, **MUST** be removed. An exception is when your tutorial or book instructs the user to use the commented code. Don't leave code blocks commented for *future* use. Use version control systems (i.e Git) for this.
 
 * **4.5** Aspirational methods not directly associated with the tutorial whose implementation simply calls the super class should also be removed. This includes any empty/unused UIApplicationDelegate methods.
 
@@ -798,7 +798,7 @@ do {
 
 * **5.1.14** Prefer `static` to `class` when declaring a function or property that is associated with a class as opposed to an instance of that class. Only use `class` if you specifically need the functionality of overriding that function or property in a subclass, though consider using a `protocol` to achieve this instead.
 
-* **5.1.15** If you have a function that takes no arguments, has no side effects, and returns some object or value, prefer using a computed property instead. For conciseness, if a computed property is read-only, the get clause **MUST** be omitted. The get clause is required only when a set clause is provided. **TODO: discuss** 
+* **5.1.15** If you have a function that takes no arguments, has no side effects and returns some object or value, prefer using a computed property instead. For conciseness, if a computed property is read-only, the get clause **MUST** be omitted. The get clause is required only when a set clause is provided. **TODO: discuss** 
 
 **Preferred:**
 
@@ -896,7 +896,7 @@ let pirateName = "LeChuck"
 
 ### 5.4 Switch Statements and `enum`s
 
-* **5.4.1** When using a switch statement that has a finite set of possibilities (`enum`), do *NOT* include a `default` case. Instead, place unused cases at the bottom and use the `break` keyword to prevent execution. This will help to avoid undefined behaviour when adding new cases to enums.
+* **5.4.1** When using a switch statement that has a finite set of possibilities (`enum`), do *NOT* include a `default` case. Instead, place unused cases at the bottom and use the `break` keyword to prevent execution. This will help to avoid undefined behavior when adding new cases to enums.
 
 * **5.4.2** Since `switch` cases in Swift break by default, do not include the `break` keyword if it is not needed.
 
@@ -1073,7 +1073,7 @@ let completionBlock: () -> Void = {
 let completionBlock: (() -> Void)? = nil
 ```
 
-* **5.7.3** Keep parameter names on same line as the opening brace for closures when possible without too much horizontal overflow (i.e. ensure lines are less than 160 characters).
+* **5.7.3** Keep parameter names on the same line as the opening brace for closures when possible without too much horizontal overflow (i.e. ensure lines are less than 160 characters).
 
 * **5.7.4** Use trailing closure syntax unless the meaning of the closure is not obvious without the parameter name (an example of this could be if a method has parameters for success and failure closures).
 
@@ -1139,7 +1139,7 @@ var lookup = [String: Int]()
 
 ### 5.9 Error Handling **TODO**
 
-* ** 5.9.1** Suppose a function `myFunction` is supposed to return a `String`, however, at some point it can run into an error. A common approach is to have this function return an optional `String?` where we return `nil` if something went wrong.
+* ** 5.9.1** Suppose a function `myFunction` is supposed to return a `String`, however, at some point, it can run into an error. A common approach is to have this function return an optional `String?` where we return `nil` if something went wrong.
 
 Example:
 
@@ -1275,7 +1275,7 @@ bookVacation(on: monkeyIsland!)
 bragAboutVacation(at: monkeyIsland!)
 ```
 
-* **5.10.3** When deciding between using an `if` statement or a `guard` statement when unwrapping optionals is *not* involved, the most important thing to keep in mind is the readability of the code. There are many possible cases here, such as depending on two different booleans, a complicated logical statement involving multiple comparisons, etc., so in general, use your best judgement to write code that is readable and consistent. If you are unsure whether `guard` or `if` is more readable or they seem equally readable, prefer using `guard`.
+* **5.10.3** When deciding between using an `if` statement or a `guard` statement when unwrapping optionals is *not* involved, the most important thing to keep in mind is the readability of the code. There are many possible cases here, such as depending on two different booleans, a complicated logical statement involving multiple comparisons, etc., so in general, use your best judgment to write code that is readable and consistent. If you are unsure whether `guard` or `if` is more readable or they seem equally readable, prefer using `guard`.
 
 ```swift
 // an `if` statement is readable here
@@ -1399,7 +1399,7 @@ func resizeImage(url: NSURL) -> UIImage? {
 
 ### 5.11 Classes and Structures. Which one to use?
 
-Remember, structs have [value semantics](https://developer.apple.com/library/mac/documentation/Swift/Conceptual/Swift_Programming_Language/ClassesAndStructures.html#//apple_ref/doc/uid/TP40014097-CH13-XID_144). Use structs for things that do not have an identity. An array that contains [a, b, c] is really the same as another array that contains [a, b, c] and they are completely interchangeable. It doesn't matter whether you use the first array or the second, because they represent the exact same thing. That's why arrays are structs.
+Remember, structs have [value semantics](https://developer.apple.com/library/mac/documentation/Swift/Conceptual/Swift_Programming_Language/ClassesAndStructures.html#//apple_ref/doc/uid/TP40014097-CH13-XID_144). Use structs for things that do not have an identity. An array that contains [a, b, c] is really the same as another array that contains [a, b, c] and they are completely interchangeable. It doesn't matter whether you use the first array or the second because they represent the exact same thing. That's why arrays are structs.
 
 Classes have [reference semantics](https://developer.apple.com/library/mac/documentation/Swift/Conceptual/Swift_Programming_Language/ClassesAndStructures.html#//apple_ref/doc/uid/TP40014097-CH13-XID_145). Use classes for things that do have an identity or a specific life cycle. You would model a person as a class because two person objects are two different things. Just because two people have the same name and birthdate, doesn't mean they are the same person. But the person's birthdate would be a struct because a date of 3 March 1950 is the same as any other date object for 3 March 1950. The date itself doesn't have an identity.
 
@@ -1447,8 +1447,8 @@ class Circle: Shape {
 
 The example above demonstrates the following style guidelines:
 
-* Specify types for properties, variables, constants, argument declarations and other statements with a space after the colon but not before, e.g. `x: Int`, and `Circle: Shape`.
-* Define multiple variables and structures on a single line if they share a common purpose / context.
+* Specify types for properties, variables, constants, argument declarations and other statements with space after the colon but not before, e.g. `x: Int`, and `Circle: Shape`.
+* Define multiple variables and structures on a single line if they share a common purpose/context.
 * Indent getter and setter definitions and property observers.
 * Don't add modifiers such as `internal` when they're already the default. Similarly, don't repeat the access modifier when overriding a method.
 
@@ -1543,7 +1543,7 @@ let value = max(x,y,z)  // another free function that feels natural
 
 ## 5.15 Selectors
 
-* **5.15.1** Selectors are Obj-C methods that act as handlers for many Cocoa and Cocoa Touch APIs. Strings **MUST NOT** be used for specifiying selectors. **Fully qualified** type safe selector **MUST** be used. Often, however, you can use context to shorten the expression. This is the preferred style.
+* **5.15.1** Selectors are Obj-C methods that act as handlers for many Cocoa and Cocoa Touch APIs. Strings **MUST NOT** be used for specifying selectors. **Fully qualified** type safe selector **MUST** be used. Often, however, you can use context to shorten the expression. This is the preferred style.
 
 **Preferred:**
 
@@ -1569,7 +1569,7 @@ let sel = #selector(ViewController.viewDidLoad)
 
 * **6.1.2** All `public` functions/classes/properties/constants/structs/enums/protocols/etc. should be documented as well (provided, again, that their signature/name does not make their meaning/functionality immediately obvious).
 
-* **6.1.3** After writing a doc comment, you should option click the function/property/class/etc. to make sure that everything is formatted correctly. Be sure to check out the full set of features available in Swift's comment markup [described in Apple's Documentation](https://developer.apple.com/library/content/documentation/Xcode/Reference/xcode_markup_formatting_ref/index.html).
+* **6.1.3** After writing a doc comment, you should option-click the function/property/class/etc. to make sure that everything is formatted correctly. Be sure to check out the full set of features available in Swift's comment markup [described in Apple's Documentation](https://developer.apple.com/library/content/documentation/Xcode/Reference/xcode_markup_formatting_ref/index.html).
 
 * **6.1.4** 160 character column limit (like the rest of the code).
 
@@ -1581,7 +1581,7 @@ let sel = #selector(ViewController.viewDidLoad)
 * 
 * **6.1.8** If you’re going to be documenting the parameters/returns/throws of a method, document all of them, even if some of the documentation ends up being somewhat repetitive (this is preferable to having the documentation look incomplete). Sometimes, if only a single parameter warrants documentation, it might be better to just mention it in the description instead.
 
-* **6.1.9** For complicated classes, describe the usage of the class with some potential examples as seems appropriate. Remember that markdown syntax is valid in Swift's comment docs. Newlines, lists, etc. are therefore appropriate. **TODO: discuss**
+* **6.1.9** For complicated classes describe the usage of the class with some potential examples as seems appropriate. Remember that markdown syntax is valid in Swift's comment docs. Newlines, lists, etc. are therefore appropriate. **TODO: discuss**
 
 ```swift
 /**
@@ -1630,7 +1630,7 @@ func myFunction() {
 
 ### 6.2 Comments
 
-* **6.2.1** For internal company projects use russian language. For open-source projects (i.e publicly hosted on GitHub) use english comments. **TODO: discuss**
+* **6.2.1** For internal company projects use Russian language. For open-source projects (i.e publicly hosted on GitHub) use English comments. **TODO: discuss**
 
 * **6.2.2** Always leave a space after `//`.
 * **6.2.3** Always leave comments on their own line.
