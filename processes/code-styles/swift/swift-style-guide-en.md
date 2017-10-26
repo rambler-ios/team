@@ -6,13 +6,34 @@ This style guide is based on different sources from the open source community an
 
 ## Table of Contents
 
-* [File structure](#1-file-structure)
-* [Code formatting](#2.-code-formatting)
-* [Naming](#3-naming)
-* [Code Organization](#4-Code-Organization)
+  * [Table of Contents](#table-of-contents)
+  * [1. File structure](#1-file-structure)
+  * [2. Code Formatting](#2-code-formatting)
+  * [3. Naming](#3-naming)
+  * [4. Code Organization](#4-code-organization)
+  * [5. Coding Style](#5-coding-style)
+    + [5.1 General](#51-general)
+    + [5.2 Access Modifiers](#52-access-modifiers)
+    + [5.3 Custom Operators](#53-custom-operators)
+    + [5.4 Switch Statements and `enum`s](#54-switch-statements-and-enums)
+    + [5.5 Optionals](#55-optionals)
+    + [5.6 Properties](#56-properties)
+    + [5.7 Closures](#57-closures)
+    + [5.8 Arrays](#58-arrays)
+    + [5.9 Error Handling **TODO**](#59-error-handling-todo)
+    + [5.10 Using `guard` Statements](#510-using-guard-statements)
+    + [5.11 Classes and Structures. Which one to use?](#511-classes-and-structures-which-one-to-use)
+    + [5.12 Types](#512-types)
+    + [5.13 Struct Initializers](#513-struct-initializers)
+  * [5.14 Functions vs Methods](#514-functions-vs-methods)
+  * [5.15 Selectors](#515-selectors)
+  * [5.16 Correctness](#516-correctness)
+  * [6. Documentation and Comments](#6-documentation-and-comments)
+    + [6.1 Documentation](#61-documentation)
+    + [6.2 Comments](#62-comments)
+  * [7. Credits](#7-credits)
 
-
-## 1. File structure <a name="1-file-structure"></a>
+## 1. File structure
 
 * **2.11** Filenames should be named after type they contain. Don't use abbreviations.
 
@@ -230,7 +251,7 @@ if (name == "Hello") {
 }
 ```
 
-## 3. Naming <a name="3-naming"></a>
+## 3. Naming
 
 * **2.1** There is no need for Objective-C style prefixing in Swift (e.g. use just `GuybrushThreepwood` instead of `LIGuybrushThreepwood`). Swift types are automatically namespaced by the module that contains them and you **MUST NOT** add a class prefix. If two names from different modules collide you can disambiguate by prefixing the type name with the module name. However, only specify the module name when there is possibility for confusion which should be rare.
 
@@ -1540,7 +1561,7 @@ let sel = #selector(ViewController.viewDidLoad)
 
 * **5.16.1** Consider compiler warnings to be errors. This rule informs many stylistic decisions such as not to use the `++` or `--` operators, C-style for loops, or strings as selectors.
 
-## 6. Documentation/Comments
+## 6. Documentation and Comments
 
 ### 6.1 Documentation
 
@@ -1607,12 +1628,14 @@ func myFunction() {
 
 * **6.1.11** When writing doc comments, prefer brevity where possible.
 
-* **6.1.12** For internal company projects use russian language. For open-source projects (i.e publicly hosted on GitHub) use english comments. **TODO: discuss**
+### 6.2 Comments
 
-* **6.1.13** Always leave a space after `//`.
-* **6.1.14** Always leave comments on their own line.
+* **6.2.1** For internal company projects use russian language. For open-source projects (i.e publicly hosted on GitHub) use english comments. **TODO: discuss**
 
-* **6.1.15** When referring to functions in prose (tutorials, books, comments) include the required parameter names from the caller's perspective or `_` for unnamed parameters. Examples:
+* **6.2.2** Always leave a space after `//`.
+* **6.2.3** Always leave comments on their own line.
+
+* **6.2.4** When referring to functions in prose (tutorials, books, comments) include the required parameter names from the caller's perspective or `_` for unnamed parameters. Examples:
 
 > Call `convertPointAt(column:row:)` from your own `init` implementation.
 >
