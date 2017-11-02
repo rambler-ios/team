@@ -84,6 +84,13 @@ class SomeClass {
 **Preferred:**
 
 ```swift
+let value = condition ? true : false
+let empty: [String: String] = [:]
+```
+
+**Preferred:**
+
+```swift
 // specifying type
 let pirateViewController: PirateViewController
 
@@ -134,12 +141,26 @@ let myArray = [1, 2, 3, 4, 5]
 
 * **2.8** There should be a space before and after a binary operator such as `+`, `==`, or `->`. There should also not be a space after a `(` and before a `)`.
 
+**Preferred:**
+
 ```swift
 let myValue = 20 + (30 / 2) * 3
 if 1 + 1 == 3 {
     fatalError("The universe is broken.")
 }
 func pancake(with syrup: Syrup) -> Pancake {
+    /* ... */
+}
+```
+
+**Not Preferred:**
+
+```swift
+let myValue = 20+(30/2)*3
+if 1+1==3 {
+    fatalError( "The universe is broken." )
+}
+func pancake( with syrup: Syrup )->Pancake {
     /* ... */
 }
 ```
@@ -840,21 +861,25 @@ private func makeLocationManager() -> CLLocationManager {
 
 * **5.2.1** Write the access modifier keyword first if it is needed. The only things that should come before access control are the `static` specifier or attributes such as `@IBAction` and `@IBOutlet`.
 
-**Not Preferred:**
+**Preferred:**
 
 ```swift
-private static let myPrivateNumber: Int
+fileprivate dynamic lazy var fluxCapacitor = FluxCapacitor()
+static fileprivate let viperModuleName = "Main"
+@IBOutlet private weak var submitButton: UIButton!
 ```
 
 **Not Preferred:**
 
 ```swift
-static private let myPrivateNumber: Int
+lazy dynamic fileprivate var fluxCapacitor = FluxCapacitor()
+fileprivate static let viperModuleName = "Main"
+private @IBOutlet weak var submitButton: UIButton!
 ```
 
 * **5.2.2** The access modifier keyword should not be on a line by itself - keep it inline with what it is describing.
 
-**Not Preferred:**
+**Preferred:**
 
 ```swift
 open class Pirate {
