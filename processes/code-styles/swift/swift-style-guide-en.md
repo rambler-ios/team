@@ -51,16 +51,16 @@ protocol MyOwnProtocol {
 }
 ```
 
-* **1.2** File folder structure should reflect XCode project folder structure. XCode 9 will do it for you by default when adding new files to a project.
+* **1.2** File folder structure should reflect Xcode project folder structure. XCode 9 will do it for you by default when adding new files to a project.
 
 
 
 ## 2. Code Formatting
 
 * **2.1** Use 4 spaces for tabs.
-* **2.2** Avoid uncomfortably long lines with a hard maximum of 160 characters per line (Xcode->Preferences->Text Editing->Page guide at column: 160 is helpful for this)
+* **2.2** Avoid uncomfortably long lines with a hard maximum of 160 characters per line.
 * **2.3** Ensure that there is a newline at the end of every file.
-* **2.4** Ensure that there is no trailing whitespace anywhere (Xcode->Preferences->Text Editing->Automatically trim trailing whitespace + Including whitespace-only lines).
+* **2.4** Ensure that there is no trailing whitespace anywhere.
 * **2.5** Do not place opening braces on new lines
 
 ```swift
