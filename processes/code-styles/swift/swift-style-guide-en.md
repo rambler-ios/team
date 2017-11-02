@@ -35,7 +35,7 @@ This style guide is based on different sources from the open source community an
 
 ## 1. File structure
 
-* **2.11** Filenames should be named after type they contain. Don't use abbreviations.
+* **1.1** Filenames should be named after type they contain. Don't use abbreviations.
 
 **ConnectionTableViewCell.swift**
 
@@ -51,17 +51,17 @@ protocol MyOwnProtocol {
 }
 ```
 
-* **2.12** File folder structure should reflect XCode project folder structure. XCode 9 will do it for you by default when adding new files to a project.
+* **1.2** File folder structure should reflect XCode project folder structure. XCode 9 will do it for you by default when adding new files to a project.
 
 
 
 ## 2. Code Formatting
 
-* **2.11** Use 4 spaces for tabs.
-* **2.12** Avoid uncomfortably long lines with a hard maximum of 160 characters per line (Xcode->Preferences->Text Editing->Page guide at column: 160 is helpful for this)
-* **2.13** Ensure that there is a newline at the end of every file.
-* **2.14** Ensure that there is no trailing whitespace anywhere (Xcode->Preferences->Text Editing->Automatically trim trailing whitespace + Including whitespace-only lines).
-* **2.15** Do not place opening braces on new lines
+* **2.1** Use 4 spaces for tabs.
+* **2.2** Avoid uncomfortably long lines with a hard maximum of 160 characters per line (Xcode->Preferences->Text Editing->Page guide at column: 160 is helpful for this)
+* **2.3** Ensure that there is a newline at the end of every file.
+* **2.4** Ensure that there is no trailing whitespace anywhere (Xcode->Preferences->Text Editing->Automatically trim trailing whitespace + Including whitespace-only lines).
+* **2.5** Do not place opening braces on new lines
 
 ```swift
 class SomeClass {
@@ -79,7 +79,7 @@ class SomeClass {
 }
 ```
 
-* **2.16** Colons **MUST** have no space on the left and one space on the right. Exceptions are the ternary operator `? :` and empty dictionary `[:]`.
+* **2.6** Colons **MUST** have no space on the left and one space on the right. Exceptions are the ternary operator `? :` and empty dictionary `[:]`.
 
 **Preferred:**
 
@@ -126,13 +126,13 @@ class TestDatabase : Database {
 }
 ```
 
-* **2.17** In general, there should be a space following a comma.
+* **2.7** In general, there should be a space following a comma.
 
 ```swift
 let myArray = [1, 2, 3, 4, 5]
 ```
 
-* **2.18** There should be a space before and after a binary operator such as `+`, `==`, or `->`. There should also not be a space after a `(` and before a `)`.
+* **2.8** There should be a space before and after a binary operator such as `+`, `==`, or `->`. There should also not be a space after a `(` and before a `)`.
 
 ```swift
 let myValue = 20 + (30 / 2) * 3
@@ -144,7 +144,7 @@ func pancake(with syrup: Syrup) -> Pancake {
 }
 ```
 
-* **2.19** Follow Xcode's recommended indentation style (i.e. your code should not change if CTRL-I is pressed). When declaring a function that spans multiple lines, prefer using that syntax to which Xcode, as of version 7.3, defaults.
+* **2.9** Follow Xcode's recommended indentation style (i.e. your code should not change if CTRL-I is pressed). When declaring a function that spans multiple lines, prefer using that syntax to which Xcode, as of version 7.3, defaults.
 
 ```swift
 // Xcode indentation for a function declaration that spans multiple lines
@@ -164,7 +164,7 @@ if myFirstValue > (mySecondValue + myThirdValue)
 }
 ```
 
-* **2.20** When calling a function that has many parameters, put each argument on a separate line with a single extra indentation.
+* **2.10** When calling a function that has many parameters, put each argument on a separate line with a single extra indentation.
 
 ```swift
 someFunctionWithManyArguments(
@@ -173,7 +173,7 @@ someFunctionWithManyArguments(
     thirdArgument: someOtherLocalProperty)
 ```
 
-* **2.21** When dealing with an implicit array or dictionary large enough to warrant splitting it into multiple lines, treat the `[` and `]` as if they were braces in a method, `if` statement, etc. Closures in a method should be treated similarly.
+* **2.11** When dealing with an implicit array or dictionary large enough to warrant splitting it into multiple lines, treat the `[` and `]` as if they were braces in a method, `if` statement, etc. Closures in a method should be treated similarly.
 
 ```swift
 someFunctionWithABunchOfArguments(
@@ -191,7 +191,7 @@ someFunctionWithABunchOfArguments(
     })
 ```
 
-* **2.22** Prefer using local constants or other mitigation techniques to avoid multi-line predicates where possible.
+* **2.12** Prefer using local constants or other mitigation techniques to avoid multi-line predicates where possible.
 
 **Preferred**
 
@@ -215,11 +215,11 @@ if x == firstReallyReallyLongPredicateFunction()
 }
 ```
 
-* **2.23** There **SHOULD** be exactly one blank line between methods to aid in visual clarity and organization. Whitespace within methods should separate functionality, but having too many sections in a method often means you should refactor into several methods.
+* **2.13** There **SHOULD** be exactly one blank line between methods to aid in visual clarity and organization. Whitespace within methods should separate functionality, but having too many sections in a method often means you should refactor into several methods.
 
-* **2.24** Semicolons. Swift does not require a semicolon after each statement in your code. They are only required if you wish to combine multiple statements on a single line.
+* **2.14** Semicolons. Swift does not require a semicolon after each statement in your code. They are only required if you wish to combine multiple statements on a single line.
 
-* **2.25** Multiple statements on a single line separated by semicolons **MUST** be avoided. The only exception to this rule is the `for-conditional-increment` construct, which requires semicolons. However, alternative `for-in` constructs should be used where possible.
+* **2.15** Multiple statements on a single line separated by semicolons **MUST** be avoided. The only exception to this rule is the `for-conditional-increment` construct, which requires semicolons. However, alternative `for-in` constructs should be used where possible.
 
 **Preferred:**
 
@@ -233,7 +233,7 @@ let swift = "not a scripting language"
 let swift = "not a scripting language";
 ```
 
-* **2.25** Parenthesis. Parenthesis around conditionals are not required and **MUST** be omitted.
+* **2.16** Parenthesis. Parenthesis around conditionals are not required and **MUST** be omitted.
 
 **Preferred:**
 
@@ -329,9 +329,9 @@ struct FontSize {
 
 * **3.6** Separate constants usage on a class basis. Use project/module-level constant only when neccesary and when unable to find appropriate class for them.
 
-* **3.8** When using module-level constants try to group them into groups by their semantics. I.e UIConstant, APIConstant. Discuss on using single global namespace for all module-level constants such as Constant.
+* **3.7** When using module-level constants try to group them into groups by their semantics. I.e UIConstant, APIConstant. Discuss on using single global namespace for all module-level constants such as Constant.
 
-* **3.9** For generics and associated types, use a `PascalCase` word that describes the generic. If this word clashes with a protocol that it conforms to or a superclass that it subclasses, you can append a `Type` suffix to the associated type or generic name.
+* **3.8** For generics and associated types, use a `PascalCase` word that describes the generic. If this word clashes with a protocol that it conforms to or a superclass that it subclasses, you can append a `Type` suffix to the associated type or generic name.
 
 ```swift
 class SomeClass<Model> { /* ... */ }
@@ -343,7 +343,7 @@ protocol Sequence {
 }
 ```
 
-* **3.10** Names should be descriptive and unambiguous.
+* **3.9** Names should be descriptive and unambiguous.
 
 **Preferred**
 
@@ -357,7 +357,7 @@ class RoundAnimatingButton: UIButton { /* ... */ }
 class CustomButton: UIButton { /* ... */ }
 ```
 
-* **3.11** Do not abbreviate, use shortened names, or single letter names.
+* **3.10** Do not abbreviate, use shortened names, or single letter names.
 
 **Preferred**
 
@@ -384,7 +384,7 @@ class RoundAnimating: UIButton {
 }
 ```
 
-* **3.12** Include type information in constant or variable names when it is not obvious otherwise.
+* **3.11** Include type information in constant or variable names when it is not obvious otherwise.
 
 **Preferred**
 
@@ -457,9 +457,9 @@ let popupViewController: UITableViewController
 }
 ```
 
-* **3.13** When naming function arguments, make sure that the function can be read easily to understand the purpose of each argument.
+* **3.12** When naming function arguments, make sure that the function can be read easily to understand the purpose of each argument.
 
-* **3.14** As per [Apple's API Design Guidelines](https://swift.org/documentation/api-design-guidelines/), a `protocol` should be named as nouns if they describe what something is doing (e.g. `Collection`) and using the suffixes `-able`, `-ible`, or `-ing` if it describes a capability (e.g. `Equatable`, `ProgressReporting`). If neither of those options makes sense for your use case, you can add a `Protocol` suffix to the protocol's name as well. Some example `protocol`s are below.
+* **3.13** As per [Apple's API Design Guidelines](https://swift.org/documentation/api-design-guidelines/), a `protocol` should be named as nouns if they describe what something is doing (e.g. `Collection`) and using the suffixes `-able`, `-ible`, or `-ing` if it describes a capability (e.g. `Equatable`, `ProgressReporting`). If neither of those options makes sense for your use case, you can add a `Protocol` suffix to the protocol's name as well. Some example `protocol`s are below.
 
 ```swift
 // here, the name is a noun that describes what the protocol does
@@ -485,7 +485,7 @@ func inputText() -> String
 }
 ```
 
-* **3.15** When a type name doesn't have a meaningful relationship or role, use a traditional single uppercase letter such as `T`, `U`, or `V`.
+* **3.14** When a type name doesn't have a meaningful relationship or role, use a traditional single uppercase letter such as `T`, `U`, or `V`.
 
 **Preferred:**
 
@@ -499,7 +499,7 @@ func max<T: Comparable>(x: T, _ y: T) -> T
 func max<Thing: Comparable>(x: Thing, _ y: Thing) -> Thing
 ```
 
-* **3.16** US English spelling **MUST** be used to match Apple's API.
+* **3.15** US English spelling **MUST** be used to match Apple's API.
 
 **Preferred:**
 
@@ -513,7 +513,7 @@ let color = "red"
 let colour = "red"
 ```
 
-* **3.17** The shortcut versions of type declarations over the full generics syntax **SHOULD** be used.
+* **3.16** The shortcut versions of type declarations over the full generics syntax **SHOULD** be used.
 
 **Preferred:**
 
@@ -1114,7 +1114,7 @@ let value = numbers
 
 * **5.8.1** In general, avoid accessing an array directly with subscripts. When possible, use accessors such as `.first` or `.last`, which are optional and won’t crash. Prefer using a `for item in items` syntax when possible as opposed to something like `for i in 0 ..< items.count`. If you need to access an array subscript directly, make sure to do proper bounds checking. You can use `for (index, value) in items.enumerated()` to get both the index and the value.
 
-* ** 5.8.2** Never use the `+=` or `+` operator to append/concatenate to arrays. Instead, use `.append()` or `.append(contentsOf:)` as these are far more performant (at least with respect to compilation) in Swift's current state. If you are declaring an array that is based on other arrays and want to keep it immutable, instead of `let myNewArray = arr1 + arr2`, use `let myNewArray = [arr1, arr2].joined()`.
+* **5.8.2** Never use the `+=` or `+` operator to append/concatenate to arrays. Instead, use `.append()` or `.append(contentsOf:)` as these are far more performant (at least with respect to compilation) in Swift's current state. If you are declaring an array that is based on other arrays and want to keep it immutable, instead of `let myNewArray = arr1 + arr2`, use `let myNewArray = [arr1, arr2].joined()`.
 
 
 * **5.8.3** For empty arrays and dictionaries, use type annotation. (For an array or dictionary assigned to a large, multi-line literal, use type annotation.)
@@ -1207,13 +1207,13 @@ func printSomeFile() {
 }
 ```
 
-* ** 5.9.2** There are some exceptions in which it does make sense to use an optional as opposed to error handling. When the result should *semantically* potentially be `nil` as opposed to something going wrong while retrieving the result, it makes sense to return an optional instead of using error handling.
+* **5.9.2** There are some exceptions in which it does make sense to use an optional as opposed to error handling. When the result should *semantically* potentially be `nil` as opposed to something going wrong while retrieving the result, it makes sense to return an optional instead of using error handling.
 
-* ** 5.9.3** In general, if a method can "fail", and the reason for the failure is not immediately obvious if using an optional return type, it probably makes sense for the method to throw an error.
+* **5.9.3** In general, if a method can "fail", and the reason for the failure is not immediately obvious if using an optional return type, it probably makes sense for the method to throw an error.
 
 * **5.9.4** If you don't want to deal with thrown error and just want to have an optional value use `try?`.
 
-* ** 5.9.5** Also consider using returning enum with error, empty and value cases with appropriate associated values. **TODO: discuss**
+* **5.9.5** Also consider using returning enum with error, empty and value cases with appropriate associated values. **TODO: discuss**
 
 ### 5.10 Using `guard` Statements
 
