@@ -35,7 +35,7 @@ This style guide is based on different sources from the open source community an
 
 ## 1. File structure
 
-* **1.1** Filenames should be named after type they contain. Don't use abbreviations.
+* **1.1** Filenames should be named after type they contain. Don't use abbreviations. Use PascalCase for filenames.
 
 **ConnectionTableViewCell.swift**
 
@@ -44,10 +44,10 @@ class ConnectionTableViewCell: UITableViewCell {
 }
 ```
 
-**MyOwnProtocol.swift**
+**ModuleInput.swift**
 
 ```swift
-protocol MyOwnProtocol {
+protocol ModuleInput {
 }
 ```
 
@@ -84,13 +84,6 @@ class SomeClass {
 **Preferred:**
 
 ```swift
-let value = condition ? true : false
-let empty: [String: String] = [:]
-```
-
-**Preferred:**
-
-```swift
 // specifying type
 let pirateViewController: PirateViewController
 
@@ -123,6 +116,9 @@ extension PirateViewController: UITableViewDataSource {
 class TestDatabase: Database {
 var data: [String: CGFloat] = ["A": 1.2, "B": 3.2]
 }
+
+let value = condition ? true : false
+let empty: [String: String] = [:]
 ```
 
 **Not Preferred:**
@@ -165,7 +161,7 @@ func pancake( with syrup: Syrup )->Pancake {
 }
 ```
 
-* **2.9** Follow Xcode's recommended indentation style (i.e. your code should not change if CTRL-I is pressed). When declaring a function that spans multiple lines, prefer using that syntax to which Xcode, as of version 7.3, defaults.
+* **2.9** Follow Xcode's recommended indentation style (i.e. your code should not change if CTRL-I is pressed). When declaring a function that spans multiple lines, you SHOULD use that syntax to which Xcode, as of version 7.3, defaults.
 
 ```swift
 // Xcode indentation for a function declaration that spans multiple lines
@@ -190,7 +186,7 @@ if myFirstValue > (mySecondValue + myThirdValue)
 ```swift
 someFunctionWithManyArguments(
     firstArgument: "Hello, I am a string",
-    secondArgument: resultFromSomeFunction(),
+    secondArgument: myVariable,
     thirdArgument: someOtherLocalProperty)
 ```
 
@@ -217,7 +213,6 @@ someFunctionWithABunchOfArguments(
 **Preferred**
 
 ```swift
-// PREFERRED
 let firstCondition = x == firstReallyReallyLongPredicateFunction()
 let secondCondition = y == secondReallyReallyLongPredicateFunction()
 let thirdCondition = z == thirdReallyReallyLongPredicateFunction()
@@ -238,21 +233,9 @@ if x == firstReallyReallyLongPredicateFunction()
 
 * **2.13** There **SHOULD** be exactly one blank line between methods to aid in visual clarity and organization. Whitespace within methods should separate functionality, but having too many sections in a method often means you should refactor into several methods.
 
-* **2.14** Semicolons. Swift does not require a semicolon after each statement in your code. They are only required if you wish to combine multiple statements on a single line.
-
-* **2.15** Multiple statements on a single line separated by semicolons **MUST** be avoided. The only exception to this rule is the `for-conditional-increment` construct, which requires semicolons. However, alternative `for-in` constructs should be used where possible.
-
-**Preferred:**
-
-```swift
-let swift = "not a scripting language"
-```
-
-**Not Preferred:**
-
-```swift
-let swift = "not a scripting language";
-```
+* **2.14** Semicolons. Swift does not require a semicolon after each statement in your code. 
+ 
+* **2.15** Multiple statements on a single line separated by semicolons **MUST** be avoided. 
 
 * **2.16** Parenthesis. Parenthesis around conditionals are not required and **MUST** be omitted.
 
@@ -1005,12 +988,15 @@ weak var parentViewController: UIViewController!
 unowned var parentViewController: UIViewController
 ```
 
-* **5.5.6** When unwrapping optionals, use the same name for the unwrapped constant or variable where appropriate.
+* **5.5.6** When unwrapping optionals, use the same name for the unwrapped constant or variable where appropriate. Use one-liner for single return statement.
 
 ```swift
 guard let myValue = myValue else {
+	logSomething()
     return
 }
+
+guard let result = result else { return }
 ```
 
 * **5.5.7** When accessing an optional value, use optional chaining if the value is only accessed once or if there are many optionals in the chain:
