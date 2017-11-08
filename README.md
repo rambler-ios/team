@@ -1,8 +1,6 @@
 ### RAMBLER&Co iOS Team Playbook
 
-[Мы](https://github.com/orgs/rambler-ios/teams/rambler-ios-team) - iOS команда группы компаний RAMBLER&Co. Мы постоянно выкладываем в open source некоторые из внутренних проектов и наработок. Их вы можете найти в [наших репозиториях](https://github.com/rambler-ios), в [Rambler Digital Solutions](https://github.com/rambler-digital-solutions) или в комьюнити [StrongSelf](https://github.com/strongself). 
-
-Мы вновь вернулись к хоть и спорной, но интересной задаче - мы планируем сделать прозрачными описания всех наших рабочих процессов и активностей (спасибо за идею [Artsy](https://github.com/artsy/mobile)).
+[Мы](https://github.com/orgs/rambler-ios/teams/rambler-ios-team) - iOS команда группы компаний RAMBLER&Co. Мы постоянно выкладываем в open source некоторые из внутренних проектов и наработок. Их вы можете найти в наших репозиториях [Rambler Digital Solutions](https://github.com/rambler-digital-solutions) или в комьюнити [StrongSelf](https://github.com/strongself). 
 
 ##### Что такое playbook?
 
@@ -14,10 +12,6 @@
 
 ### Куда смотреть дальше
 
-- [Трекер задач](https://github.com/rambler-ios/team/issues)
-
-  *Используется для ведения всей внепроектной активности команды: R&D, участие в конференциях, обсуждение процессов разработки.* 
-
 - [Наша команда](/team/README.md)
 
   *Подробно о нашей команде: ключевые ценности, достижения, правила приема на работу, вопросы на интервью и тестовые задания.* 
@@ -26,6 +20,14 @@
 
   *То, как мы работаем: описание подходов к разработке, CI, CD, стека библиотек и инструментов, различные чек-листы.*
 
+- [Трекер задач](https://github.com/rambler-ios/team/issues)
+
+  *Используется для ведения всей внепроектной активности команды: R&D, участие в конференциях, обсуждение процессов разработки.* 
+
 - [Наши проекты](/projects/README.md)
 
   *Список наших open source проектов с указанием ответственных за их развитие и перечнями задач для быстрого старта.*
+  
+### Благодарности
+
+Спасибо за идею [Artsy](https://github.com/artsy/mobile).
