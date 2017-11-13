@@ -1,8 +1,8 @@
-### RAMBLER&Co iOS Team Playbook
+# RAMBLER&Co iOS Team Playbook
 
-[Мы](https://github.com/orgs/rambler-ios/teams/rambler-ios-team) - iOS команда группы компаний RAMBLER&Co. Мы постоянно выкладываем в open source некоторые из внутренних проектов и наработок. Их вы можете найти в наших репозиториях [Rambler Digital Solutions](https://github.com/rambler-digital-solutions) или в комьюнити [StrongSelf](https://github.com/strongself). 
+**Мы** - iOS команда группы компаний RAMBLER&Co. Мы постоянно выкладываем в opensource некоторые из внутренних проектов и наработок. Их вы можете найти в наших репозиториях [Rambler Digital Solutions](https://github.com/rambler-digital-solutions) или в комьюнити [StrongSelf](https://github.com/strongself). 
 
-##### Что такое playbook?
+#### Что такое playbook?
 
 Термин **playbook** пришел из американского футбола, где он означал: *книга, содержащая стратегию и тактические приемы игры команды*. В случае же IT-компании, он значит *описание ценностей, бизнес-процессов, стандартов, процедур, правил, используемых в компании*.
 
