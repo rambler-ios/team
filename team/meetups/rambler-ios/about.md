@@ -24,4 +24,4 @@
 
 ### Дополнительные ссылки
 
-* [Чек-лист по подготовке](/team/meetups/rambler-ios/guide). 
+* [Чек-лист по подготовке](/team/meetups/rambler-ios/guide.md). 
