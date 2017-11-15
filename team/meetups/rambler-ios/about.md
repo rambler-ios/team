@@ -11,7 +11,7 @@
 ### Календарь
 
 |Митап   |Дата  |Анонс  |Итоги   |
-|---|---|---|---|---|
+|---|---|---|---|
 |Rambler.iOS #9|2017-05-25|[Хабрахабр](https://habrahabr.ru/company/rambler-co/blog/328518/)|[Хабрахабр](https://habrahabr.ru/company/rambler-co/blog/337176/)| 
 |Rambler.iOS #8|2016-10-05|[Хабрахабр](https://habrahabr.ru/company/rambler-co/blog/310532/)|[Хабрахабр](https://habrahabr.ru/company/rambler-co/blog/313102/)| 
 |Rambler.iOS #7|2016-07-20|[Хабрахабр](https://habrahabr.ru/company/rambler-co/blog/305482/)|[Хабрахабр](https://habrahabr.ru/company/rambler-co/blog/306508/)| 
