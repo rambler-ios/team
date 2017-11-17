@@ -1,33 +1,30 @@
-### Наши процессы
+# Наши процессы
 
 #### Общие моменты
-- [Рабочий распорядок](/processes/schedule.md)
-- [Грейды разработчиков](/processes/grades.md)
-
-#### Разработка
-- [Code Style](/processes/code-style.md)
-- [Архитектурные подходы](/processes/architecture.md)
-- [Code Review](/processes/code-review.md)
-- [Правила работы с Git](/processes/git.md)
-- [Документация](/processes/documentation.md)
-
-#### Автоматизация
-- [Continuous Integration](/processes/continuous-integration/README.md)
-- [Continuous Delivery](/processes/continuous-delivery/README.md)
-
-#### Инструменты
-- [Используемый софт](/processes/instruments.md)
-- [Используемые библиотеки](/processes/third-party-libraries.md)
+- [Рабочий распорядок](/processes/common/schedule.md)
+- [Грейды разработчиков](/processes/common/grades.md)
 
 #### Средства коммуникации
-- [Работа со Slack](/processes/slack.md)
+- [Работа со Slack](/processes/communication/slack.md)
+- [Работа со Telegram](/processes/communication/telegram.md)
 
-#### Гайды и чек-листы
-- [Начало нового проекта](/processes/guides/new-project.md)
-- [Работа с Open Source](/processes/guides/open-source.md)
-- [Выполнение задачи](/processes/guides/task.md)
-- [Подготовка митапа](/processes/guides/meetup.md)
-- [Памятка докладчикам](/processes/speaking/guide.md)
+#### Разработка
+- [Начало нового проекта](/processes/development/new-project.md)
+- [Выполнение задачи](/processes/development/task.md)
+- [Code style](/processes/development/code-style.md)
+- [Документация](/processes/development/documentation.md)
+- [Архитектурные подходы](/processes/architecture.md)
+- [Правила работы с git](/processes/development/git.md)
+- [Code review](/processes/development/code-review.md)
+
+#### Автоматизация
+- [Continuous Integration](/processes/automation/continuous-integration/README.md)
+- [Continuous Delivery](/processes/automation/continuous-delivery/README.md)
+
+#### Инструменты
+- [Используемый софт](/processes/instruments/instruments.md)
+- [Используемые библиотеки](/processes/instruments/third-party-libraries.md)
 
 #### Прочее
-- [Календарь еженедельных выступлений](/processes/weekly-meetings.md)
+- [Работа с open-source](/processes/other/open-source.md)
+
