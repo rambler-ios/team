@@ -18,8 +18,8 @@
 - [Code review](/processes/development/code-review.md)
 
 #### Автоматизация
-- [Continuous Integration](/processes/automation/continuous-integration/README.md)
-- [Continuous Delivery](/processes/automation/continuous-delivery/README.md)
+- [Continuous integration](/processes/automation/continuous-integration/README.md)
+- [Continuous delivery](/processes/automation/continuous-delivery/README.md)
 
 #### Инструменты
 - [Используемый софт](/processes/instruments/instruments.md)
