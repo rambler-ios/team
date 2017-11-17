@@ -1,17 +1,14 @@
-## Календарь локальных выступлений
+# Календарь локальных выступлений
 
 ### Будущие
 
-| Дата        | Тема           | Автор  |
-| ------------- |-------------| -----|
-| 22.09.17      | [What's new in LLVM](https://github.com/rambler-ios/team/issues/108) | [Батвинкин Денис](https://github.com/Batvos)|
-| 29.09.17      | [Пишем тестируемый код](https://github.com/rambler-ios/team/issues/112) | [Сычев Александр](https://github.com/Brain89)|
-| 06.10.17       | [Linkers, loaders, and you](https://github.com/rambler-ios/team/issues/109) | [Васюра Анастасия](https://github.com/juyka)|
-| 13.10.17      | [Modernizing Grand Central Dispatch Usage](https://github.com/rambler-ios/team/issues/110) | [Мордань Константин](https://github.com/kmordan)|
-| ?      | [Метод 360 градусов](https://github.com/rambler-ios/team/issues/113) | [Сычев Александр](https://github.com/Brain89)|
+| Дата          | Тема        | Автор |
+| ------------- |-------------| ------|
+| -             | -           |       |
 
 ### Прошедшие
-**2016**
+
+#### 2016
 
 | Дата        | Тема           | Автор  |
 | ------------- |-------------| -----|
@@ -45,7 +42,7 @@
 | 16.12.16      | [Меню разработчика](https://github.com/rambler-ios/team/issues/6) | [Сапожник Алексей](https://github.com/Sapozhnik), [Мишанина Иованна](https://github.com/iovannapopova)  |
 | 23.12.16      | [Чистые тесты на swift](https://github.com/rambler-ios/team/issues/48) | [Сычев Александр](https://github.com/Brain89)  |
 
-**2017**
+#### 2017
 
 | Дата        | Тема           | Автор  |
 | ------------- |-------------| -----|
@@ -56,3 +53,5 @@
 | 28.07.17      | [Accessibility](https://github.com/rambler-ios/team/issues/106) | [Мордань Константин](https://github.com/kmordan)|
 | 28.07.17      | [Mobile Optimized 2017](https://github.com/rambler-ios/team/issues/107) | [Сычев Александр](https://github.com/Brain89)|
 | 18.08.17      | [HTTP Live Streaming](https://github.com/rambler-ios/team/issues/111) | [Квятковский Иван](https://github.com/kkivan)|
+| 22.09.17      | [What's new in LLVM](https://github.com/rambler-ios/team/issues/108) | [Батвинкин Денис](https://github.com/Batvos)|
+| 13.10.17       | [Launch process](https://github.com/rambler-ios/team/issues/109) | [Васюра Анастасия](https://github.com/juyka)|
