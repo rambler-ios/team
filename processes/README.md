@@ -6,14 +6,14 @@
 
 #### Средства коммуникации
 - [Работа со Slack](/processes/communication/slack.md)
-- [Работа со Telegram](/processes/communication/telegram.md)
+- [Работа с Telegram](/processes/communication/telegram.md)
 
 #### Разработка
 - [Начало нового проекта](/processes/development/new-project.md)
 - [Выполнение задачи](/processes/development/task.md)
 - [Code style](/processes/development/code-style.md)
 - [Документация](/processes/development/documentation.md)
-- [Архитектурные подходы](/processes/architecture.md)
+- [Архитектурные подходы](/processes/development/architecture.md)
 - [Правила работы с git](/processes/development/git.md)
 - [Code review](/processes/development/code-review.md)
 
