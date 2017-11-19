@@ -22,7 +22,7 @@
 
 - **Issue tracker:** [Jira](https://ru.atlassian.com/software/jira)
 - **Хостинг репозиториев:** [GitLab](https://about.gitlab.com/)
--**Хостинг open-source репозиториев:** [GitHub](https://github.com/)
+- **Хостинг open-source репозиториев:** [GitHub](https://github.com/)
 - **Code Review:** [Upsource](https://www.jetbrains.com/upsource/)
 - **Документация:** [Confluence](Confluence)
 - **Build-сервер:** [Jenkins](https://jenkins.io/), [GitLab CI](https://about.gitlab.com/features/gitlab-ci-cd/)
