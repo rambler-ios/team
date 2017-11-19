@@ -22,7 +22,7 @@
 - [Continuous delivery](/processes/automation/continuous-delivery/README.md)
 
 #### Инструменты
-- [Используемый софт](/processes/instruments/instruments.md)
+- [Используемое ПО](/processes/instruments/instruments.md)
 - [Используемые библиотеки](/processes/instruments/third-party-libraries.md)
 
 #### Прочее
