@@ -153,22 +153,22 @@
 - Обновите `project_name_nightly_lane` по образцу `in_house` lane:
 
   ```ruby
-  lane :news_nightly do |options|
-      options[:app_identifiers] = ['ru.rambler.news.enterprise','ru.rambler.news.enterprise.watchkit','ru.rambler.news.enterprise.watchkitapp']
-	  options[:target_patterns] = ['rnews-ios','rnews-ios WatchKit Extension','rnews-ios WatchKit App']
-	  options[:app_plists] = ['rnews-ios/Supporting Files/Info.plist','rnews-ios WatchKit Extension/Info.plist','rnews-ios WatchKit App/Info.plist']
-
-	  update_xcodeproj
-
-	  nightly(options)
-end
+      lane :news_nightly do |options|
+          options[:app_identifiers] = ['ru.rambler.news.enterprise','ru.rambler.news.enterprise.watchkit','ru.rambler.news.enterprise.watchkitapp']
+    	  options[:target_patterns] = ['rnews-ios','rnews-ios WatchKit Extension','rnews-ios WatchKit App']
+    	  options[:app_plists] = ['rnews-ios/Supporting Files/Info.plist','rnews-ios WatchKit Extension/Info.plist','rnews-ios WatchKit App/Info.plist']
+    
+    	  update_xcodeproj
+    
+    	  nightly(options)
+    end
   ```
   
 - В настройках проекта `Project.Name.Nightly` на Jenkins поменяйте исполняемый скрипт, подставив туда корректный вызов fastlane:
 
   ```bash
-  #!/bin/bash -l
-fastlane news_nightly --verbose
+      #!/bin/bash -l
+    fastlane news_nightly --verbose
   ```
   
 ### Шаг 7. Настройка testing сборок
@@ -176,19 +176,19 @@ fastlane news_nightly --verbose
 - Обновите `project_name_testing_lane` по образцу `in_house` lane, но используя не enterprise identifier'ы:
 
   ```ruby
-  lane :news_testing do |options|
-      options[:app_identifiers] = ['ru.rambler.news','ru.rambler.news.watchkit','ru.rambler.news.watchkitapp']
-	  options[:target_patterns] = ['rnews-ios','rnews-ios WatchKit Extension','rnews-ios WatchKit App']
-	  options[:app_plists] = ['rnews-ios/Supporting Files/Info.plist','rnews-ios WatchKit Extension/Info.plist','rnews-ios WatchKit App/Info.plist']
-
-	  testing(options)
-end
+      lane :news_testing do |options|
+          options[:app_identifiers] = ['ru.rambler.news','ru.rambler.news.watchkit','ru.rambler.news.watchkitapp']
+    	  options[:target_patterns] = ['rnews-ios','rnews-ios WatchKit Extension','rnews-ios WatchKit App']
+    	  options[:app_plists] = ['rnews-ios/Supporting Files/Info.plist','rnews-ios WatchKit Extension/Info.plist','rnews-ios WatchKit App/Info.plist']
+    
+    	  testing(options)
+    end
   ```
   
 - В файл `.env.default` добавьте список групп Fabric, которым нужно автоматически рассылать билд. Группа RDS QA включена по умолчанию.
 
   ```
-  FABRIC_GROUPS=group1,group2,group3
+      FABRIC_GROUPS=group1,group2,group3
   ```
   
 ##### Шаг 8. Настройка staging сборок
@@ -196,11 +196,11 @@ end
 - Обновите `project_name_staging_lane` по образцу `testing` lane:
 
   ```ruby
-  lane :news_staging do |options|
-      options[:app_identifiers] = ['ru.rambler.news','ru.rambler.news.watchkit','ru.rambler.news.watchkitapp']
-	  options[:target_patterns] = ['rnews-ios','rnews-ios WatchKit Extension','rnews-ios WatchKit App']
-	  options[:app_plists] = ['rnews-ios/Supporting Files/Info.plist','rnews-ios WatchKit Extension/Info.plist','rnews-ios WatchKit App/Info.plist']
-
-	  staging(options)
-end
+      lane :news_staging do |options|
+          options[:app_identifiers] = ['ru.rambler.news','ru.rambler.news.watchkit','ru.rambler.news.watchkitapp']
+    	  options[:target_patterns] = ['rnews-ios','rnews-ios WatchKit Extension','rnews-ios WatchKit App']
+    	  options[:app_plists] = ['rnews-ios/Supporting Files/Info.plist','rnews-ios WatchKit Extension/Info.plist','rnews-ios WatchKit App/Info.plist']
+    
+    	  staging(options)
+    end
   ```
