@@ -63,14 +63,14 @@
         # fabric - сборка и загрузка в fabric;
         # apple_testflight - сборка и загрузка в testflight
     
-        # case lane
-        # when :rambnroll_build_and_upload
-        #   update_xcodeproj
-        # when :fabric
-        #   updatePushQueueConfigForDebug
-        # when :apple_testflight
-        #   updatePushQueueConfigForRelease
-        # end
+        case lane
+        when :rambnroll_build_and_upload
+           update_xcodeproj
+         when :fabric
+           updatePushQueueConfigForDebug
+         when :apple_testflight
+           updatePushQueueConfigForRelease
+        end
   end
   ```
   
@@ -86,7 +86,7 @@
 - Для того, чтобы скрипт мог поменять названия enterprise-версий всех application identifier'ов, добавьте в Fastfile, в `project_name_in_house` lane, строчку вида:
 
   ```ruby
-options[:app_identifiers] = ['ru.rambler.news.enterprise','ru.rambler.news.enterprise.watchkit','ru.rambler.news.enterprise.watchkitapp']
+    options[:app_identifiers] = ['ru.rambler.news.enterprise','ru.rambler.news.enterprise.watchkit','ru.rambler.news.enterprise.watchkitapp']
 ```
 
 - Для того, чтобы скрипт мог найти все таргеты, для которых нужно обновить настройки Code Signing, добавьте в Fastfile, в `project_name_in_house` lane, строчку, содержащую паттерны поиска названий таргетов:
