@@ -11,7 +11,7 @@
 #### Разработка
 - [Начало нового проекта](/processes/development/new-project.md)
 - [Выполнение задачи](/processes/development/task.md)
-- [Code style](/processes/development/code-style.md)
+- [Code style](/processes/development/code-style/code-style.md)
 - [Документация](/processes/development/documentation.md)
 - [Архитектурные подходы](/processes/development/architecture.md)
 - [Правила работы с git](/processes/development/git.md)
