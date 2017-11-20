@@ -175,7 +175,7 @@
 - Обновите `project_name_testing_lane` по образцу `in_house` lane, но используя не enterprise identifier'ы:
 
   ```ruby
-      lane :news_testing do |options|
+    lane :news_testing do |options|
           options[:app_identifiers] = ['ru.rambler.news','ru.rambler.news.watchkit','ru.rambler.news.watchkitapp']
     	  options[:target_patterns] = ['rnews-ios','rnews-ios WatchKit Extension','rnews-ios WatchKit App']
     	  options[:app_plists] = ['rnews-ios/Supporting Files/Info.plist','rnews-ios WatchKit Extension/Info.plist','rnews-ios WatchKit App/Info.plist']
