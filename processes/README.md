@@ -10,6 +10,7 @@
 
 #### Разработка
 - [Начало нового проекта](/processes/development/new-project.md)
+- [Типовая структура проекта](/processes/development/project-structure.md)
 - [Требования к мобильному API](/processes/development/api.md)
 - [Передача дизайна](/processes/development/design.md)
 - [Выполнение задачи](/processes/development/task.md)
