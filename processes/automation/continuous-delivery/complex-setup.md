@@ -1,6 +1,6 @@
-### Сложная настройка Continuous Delivery
+# Сложная настройка Continuous Delivery
 
-##### Шаг 1. Jenkins
+### Шаг 1. Jenkins
 
 - Создаем новый проект. При создании выбираем *Copy from existing project: iOS-deploy-config-project*. Название выбираем по формату *Project.Name.iOS.Deploy*.
 
@@ -14,34 +14,34 @@
 
   ![Screenshot](/resources/complex-deploy-3.jpg)
   
-- Создаем еще один новый проект. При создании выбираем *Copy from existing project: iOS-nightly-config-project*.Название выбираем по формату *Project.Name.iOS.Nightly*.
+- Создаем еще один новый проект. При создании выбираем *Copy from existing project: iOS-nightly-config-project*. Название выбираем по формату *Project.Name.iOS.Nightly*.
 
   ![Screenshot](/resources/complex-deploy-4.jpg)
   
 - В разделе *Source Code Management* вводим адрес git-репозитория проекта.
 - Сохраняем изменения.
 
-##### Шаг 2. Настройка Apple Developer Center
+### Шаг 2. Настройка Apple Developer Center
 
 - Заведите новый Application Identifier для основного приложения вида `main_app_bundle_id.enterprise`. Проверьте, что все capabilities соответствуют исходному приложению.
 - Заведите новые Application Identifiers для всех extension'ов вида `main_app_bundle_id.enterprise.extension_bundle_id`. Проверьте, что все capabilities соответствуют исходным данным.
 - Заведите новую Application Group (если использовались в оригинальном приложении) вида `app_group_name.enterprise`. Добавьте ее к тем application identifier'ам, к которым требуется.
 
-##### Шаг 3. Настройка Slack
+### Шаг 3. Настройка Slack
 
-- Заходите в настройки нашей команды в Slack.
+- Заходите в настройки [нашей команды в Slack](https://ramblercoteam.slack.com/?redir=%2Fapps%2Fmanage%2Fcustom-integrations).
 - Добавьте новый webhook: *Add Configuration -> Выбираем канал -> Копируем Webhook URL*.
 
   ![Screenshot](/resources/complex-deploy-5.jpg)
 
-##### Шаг 4. Базовая настройка Fastfile
+### Шаг 4. Базовая настройка Fastfile
 
 - В корне вашего проекта создайте папку *fastlane*.
-- Заполните файл `.env.default` по [образцу](/processes/continuous-delivery/env-default-example.md). Не забудьте добавить полученный на предыдущем шаге webhook.
+- Заполните файл `.env.default` по [образцу](/processes/automation/continuous-delivery/env-default-example.md). Не забудьте добавить полученный на предыдущем шаге webhook.
 - Создайте новый `Fastfile` и добавьте в него следующий код:
 
   ```ruby
- import_from_git(url: 'https://github.com/rambler-ios/fastlane-flows',
+ import_from_git(url: 'https://github.com/rambler-digital-solutions/fastlane-flows',
                  path: 'fastlane/Fastfile')
 		 
   before_all do |lane|
@@ -59,12 +59,12 @@
   before_each do |lane, options|
     # В этом хуке можно добавить специфичные действия перед выполнением приватных лейнов
     # Ниже представлен switch по приватным лейнам:
-    # ftp_build_and_upload - сборка и загрузка для AdHoc;
+    # rambnroll_build_and_upload - сборка и загрузка для AdHoc;
     # fabric - сборка и загрузка в fabric;
     # apple_testflight - сборка и загрузка в testflight
     
     # case lane
-    # when :ftp_build_and_upload
+    # when :rambnroll_build_and_upload
     #   update_xcodeproj
     # when :fabric
     #   updatePushQueueConfigForDebug
@@ -73,14 +73,15 @@
     # end
   end
   ```
-- Заполните `Appfile` по [образцу](/processes/continuous-delivery/appfile-example.md). Не забудьте подставить корректные названия всех lane'ов.
+  
+- Заполните `Appfile` по [образцу](/processes/automation/continuous-delivery/appfile-example.md). Не забудьте подставить корректные названия всех lane'ов.
 - Если lane вносит дополнительные изменения в working copy репозитория перед вызовом стандартных lane'ов, то необходимо выстовить опцию для пропуска этапа чистки (git reset и git clean):
 
 	```ruby
 	options[:skip_reset] = true
 	```
 
-##### Шаг 5. Настройка in-house сборок
+### Шаг 5. Настройка in-house сборок
 
 - Для того, чтобы скрипт мог поменять названия enterprise-версий всех application identifier'ов, добавьте в Fastfile, в `project_name_in_house` lane, строчку вида:
 
@@ -146,7 +147,7 @@ lane :news_in_house do |options|
 end
 ```
 
-#####  Шаг 6. Настройка nightly сборок
+### Шаг 6. Настройка nightly сборок
 
 - Обновите `project_name_nightly_lane` по образцу `in_house` lane:
 
@@ -161,6 +162,7 @@ end
 	  nightly(options)
 end
   ```
+  
 - В настройках проекта `Project.Name.Nightly` на Jenkins поменяйте исполняемый скрипт, подставив туда корректный вызов fastlane:
 
   ```bash
@@ -168,7 +170,7 @@ end
 fastlane news_nightly --verbose
   ```
   
-##### Шаг 7. Настройка testing сборок
+### Шаг 7. Настройка testing сборок
 
 - Обновите `project_name_testing_lane` по образцу `in_house` lane, но используя не enterprise identifier'ы:
 
