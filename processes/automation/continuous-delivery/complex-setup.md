@@ -92,14 +92,14 @@
 - Для того, чтобы скрипт мог найти все таргеты, для которых нужно обновить настройки Code Signing, добавьте в Fastfile, в `project_name_in_house` lane, строчку, содержащую паттерны поиска названий таргетов:
 
   ```ruby
-options[:target_patterns] = ['rnews-ios','rnews-ios WatchKit Extension','rnews-ios WatchKit App']
-```
+    options[:target_patterns] = ['rnews-ios','rnews-ios WatchKit Extension','rnews-ios WatchKit App']
+    ```
 
 - Для того, чтобы скрипт мог модифицировать содержимое всех *Info.plist* файлов, добавьте в Fastfile, в `project_name_in_house` lane, строчку вида:
 
   ```ruby
-options[:app_plists] = ['rnews-ios/Supporting Files/Info.plist','rnews-ios WatchKit Extension/Info.plist','rnews-ios WatchKit App/Info.plist']
-```
+    options[:app_plists] = ['rnews-ios/Supporting Files/Info.plist','rnews-ios WatchKit Extension/Info.plist','rnews-ios WatchKit App/Info.plist']
+    ```
 
 - Добавьте в конец *Fastfile* метод, в котором вручную обновляете различные строчки в plist-файлах, содержащих перекрестные ссылки на разные таргеты, имена Application Groups и прочее. Пример такого метода:
 
@@ -131,7 +131,7 @@ def update_xcodeproj
         app_group_identifiers: ['group.ru.rambler.news.sharedGroup.enterprise']
       )
 end
-```
+    ```
 
 - Добавьте вызов этого метода в `project_name_in_house` lane:
 
@@ -145,7 +145,7 @@ lane :news_in_house do |options|
 
       in_house(options)
 end
-```
+    ```
 
 ### Шаг 6. Настройка nightly сборок
 
