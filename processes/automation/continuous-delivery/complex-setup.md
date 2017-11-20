@@ -136,16 +136,17 @@ end
 - Добавьте вызов этого метода в `project_name_in_house` lane:
 
     ```ruby
-    lane :news_in_house do |options|
-          options[:app_identifiers] = ['ru.rambler.news.enterprise','ru.rambler.news.enterprise.watchkit','ru.rambler.news.enterprise.watchkitapp']
-          options[:target_patterns] = ['rnews-ios','rnews-ios WatchKit Extension','rnews-ios WatchKit App']
-          options[:app_plists] = ['rnews-ios/Supporting Files/Info.plist','rnews-ios WatchKit Extension/Info.plist','rnews-ios WatchKit App/Info.plist']
-    
-          update_xcodeproj
-    
-          in_house(options)
-    end
+        lane :news_in_house do |options|
+              options[:app_identifiers] = ['ru.rambler.news.enterprise','ru.rambler.news.enterprise.watchkit','ru.rambler.news.enterprise.watchkitapp']
+              options[:target_patterns] = ['rnews-ios','rnews-ios WatchKit Extension','rnews-ios WatchKit App']
+              options[:app_plists] = ['rnews-ios/Supporting Files/Info.plist','rnews-ios WatchKit Extension/Info.plist','rnews-ios WatchKit App/Info.plist']
+        
+              update_xcodeproj
+        
+              in_house(options)
+        end
     ```
+
 
 ### Шаг 6. Настройка nightly сборок
 
