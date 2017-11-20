@@ -190,7 +190,7 @@
       FABRIC_GROUPS=group1,group2,group3
   ```
   
-##### Шаг 8. Настройка staging сборок
+### Шаг 8. Настройка staging сборок
 
 - Обновите `project_name_staging_lane` по образцу `testing` lane:
 
