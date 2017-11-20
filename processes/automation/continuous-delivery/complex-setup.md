@@ -87,7 +87,7 @@
 
   ```ruby
     options[:app_identifiers] = ['ru.rambler.news.enterprise','ru.rambler.news.enterprise.watchkit','ru.rambler.news.enterprise.watchkitapp']
-```
+    ```
 
 - Для того, чтобы скрипт мог найти все таргеты, для которых нужно обновить настройки Code Signing, добавьте в Fastfile, в `project_name_in_house` lane, строчку, содержащую паттерны поиска названий таргетов:
 
