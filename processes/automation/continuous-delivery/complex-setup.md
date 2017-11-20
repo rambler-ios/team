@@ -147,27 +147,26 @@
     end
     ```
 
-
 ### Шаг 6. Настройка nightly сборок
 
 - Обновите `project_name_nightly_lane` по образцу `in_house` lane:
 
   ```ruby
-      lane :news_nightly do |options|
-          options[:app_identifiers] = ['ru.rambler.news.enterprise','ru.rambler.news.enterprise.watchkit','ru.rambler.news.enterprise.watchkitapp']
-    	  options[:target_patterns] = ['rnews-ios','rnews-ios WatchKit Extension','rnews-ios WatchKit App']
-    	  options[:app_plists] = ['rnews-ios/Supporting Files/Info.plist','rnews-ios WatchKit Extension/Info.plist','rnews-ios WatchKit App/Info.plist']
+    lane :news_nightly do |options|
+      options[:app_identifiers] = ['ru.rambler.news.enterprise','ru.rambler.news.enterprise.watchkit','ru.rambler.news.enterprise.watchkitapp']
+	  options[:target_patterns] = ['rnews-ios','rnews-ios WatchKit Extension','rnews-ios WatchKit App']
+	  options[:app_plists] = ['rnews-ios/Supporting Files/Info.plist','rnews-ios WatchKit Extension/Info.plist','rnews-ios WatchKit App/Info.plist']
     
-    	  update_xcodeproj
+	  update_xcodeproj
     
-    	  nightly(options)
+	  nightly(options)
     end
   ```
   
 - В настройках проекта `Project.Name.Nightly` на Jenkins поменяйте исполняемый скрипт, подставив туда корректный вызов fastlane:
 
   ```bash
-      #!/bin/bash -l
+    #!/bin/bash -l
     fastlane news_nightly --verbose
   ```
   
