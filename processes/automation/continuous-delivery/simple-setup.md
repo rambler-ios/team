@@ -39,7 +39,7 @@
 
   ```ruby
   import_from_git(url: 'https://github.com/rambler-digital-solutions/fastlane-flows',
-                   path: 'fastlane/Fastfile')
+                path: 'fastlane/Fastfile')
   ```
   
 - Заполните `Appfile` по [образцу](/processes/automation/continuous-delivery/appfile-example.md). Названия lane'ов не меняются.
