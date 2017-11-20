@@ -38,8 +38,8 @@
 - Создайте новый `Fastfile` и добавьте в него следующий код
 
   ```ruby
-  import_from_git(url: 'https://github.com/rambler-ios/fastlane-flows',
-                path: 'fastlane/Fastfile')
+  import_from_git(url: 'https://github.com/rambler-digital-solutions/fastlane-flows',
+                   path: 'fastlane/Fastfile')
   ```
   
 - Заполните `Appfile` по [образцу](/processes/automation/continuous-delivery/appfile-example.md). Названия lane'ов не меняются.
