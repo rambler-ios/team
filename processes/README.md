@@ -10,6 +10,7 @@
 
 #### Разработка
 - [Начало нового проекта](/processes/development/new-project.md)
+- [Требования к мобильному API](/processes/development/api.md)
 - [Выполнение задачи](/processes/development/task.md)
 - [Code style](/processes/development/code-style/code-style.md)
 - [Документация](/processes/development/documentation.md)
