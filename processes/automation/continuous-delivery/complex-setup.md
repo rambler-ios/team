@@ -104,47 +104,47 @@
 - Добавьте в конец *Fastfile* метод, в котором вручную обновляете различные строчки в plist-файлах, содержащих перекрестные ссылки на разные таргеты, имена Application Groups и прочее. Пример такого метода:
 
   ```ruby
-def update_xcodeproj
-      update_info_plist(
-        xcodeproj: ENV['XCODEPROJ_NAME'],
-        plist_path: 'rnews-ios WatchKit Extension/Info.plist',
-        block: lambda { |plist|
-          plist['NSExtension']['NSExtensionAttributes']['WKAppBundleIdentifier'] = 'ru.rambler.news.enterprise.watchkitapp'
-        }
-      )
-
-      update_info_plist(
-        xcodeproj: ENV['XCODEPROJ_NAME'],
-        plist_path: 'rnews-ios WatchKit App/Info.plist',
-        block: lambda { |plist|
-          plist['WKCompanionAppBundleIdentifier'] = 'ru.rambler.news.enterprise'
-        }
-      )
-
-      update_app_group_identifiers(
-        entitlements_file: 'rnews-ios/rnews-ios.entitlements',
-        app_group_identifiers: ['group.ru.rambler.news.sharedGroup.enterprise']
-      )
-
-      update_app_group_identifiers(
-        entitlements_file: 'rnews-ios WatchKit Extension/rnews-ios WatchKit Extension.entitlements',
-        app_group_identifiers: ['group.ru.rambler.news.sharedGroup.enterprise']
-      )
-end
+    def update_xcodeproj
+          update_info_plist(
+            xcodeproj: ENV['XCODEPROJ_NAME'],
+            plist_path: 'rnews-ios WatchKit Extension/Info.plist',
+            block: lambda { |plist|
+              plist['NSExtension']['NSExtensionAttributes']['WKAppBundleIdentifier'] = 'ru.rambler.news.enterprise.watchkitapp'
+            }
+          )
+    
+          update_info_plist(
+            xcodeproj: ENV['XCODEPROJ_NAME'],
+            plist_path: 'rnews-ios WatchKit App/Info.plist',
+            block: lambda { |plist|
+              plist['WKCompanionAppBundleIdentifier'] = 'ru.rambler.news.enterprise'
+            }
+          )
+    
+          update_app_group_identifiers(
+            entitlements_file: 'rnews-ios/rnews-ios.entitlements',
+            app_group_identifiers: ['group.ru.rambler.news.sharedGroup.enterprise']
+          )
+    
+          update_app_group_identifiers(
+            entitlements_file: 'rnews-ios WatchKit Extension/rnews-ios WatchKit Extension.entitlements',
+            app_group_identifiers: ['group.ru.rambler.news.sharedGroup.enterprise']
+          )
+    end
     ```
 
 - Добавьте вызов этого метода в `project_name_in_house` lane:
 
     ```ruby
-        lane :news_in_house do |options|
-              options[:app_identifiers] = ['ru.rambler.news.enterprise','ru.rambler.news.enterprise.watchkit','ru.rambler.news.enterprise.watchkitapp']
-              options[:target_patterns] = ['rnews-ios','rnews-ios WatchKit Extension','rnews-ios WatchKit App']
-              options[:app_plists] = ['rnews-ios/Supporting Files/Info.plist','rnews-ios WatchKit Extension/Info.plist','rnews-ios WatchKit App/Info.plist']
-        
-              update_xcodeproj
-        
-              in_house(options)
-        end
+    lane :news_in_house do |options|
+          options[:app_identifiers] = ['ru.rambler.news.enterprise','ru.rambler.news.enterprise.watchkit','ru.rambler.news.enterprise.watchkitapp']
+          options[:target_patterns] = ['rnews-ios','rnews-ios WatchKit Extension','rnews-ios WatchKit App']
+          options[:app_plists] = ['rnews-ios/Supporting Files/Info.plist','rnews-ios WatchKit Extension/Info.plist','rnews-ios WatchKit App/Info.plist']
+    
+          update_xcodeproj
+    
+          in_house(options)
+    end
     ```
 
 
