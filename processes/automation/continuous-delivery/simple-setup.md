@@ -14,7 +14,7 @@
 
   ![Screenshot](/resources/complex-deploy-3.jpg)
 
-- Создаем еще один новый проект. При создании выбираем *Copy from existing project: iOS-nightly-config-project*.Название выбираем по формату *Project.Name.iOS.Nightly*.
+- Создаем еще один новый проект. При создании выбираем *Copy from existing project: iOS-nightly-config-project*. Название выбираем по формату *Project.Name.iOS.Nightly*.
 
   ![Screenshot](/resources/complex-deploy-4.jpg)
 
@@ -35,7 +35,7 @@
 
 - В корне вашего проекта создайте папку *fastlane*.
 - Заполните файл `.env.default` по [образцу](/processes/automation/continuous-delivery/env-default-example.md). Не забудьте добавить полученный на предыдущем шаге webhook.
-- Создайте новый `Fastfile` и добавьте в него следующий код:
+- Создайте новый `Fastfile` и добавьте в него следующий код
 
   ```ruby
   import_from_git(url: 'https://github.com/rambler-ios/fastlane-flows',

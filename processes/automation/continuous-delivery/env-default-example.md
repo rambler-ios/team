@@ -1,11 +1,11 @@
-### Образец .env.default
+# Образец .env.default
 
 ```
 # Название приложения
 APP_NAME=ЖивойЖурнал
 
 # URL ftp-сервера
-DEPLOY_BASEURL=paste_ftp_server_domain_here
+DEPLOY_BASEURL=paste_rambnroll_hook_here
 
 # Основная build-схема приложения
 SCHEME=LiveJournal

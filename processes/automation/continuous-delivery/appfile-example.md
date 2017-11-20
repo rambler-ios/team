@@ -1,4 +1,4 @@
-### Образец Appfile
+# Образец Appfile
 
 ```
 for_lane :staging do
