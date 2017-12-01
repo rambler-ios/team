@@ -838,8 +838,6 @@ private func makeLocationManager() -> CLLocationManager {
 }
 ```
 
-* **5.1.17** For the purpose of namespacing a set of `static` functions and/or `static` properties, prefer using a caseless `enum` over a `class` or a `struct`. This way, you don't have to add a `private init() { }` to the container.
-
 ### 5.2 Access Modifiers
 
 * **5.2.1** Write the access modifier keyword first if it is needed. The only things that should come before access control are the `static` specifier or attributes such as `@IBAction` and `@IBOutlet`.
