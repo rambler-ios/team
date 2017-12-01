@@ -20,7 +20,7 @@ This style guide is based on different sources from the open source community an
     + [5.6 Properties](#56-properties)
     + [5.7 Closures](#57-closures)
     + [5.8 Arrays](#58-arrays)
-    + [5.9 Error Handling **TODO**](#59-error-handling-todo)
+    + [5.9 Error Handling](#59-error-handling)
     + [5.10 Using `guard` Statements](#510-using-guard-statements)
     + [5.11 Classes and Structures. Which one to use?](#511-classes-and-structures-which-one-to-use)
     + [5.12 Types](#512-types)
@@ -705,7 +705,7 @@ let currentBounds: CGRect = computeViewBounds()
 let names = [String]()
 ```
 
-* **5.1.5** If a function returns multiple values, prefer returning a tuple to using `inout` arguments (it’s best to use labeled tuples for clarity on what you’re returning if it is not otherwise obvious). If you use a certain tuple more than once, consider using a `typealias`. If you’re returning 3 or more items in a tuple, consider using a `struct` or `class` instead. **TODO: discuss**
+* **5.1.5** If a function returns multiple values, prefer returning a tuple to using `inout` arguments (it’s best to use labeled tuples for clarity on what you’re returning if it is not otherwise obvious). If you use a certain tuple more than once, consider using a `typealias`. If you’re returning 3 or more items in a tuple, consider using a `struct` or `class` instead.
 
 ```swift
 func pirateName() -> (firstName: String, lastName: String) {
@@ -802,7 +802,7 @@ do {
 
 * **5.1.14** Prefer `static` to `class` when declaring a function or property that is associated with a class as opposed to an instance of that class. Only use `class` if you specifically need the functionality of overriding that function or property in a subclass, though consider using a `protocol` to achieve this instead.
 
-* **5.1.15** If you have a function that takes no arguments, has no side effects and returns some object or value, prefer using a computed property instead. For conciseness, if a computed property is read-only, the get clause **MUST** be omitted. The get clause is required only when a set clause is provided. **TODO: discuss** 
+* **5.1.15** If you have a function that takes no arguments, has no side effects and returns some object or value, prefer using a computed property instead. For conciseness, if a computed property is read-only, the get clause **MUST** be omitted. The get clause is required only when a set clause is provided.
 
 **Preferred:**
 
@@ -879,7 +879,7 @@ class Pirate {
 
 * **5.2.3** In general, do not write the `internal` access modifier keyword since it is the default.
 
-* **5.2.4** If a property needs to be accessed by unit tests, you will have to make it `internal` to use `@testable import ModuleName`. If a property *should* be private, but you declare it to be `internal` for the purposes of unit testing, make sure you add an appropriate bit of documentation commenting that explains this. You can make use of the `- warning:` markup syntax for clarity as shown below. **TODO: discuss**
+* **5.2.4** If a property needs to be accessed by unit tests, you will have to make it `internal` to use `@testable import ModuleName`. If a property *should* be private, but you declare it to be `internal` for the purposes of unit testing, make sure you add an appropriate bit of documentation commenting that explains this. You can make use of the `- warning:` markup syntax for clarity as shown below.
 
 ```swift
 /**
@@ -948,7 +948,7 @@ func handleDigit(_ digit: Int) throws {
 
 * **5.5.1** The only time you should be using implicitly unwrapped optionals is with `@IBOutlet`s. In every other case, it is better to use a non-optional or regular optional property. Yes, there are cases in which you can probably "guarantee" that the property will never be `nil` when used, but it is better to be safe and consistent. 
 * 
-* **5.5.2** When using Dependency Injection prefer injection through initializers rather then property-based. Similarly, don't use force unwraps. **TODO: discuss**
+* **5.5.2** When using Dependency Injection prefer injection through initializers rather then property-based. Similarly, don't use force unwraps.
 
 * **5.5.3** Don't use `as!` or `try!`.
 
@@ -1100,7 +1100,7 @@ doSomething(1.0, success: { (parameter1) in
 })
 ```
 
-* **5.7.5** For single-expression closures where the context is clear, use implicit returns: **TODO: discuss**
+* **5.7.5** For single-expression closures where the context is clear, use implicit returns:
 
 ```swift
 attendeeList.sort { a, b in
@@ -1108,7 +1108,7 @@ attendeeList.sort { a, b in
 }
 ```
 
-* **5.7.6** Chained methods using trailing closures **SHOULD** be clear and easy to read in context. Decisions on spacing, line breaks, and when to use named versus anonymous arguments is left to the discretion of the author. Examples: **TODO: discuss** (#2)
+* **5.7.6** Chained methods using trailing closures **SHOULD** be clear and easy to read in context. Decisions on spacing, line breaks, and when to use named versus anonymous arguments is left to the discretion of the author. Examples:
 
 ```swift
 let value = numbers.map { $0 * 2 }.filter { $0 % 3 == 0 }.indexOf(90)
@@ -1123,10 +1123,8 @@ let value = numbers
 
 * **5.8.1** In general, avoid accessing an array directly with subscripts. When possible, use accessors such as `.first` or `.last`, which are optional and won’t crash. Prefer using a `for item in items` syntax when possible as opposed to something like `for i in 0 ..< items.count`. If you need to access an array subscript directly, make sure to do proper bounds checking. You can use `for (index, value) in items.enumerated()` to get both the index and the value.
 
-* **5.8.2** Never use the `+=` or `+` operator to append/concatenate to arrays. Instead, use `.append()` or `.append(contentsOf:)` as these are far more performant (at least with respect to compilation) in Swift's current state. If you are declaring an array that is based on other arrays and want to keep it immutable, instead of `let myNewArray = arr1 + arr2`, use `let myNewArray = [arr1, arr2].joined()`.
 
-
-* **5.8.3** For empty arrays and dictionaries, use type annotation. (For an array or dictionary assigned to a large, multi-line literal, use type annotation.)
+* **5.8.2** For empty arrays and dictionaries, use type annotation. (For an array or dictionary assigned to a large, multi-line literal, use type annotation.)
 
 **Preferred:**
 
@@ -1144,9 +1142,9 @@ var lookup = [String: Int]()
 
 **NOTE**: Following this guideline means picking descriptive names is even more important than before.
 
-* ** 5.8.4** Never use optional arrays because it leads to ambiguous state if array is empty or nil. **TODO: discuss**
+* ** 5.8.3** Never use optional arrays because it leads to ambiguous state if array is empty or nil.
 
-### 5.9 Error Handling **TODO**
+### 5.9 Error Handling
 
 * ** 5.9.1** Suppose a function `myFunction` is supposed to return a `String`, however, at some point, it can run into an error. A common approach is to have this function return an optional `String?` where we return `nil` if something went wrong.
 
@@ -1222,7 +1220,7 @@ func printSomeFile() {
 
 * **5.9.4** If you don't want to deal with thrown error and just want to have an optional value use `try?`.
 
-* **5.9.5** Also consider using returning enum with error, empty and value cases with appropriate associated values. **TODO: discuss**
+* **5.9.5** Also consider using returning enum with error, empty and value cases with appropriate associated values.
 
 ### 5.10 Using `guard` Statements
 
@@ -1362,7 +1360,7 @@ guard let thingThree = thingThree else {
 }
 ```
 
-* **5.10.7** Don’t use one-liners for `guard` statements. Exception is for single return statement. **TODO: discuss**
+* **5.10.7** Don’t use one-liners for `guard` statements. Exception is for single return statement.
 
 **Preferred:**
 
@@ -1590,7 +1588,7 @@ let sel = #selector(ViewController.viewDidLoad)
 * 
 * **6.1.8** If you’re going to be documenting the parameters/returns/throws of a method, document all of them, even if some of the documentation ends up being somewhat repetitive (this is preferable to having the documentation look incomplete). Sometimes, if only a single parameter warrants documentation, it might be better to just mention it in the description instead.
 
-* **6.1.9** For complicated classes describe the usage of the class with some potential examples as seems appropriate. Remember that markdown syntax is valid in Swift's comment docs. Newlines, lists, etc. are therefore appropriate. **TODO: discuss**
+* **6.1.9** For complicated classes describe the usage of the class with some potential examples as seems appropriate. Remember that markdown syntax is valid in Swift's comment docs. Newlines, lists, etc. are therefore appropriate.
 
 ```swift
 /**
@@ -1639,7 +1637,7 @@ func myFunction() {
 
 ### 6.2 Comments
 
-* **6.2.1** For internal company projects use Russian language. For open-source projects (i.e publicly hosted on GitHub) use English comments. **TODO: discuss**
+* **6.2.1** For internal company projects use Russian language. For open-source projects (i.e publicly hosted on GitHub) use English comments.
 
 * **6.2.2** Always leave a space after `//`.
 * **6.2.3** Always leave comments on their own line.
